@@ -1,9 +1,10 @@
+import { EachCartItem } from "../../components/CartItem/CartItem.types";
 
-export const addCartItems = (cartItems: any[], cartItemToAdd: { id: any; }) => {
-    const existingItem = cartItems.find((item: { id: any; }) => item.id === cartItemToAdd.id);
+export const addCartItems = (cartItems: EachCartItem[], cartItemToAdd: EachCartItem) => {
+    const existingItem = cartItems.find((item) => item.id === cartItemToAdd.id);
 
     if(existingItem){
-        return cartItems.map((item: { id: any; quantity: number; }) => (
+        return cartItems.map((item: EachCartItem) => (
             item.id === cartItemToAdd.id ? 
             {...item, quantity: item.quantity + 1} :
             item
@@ -12,7 +13,3 @@ export const addCartItems = (cartItems: any[], cartItemToAdd: { id: any; }) => {
 
     return [...cartItems, cartItemToAdd]
 }
-
-export const removeItem = (cartItems: any[], cartItemToRemove: { id: any; }) => {
-    return cartItems.filter((item: { id: any; }) => item.id !== cartItemToRemove.id)
-};

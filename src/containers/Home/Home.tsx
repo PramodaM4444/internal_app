@@ -1,30 +1,14 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Button } from '../../components/Button/Button';
-import { CartItem } from '../../components/CartItem/CartItem';
-import { addCartItem } from '../../store/actions/cartAction';
-import { selectCartItems } from '../../store/selectors/cartSelector';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Example } from "../Example/Example";
 
-export const Home: React.FC<any> = ({ }) => {
-    const dispatch = useDispatch();
-    const cartItems = useSelector(selectCartItems);
+export const Home: React.FC = () => {
+  return (
+    <>
+      <div>From Home</div>
+      <Link to='/login'>To Login Page</Link>
+      <Example />
+    </>
+  );
+};
 
-   const item1 = {
-        id: 1,
-        name: 'Shirt',
-        price: 400,
-        quantity: 1
-    }
-
-    const addToCart = () => {
-        dispatch(addCartItem(item1))
-    }
-
-    return(
-        <>
-        <div>From Home</div>
-        <Button text="Add to Cart"  handleClick={addToCart} />
-        {cartItems.map((ele: any) => <CartItem item={ele} />)}
-        </>
-    )
-}
