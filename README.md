@@ -1,13 +1,13 @@
 ## Technical Stacks
 
-React - UI
-Redux - Data management
-Typescript - For type checking
-Reselect - To extract the redux store
-Material UI - As a design component
-Styled components - As a design component
-React Hook Form - Form validation
-React Router - To handle routing in the page
+React - UI.<br />
+Redux - Data management.<br />
+Typescript - For type checking.<br />
+Reselect - To extract the redux store.<br />
+Material UI - As a design component.<br />
+Styled components - As a design component.<br />
+React Hook Form - Form validation.<br />
+React Router - To handle routing in the page.<br />
 
 ## Available Scripts
 
