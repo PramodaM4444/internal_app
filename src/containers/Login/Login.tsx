@@ -2,13 +2,14 @@ import React from "react";
 import { Box, Container, Grid, TextField } from "@mui/material";
 import { CustomButton } from "../../components/CustomButton/CustomButton";
 import { useForm } from "react-hook-form";
+import { loginFormOptions } from "../../validation/loginValidation";
 
 export const Login = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm(loginFormOptions);
 
   const onSubmit = (data: any) => {
     console.log("Data--------", data);
@@ -33,13 +34,7 @@ export const Login = () => {
             label="email"
             fullWidth
             autoFocus
-            {...register("email", {
-              required: "Email Id is required",
-              pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: "Invalid email address",
-              },
-            })}
+            {...register('email')}
             error={!!errors?.email}
             helperText={errors.email ? errors?.email.message: null}
           />
@@ -50,15 +45,8 @@ export const Login = () => {
             label="password"
             type="password"
             fullWidth
-            inputProps={{ maxLength: 16 }}
-            {...register("password", {
-                required: "Password is required",
-                pattern: {
-                    value: /[^]{8,16}/i,
-                    message: "Password must be 8 charactor long"
-                }
-            })}
-            
+            inputProps={{ maxLength: 15 }}
+            {...register("password")}
             error={!!errors?.password}
             helperText={errors.password ? errors?.password.message : null}
             />
