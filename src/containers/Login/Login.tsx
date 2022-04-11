@@ -3,6 +3,7 @@ import { Box, Container, Grid, TextField } from "@mui/material";
 import { CustomButton } from "../../components/CustomButton/CustomButton";
 import { useForm } from "react-hook-form";
 import { loginFormOptions } from "../../validation/loginValidation";
+import { InputText } from "../../components/InputText/InputText";
 
 export const Login = () => {
   const {
@@ -29,10 +30,8 @@ export const Login = () => {
         <h1>Login Page</h1>
           <form onSubmit={handleSubmit(onSubmit)}>
         <Box mb={3}>
-          <TextField
-            variant="outlined"
+          <InputText
             label="email"
-            fullWidth
             autoFocus
             {...register('email')}
             error={!!errors?.email}
@@ -40,11 +39,9 @@ export const Login = () => {
           />
         </Box>
         <Box mb={3}>
-            <TextField 
-            variant="outlined"
+            <InputText 
             label="password"
             type="password"
-            fullWidth
             inputProps={{ maxLength: 15 }}
             {...register("password")}
             error={!!errors?.password}
