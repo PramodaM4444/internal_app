@@ -147,7 +147,9 @@ function DashboardContent() {
                 </styledComp.leftNavBgColor>
                 {/* LEFT NAV BAR */}
 
-                <ProjectInformation />
+                <styledComp.width100>
+                    <ProjectInformation />
+                </styledComp.width100>
             </Box>
         </ThemeProvider>
     );
