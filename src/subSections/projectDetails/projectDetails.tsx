@@ -1,20 +1,16 @@
 import * as React from "react";
 import Paper from "@mui/material/Paper";
 import { useForm, FormProvider } from "react-hook-form";
+import { Button } from "@mui/material";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+// import * as yup from "yup";
 import AddProjectDetailsForm from "../../forms/AddProjectDetails/AddProjectDetailsForm";
-
-const schema = yup.object().shape({
-    projectName: yup
-        .string()
-        .required("Project Name is required")
-        .defined("Project Name is required"),
-});
+import * as styledComp from "./projectDetails.style";
+import { projectDetailsValidationSchema } from "../../validation/projectDetailsValidation";
 
 export default function ProjectDetails() {
     const formMethods = useForm({
-        resolver: yupResolver(schema),
+        resolver: yupResolver(projectDetailsValidationSchema),
         mode: "all",
     });
 
@@ -28,15 +24,18 @@ export default function ProjectDetails() {
                 p: 2,
                 display: "flex",
                 flexDirection: "column",
+                boxShadow: "none",
                 // height: 240,
             }}
         >
-            <b>PROJECT DETAILS AREA</b>
-            <br />
             <FormProvider {...formMethods}>
                 <form onSubmit={formMethods.handleSubmit(formSubmit)}>
                     <AddProjectDetailsForm />
-                    <input type="submit" />
+                    <styledComp.submitButtonArea>
+                        <Button type="submit" variant="contained">
+                            Submit
+                        </Button>
+                    </styledComp.submitButtonArea>
                 </form>
             </FormProvider>
         </Paper>

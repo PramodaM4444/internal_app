@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-export const topNavBgColor = styled.div`
-    background-color: #1f70c1;
+export const submitButtonArea = styled.div`
+    margin-top: 2rem;
 `;
 
-export const leftNavBgColor = styled.div`
-    background-color: #dcdcd9;
+export const formContainer = styled.div`
+    display: flex;
 `;
