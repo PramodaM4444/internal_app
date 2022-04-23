@@ -4,9 +4,9 @@ import { useForm, FormProvider } from "react-hook-form";
 import { Button } from "@mui/material";
 import { yupResolver } from "@hookform/resolvers/yup";
 // import * as yup from "yup";
-import AddProjectDetailsForm from "../../forms/AddProjectDetails/AddProjectDetailsForm";
 import * as styledComp from "./projectDetails.style";
 import { projectDetailsValidationSchema } from "../../validation/projectDetailsValidation";
+import AddProjectDetailsForm from "../AddProjectDetails/AddProjectDetailsForm";
 
 export default function ProjectDetails() {
     const formMethods = useForm({
