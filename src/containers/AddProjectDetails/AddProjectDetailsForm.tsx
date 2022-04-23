@@ -2,6 +2,7 @@ import { Box } from "@mui/material";
 import React from "react";
 import { useFormContext } from "react-hook-form";
 import { InputText } from "../../components/InputText/InputText";
+import * as styledComp from "./AddProjectDetailsForm.style";
 // import MUITextField from "../../mui-components/MUITextField/MUITextField";
 
 export default function AddProjectDetailsForm() {
@@ -36,22 +37,42 @@ export default function AddProjectDetailsForm() {
             /> */}
 
             <Box mb={3}>
-                <InputText
-                    label="Project Name"
-                    autoFocus
-                    {...register("projectName")}
-                    error={!!errors?.projectName}
-                    helperText={
-                        errors.projectName ? errors?.projectName.message : null
-                    }
-                />
-                <InputText
-                    label="Lorem Ipsum"
-                    autoFocus
-                    {...register("email")}
-                    error={!!errors?.email}
-                    helperText={errors.email ? errors?.email.message : null}
-                />
+                <styledComp.flexRow>
+                    <InputText
+                        label="Project Name"
+                        autoFocus
+                        {...register("projectName")}
+                        error={!!errors?.projectName}
+                        helperText={
+                            errors.projectName
+                                ? errors?.projectName.message
+                                : null
+                        }
+                    />
+                    <InputText
+                        label="Lorem Ipsum"
+                        autoFocus
+                        {...register("email")}
+                        error={!!errors?.email}
+                        helperText={errors.email ? errors?.email.message : null}
+                    />
+                </styledComp.flexRow>
+                <styledComp.flexRow>
+                    <InputText
+                        label="Lorem Ipsum"
+                        autoFocus
+                        {...register("email")}
+                        error={!!errors?.email}
+                        helperText={errors.email ? errors?.email.message : null}
+                    />
+                    <InputText
+                        label="Lorem Ipsum"
+                        autoFocus
+                        {...register("email")}
+                        error={!!errors?.email}
+                        helperText={errors.email ? errors?.email.message : null}
+                    />
+                </styledComp.flexRow>
             </Box>
         </>
     );
