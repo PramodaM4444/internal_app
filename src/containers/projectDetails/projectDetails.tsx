@@ -7,6 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as styledComp from "./projectDetails.style";
 import { projectDetailsValidationSchema } from "../../validation/projectDetailsValidation";
 import AddProjectDetailsForm from "../AddProjectDetails/AddProjectDetailsForm";
+import UIConstants from "../../Constants/UIConstants";
 
 export default function ProjectDetails() {
     const formMethods = useForm({
@@ -33,7 +34,7 @@ export default function ProjectDetails() {
                     <AddProjectDetailsForm />
                     <styledComp.submitButtonArea>
                         <Button type="submit" variant="contained">
-                            Submit
+                            {UIConstants.projectDetailsSubmit}
                         </Button>
                     </styledComp.submitButtonArea>
                 </form>

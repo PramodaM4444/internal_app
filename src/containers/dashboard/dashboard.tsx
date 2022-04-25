@@ -82,7 +82,7 @@ function DashboardContent() {
 
                 {/* TOP NAV BAR */}
                 <AppBar position="absolute" open={open}>
-                    <styledComp.topNavBgColor>
+                    <styledComp.TopNavBgColor>
                         <Toolbar
                             sx={{
                                 pr: "24px", // keep right padding when drawer closed
@@ -116,12 +116,12 @@ function DashboardContent() {
                                 </Badge>
                             </IconButton>
                         </Toolbar>
-                    </styledComp.topNavBgColor>
+                    </styledComp.TopNavBgColor>
                 </AppBar>
                 {/* TOP NAV BAR */}
 
                 {/* LEFT NAV BAR */}
-                <styledComp.leftNavBgColor>
+                <styledComp.LeftNavBgColor>
                     <Drawer variant="permanent" open={open}>
                         {/* LOGO */}
                         <Toolbar
@@ -138,18 +138,18 @@ function DashboardContent() {
                         </Toolbar>
                         {/* LOGO */}
                         <Divider />
-                        {/* <styledComp.leftNavBgColor> */}
+                        {/* <styledComp.LeftNavBgColor> */}
                         <List sx={{ bgcolor: "#dcdcd9" }} component="nav">
                             {menuList}
                         </List>
-                        {/* </styledComp.leftNavBgColor> */}
+                        {/* </styledComp.LeftNavBgColor> */}
                     </Drawer>
-                </styledComp.leftNavBgColor>
+                </styledComp.LeftNavBgColor>
                 {/* LEFT NAV BAR */}
 
-                <styledComp.width100>
+                <styledComp.Width100>
                     <ProjectInformation />
-                </styledComp.width100>
+                </styledComp.Width100>
             </Box>
         </ThemeProvider>
     );

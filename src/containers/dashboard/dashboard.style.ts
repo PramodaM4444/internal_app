@@ -1,14 +1,16 @@
 import styled from "styled-components";
 
-export const topNavBgColor = styled.div`
-    background-color: #1f70c1;
+export const TopNavBgColor = styled.div`
+    background-color: ${({ theme: { colors } }) =>
+        `1px dashed ${colors.topNavBgColor}`};
 `;
 
-export const leftNavBgColor = styled.div`
-    background-color: #dcdcd9;
+export const LeftNavBgColor = styled.div`
+    background-color: ${({ theme: { colors } }) =>
+        `1px dashed ${colors.leftNavBgColor}`};
 `;
 
-export const width100 = styled.div`
+export const Width100 = styled.div`
     display: "flex";
     width: 100%;
 `;
