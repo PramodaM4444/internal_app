@@ -7,5 +7,7 @@ export const Home: React.FC = () => (
         <div>From Home </div>
         <Link to="/login">To Login Page</Link>
         <Example />
+        <br/>
+        <Link to="/dashboard">To Dashboard</Link>
     </>
 );
