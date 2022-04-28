@@ -16,6 +16,7 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import { menuList } from "./listItems";
 import * as styledComp from "./dashboard.style";
 import ProjectInformation from "../projectInformation/projectInformation";
+import UIConstants from "../../Constants/UIConstants";
 
 const drawerWidth: number = 240;
 
@@ -113,7 +114,7 @@ function DashboardContent() {
                                 noWrap
                                 sx={{ flexGrow: 1 }}
                             >
-                                Internal Project
+                                {UIConstants.projectHeaderTitle}
                             </Typography>
                             <IconButton color="inherit">
                                 <Badge badgeContent={4} color="secondary">

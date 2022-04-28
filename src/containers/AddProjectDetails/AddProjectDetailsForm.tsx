@@ -2,6 +2,7 @@ import { Box } from "@mui/material";
 import React from "react";
 import { useFormContext } from "react-hook-form";
 import { InputText } from "../../components/InputText/InputText";
+import UIConstants from "../../Constants/UIConstants";
 import * as styledComp from "./AddProjectDetailsForm.style";
 
 /**
@@ -19,29 +20,13 @@ export default function AddProjectDetailsForm() {
         <Box mb={3}>
             <styledComp.flexRow>
                 <InputText
-                    label="Project Name"
+                    label={UIConstants.projectName}
                     autoFocus
                     {...register("projectName")}
                     error={!!errors?.projectName}
                     helperText={
                         errors.projectName ? errors?.projectName.message : null
                     }
-                />
-                <InputText
-                    label="Lorem Ipsum"
-                    autoFocus
-                    {...register("email")}
-                    error={!!errors?.email}
-                    helperText={errors.email ? errors?.email.message : null}
-                />
-            </styledComp.flexRow>
-            <styledComp.flexRow>
-                <InputText
-                    label="Lorem Ipsum"
-                    autoFocus
-                    {...register("email")}
-                    error={!!errors?.email}
-                    helperText={errors.email ? errors?.email.message : null}
                 />
                 <InputText
                     label="Lorem Ipsum"
