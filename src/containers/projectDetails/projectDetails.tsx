@@ -9,6 +9,11 @@ import { projectDetailsValidationSchema } from "../../validation/projectDetailsV
 import AddProjectDetailsForm from "../AddProjectDetails/AddProjectDetailsForm";
 import UIConstants from "../../Constants/UIConstants";
 
+/**
+ * Shows each cart item
+ * @param no_prop not applicable
+ * @returns displays the Project Details (yupResolver and submit button) screen: parent: ProjectInformation, child: AddProjectDetailsForm
+ */
 export default function ProjectDetails() {
     const formMethods = useForm({
         resolver: yupResolver(projectDetailsValidationSchema),

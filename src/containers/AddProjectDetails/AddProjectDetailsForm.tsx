@@ -4,6 +4,11 @@ import { useFormContext } from "react-hook-form";
 import { InputText } from "../../components/InputText/InputText";
 import * as styledComp from "./AddProjectDetailsForm.style";
 
+/**
+ * Shows each cart item
+ * @param no_prop not applicable
+ * @returns displays the Project Details Form attributes: parent: ProjectDetails, child: NA
+ */
 export default function AddProjectDetailsForm() {
     const {
         register,

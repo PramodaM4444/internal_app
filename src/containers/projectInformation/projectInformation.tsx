@@ -13,6 +13,11 @@ import ProjectDetails from "../projectDetails/projectDetails";
 
 const mdTheme = createTheme();
 
+/**
+ * Shows each cart item
+ * @param no_prop not applicable
+ * @returns displays the Project Information (along with Accordion) screen: parent: dashboard, child: ProjectDetails
+ */
 export default function ProjectInformation() {
     const [expanded, setExpanded] = React.useState("");
 

@@ -23,7 +23,7 @@ interface AppBarProps extends MuiAppBarProps {
     open?: boolean;
 }
 
-const AppBar = styled(MuiAppBar, {
+const TopNavBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== "open",
 })<AppBarProps>(({ theme, open }) => ({
     zIndex: theme.zIndex.drawer + 1,
@@ -41,7 +41,7 @@ const AppBar = styled(MuiAppBar, {
     }),
 }));
 
-const Drawer = styled(MuiDrawer, {
+const LeftMenuBar = styled(MuiDrawer, {
     shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
     "& .MuiDrawer-paper": {
@@ -69,6 +69,11 @@ const Drawer = styled(MuiDrawer, {
 
 const mdTheme = createTheme();
 
+/**
+ * Shows each cart item
+ * @param no_prop not applicable
+ * @returns displays the Dashboard screen: parent: NA, child: ProjectInformation
+ */
 function DashboardContent() {
     const [open, setOpen] = React.useState(true);
     const toggleDrawer = () => {
@@ -81,7 +86,7 @@ function DashboardContent() {
                 <CssBaseline />
 
                 {/* TOP NAV BAR */}
-                <AppBar position="absolute" open={open}>
+                <TopNavBar position="absolute" open={open}>
                     <styledComp.TopNavBgColor>
                         <Toolbar
                             sx={{
@@ -117,12 +122,12 @@ function DashboardContent() {
                             </IconButton>
                         </Toolbar>
                     </styledComp.TopNavBgColor>
-                </AppBar>
+                </TopNavBar>
                 {/* TOP NAV BAR */}
 
                 {/* LEFT NAV BAR */}
                 <styledComp.LeftNavBgColor>
-                    <Drawer variant="permanent" open={open}>
+                    <LeftMenuBar variant="permanent" open={open}>
                         {/* LOGO */}
                         <Toolbar
                             sx={{
@@ -143,7 +148,7 @@ function DashboardContent() {
                             {menuList}
                         </List>
                         {/* </styledComp.LeftNavBgColor> */}
-                    </Drawer>
+                    </LeftMenuBar>
                 </styledComp.LeftNavBgColor>
                 {/* LEFT NAV BAR */}
 
