@@ -10,6 +10,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ProjectDetails from "../projectDetails/projectDetails";
+import UIConstants from "../../Constants/UIConstants";
 
 const mdTheme = createTheme();
 
@@ -58,7 +59,7 @@ export default function ProjectInformation() {
                                         <Typography
                                             sx={{ width: "33%", flexShrink: 0 }}
                                         >
-                                            Project Details
+                                            {UIConstants.projectDetails}
                                         </Typography>
                                     </AccordionSummary>
                                     <AccordionDetails>

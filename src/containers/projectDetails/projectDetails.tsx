@@ -20,8 +20,9 @@ export default function ProjectDetails() {
         mode: "all",
     });
 
-    const formSubmit = (data: any) => {
-        console.log(data);
+    const formSubmit = () => {
+        //prop:  data: any
+        // console.log(data);
     };
 
     return (
