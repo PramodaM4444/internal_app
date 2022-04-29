@@ -7,31 +7,40 @@ import LayersIcon from "@mui/icons-material/Layers";
 import { MenuListHOC } from "./MenuListHOC";
 import UIConstants from "../../Constants/UIConstants";
 
+const menuListArray = [
+    {
+        muiIconComponent: DashboardIcon,
+        menuTitle: UIConstants.leftMenuHome,
+    },
+    {
+        muiIconComponent: ShoppingCartIcon,
+        menuTitle: UIConstants.leftMenuILC,
+    },
+    {
+        muiIconComponent: PeopleIcon,
+        menuTitle: UIConstants.leftMenuProjectDetails,
+    },
+    {
+        muiIconComponent: BarChartIcon,
+        menuTitle: UIConstants.leftMenuForum,
+    },
+    {
+        muiIconComponent: LayersIcon,
+        menuTitle: UIConstants.leftMenuAdmin,
+    },
+    {
+        muiIconComponent: LayersIcon,
+        menuTitle: UIConstants.leftMenuSettings,
+    },
+];
+
 export const MenuList = (
     <>
-        <MenuListHOC
-            IconComponentName={DashboardIcon}
-            menuTitle={UIConstants.leftMenuHome}
-        />
-        <MenuListHOC
-            IconComponentName={ShoppingCartIcon}
-            menuTitle={UIConstants.leftMenuILC}
-        />
-        <MenuListHOC
-            IconComponentName={PeopleIcon}
-            menuTitle={UIConstants.leftMenuProjectDetails}
-        />
-        <MenuListHOC
-            IconComponentName={BarChartIcon}
-            menuTitle={UIConstants.leftMenuForum}
-        />
-        <MenuListHOC
-            IconComponentName={LayersIcon}
-            menuTitle={UIConstants.leftMenuAdmin}
-        />
-        <MenuListHOC
-            IconComponentName={LayersIcon}
-            menuTitle={UIConstants.leftMenuSettings}
-        />
+        {menuListArray.map((item) => (
+            <MenuListHOC
+                IconComponentName={item.muiIconComponent}
+                menuTitle={item.menuTitle}
+            />
+        ))}
     </>
 );
