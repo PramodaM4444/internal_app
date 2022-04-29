@@ -21,7 +21,7 @@ export default function ProjectDetails() {
     });
 
     const formSubmit = () => {
-        //prop:  data: any
+        // prop:  data: any
         // console.log(data);
     };
 

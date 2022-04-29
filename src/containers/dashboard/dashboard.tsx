@@ -11,7 +11,7 @@ import Badge from "@mui/material/Badge";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import { menuList } from "./listItems";
+import { MenuList } from "./listItems";
 import * as styledComp from "./dashboard.style";
 import ProjectInformation from "../projectInformation/projectInformation";
 import UIConstants from "../../Constants/UIConstants";
@@ -97,7 +97,7 @@ function DashboardContent() {
                         <Divider />
                         {/* <styledComp.LeftNavBgColor> */}
                         <List sx={{ bgcolor: "#dcdcd9" }} component="nav">
-                            {menuList}
+                            {MenuList}
                         </List>
                         {/* </styledComp.LeftNavBgColor> */}
                     </LeftMenuBar>

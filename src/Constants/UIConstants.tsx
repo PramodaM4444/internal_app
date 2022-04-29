@@ -5,6 +5,12 @@ const UIConstants = {
     projectDetails: "Project Details",
     projectDetailsSubmit: "Submit",
     projectName: "Project Name",
+    leftMenuHome: "Home",
+    leftMenuILC: "ILC",
+    leftMenuForum: "Forum",
+    leftMenuProjectDetails: "Project Details",
+    leftMenuAdmin: "Admin",
+    leftMenuSettings: "Settings",
 };
 
 export default UIConstants;
