@@ -19,7 +19,7 @@ import {
     LeftMenuBar,
     mdTheme,
     TopNavBar,
-} from "../TemplateFrame/TemplateFrame";
+} from "../TemplateFrame/TemplateFrame.style";
 
 /**
  * Shows each cart item
