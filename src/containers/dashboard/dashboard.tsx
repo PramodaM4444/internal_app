@@ -14,12 +14,12 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import { MenuList } from "./listItems";
 import * as styledComp from "./dashboard.style";
 import ProjectInformation from "../projectInformation/projectInformation";
-import UIConstants from "../../Constants/UIConstants";
 import {
     LeftMenuBar,
     mdTheme,
     TopNavBar,
-} from "../TemplateFrame/TemplateFrame";
+} from "../TemplateFrame/TemplateFrame.style";
+import { UIConstants } from "../../Constants/UIConstants";
 
 /**
  * Shows each cart item

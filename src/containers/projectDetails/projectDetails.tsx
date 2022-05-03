@@ -7,7 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as styledComp from "./projectDetails.style";
 import { projectDetailsValidationSchema } from "../../validation/projectDetailsValidation";
 import AddProjectDetailsForm from "../AddProjectDetails/AddProjectDetailsForm";
-import UIConstants from "../../Constants/UIConstants";
+import { UIConstants } from "../../Constants/UIConstants";
 
 /**
  * Shows each cart item

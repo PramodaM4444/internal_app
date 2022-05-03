@@ -1,10 +1,12 @@
 // Constants to display UI elements
-const UIConstants = {
+export const UIConstants = {
     projectHeaderTitle: "Internal App",
     addToCart: "Add to cart",
     projectDetails: "Project Details",
     projectDetailsSubmit: "Submit",
-    projectName: "Project Name",
+    projectName: "Name",
+    projectCode: "Code",
+    projectChannelOwner: "Channel Owner",
     leftMenuHome: "Home",
     leftMenuILC: "ILC",
     leftMenuForum: "Forum",
@@ -13,4 +15,17 @@ const UIConstants = {
     leftMenuSettings: "Settings",
 };
 
-export default UIConstants;
+export const channelOwnerLabelValues: Record<string, any>[] = [
+    {
+        label: "option1",
+        value: "Option 1",
+    },
+    {
+        label: "option2",
+        value: "Option 2",
+    },
+    {
+        label: "option3",
+        value: "Option 3",
+    },
+];

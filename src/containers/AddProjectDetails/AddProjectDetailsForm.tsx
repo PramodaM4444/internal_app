@@ -1,8 +1,12 @@
 import { Box } from "@mui/material";
 import React from "react";
 import { useFormContext } from "react-hook-form";
+import { Dropdown } from "../../components/Dropdown/Dropdown";
 import { InputText } from "../../components/InputText/InputText";
-import UIConstants from "../../Constants/UIConstants";
+import {
+    channelOwnerLabelValues,
+    UIConstants,
+} from "../../Constants/UIConstants";
 import * as styledComp from "./AddProjectDetailsForm.style";
 
 /**
@@ -15,6 +19,13 @@ export default function AddProjectDetailsForm() {
         register,
         formState: { errors },
     } = useFormContext();
+
+    // const [age, setAge] = React.useState("");
+
+    const handleChange = () => {
+        // prop: event: any
+        // setAge(event.target.value);
+    };
 
     return (
         <Box mb={3}>
@@ -29,11 +40,24 @@ export default function AddProjectDetailsForm() {
                     }
                 />
                 <InputText
-                    label="Lorem Ipsum"
-                    autoFocus
-                    {...register("email")}
-                    error={!!errors?.email}
-                    helperText={errors.email ? errors?.email.message : null}
+                    label={UIConstants.projectCode}
+                    {...register("projectCode")}
+                    error={!!errors?.projectCode}
+                    helperText={
+                        errors.projectCode ? errors?.projectCode.message : null
+                    }
+                />
+                <Dropdown
+                    label={UIConstants.projectChannelOwner}
+                    {...register("projectChannelOwner")}
+                    error={!!errors?.projectChannelOwner}
+                    onChange={handleChange}
+                    options={channelOwnerLabelValues}
+                    helperText={
+                        errors.projectChannelOwner
+                            ? errors?.projectChannelOwner.message
+                            : null
+                    }
                 />
             </styledComp.flexRow>
         </Box>

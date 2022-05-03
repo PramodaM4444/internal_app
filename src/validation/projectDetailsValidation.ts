@@ -6,9 +6,10 @@ export const projectDetailsValidationSchema = yup.object().shape({
         .required("Project Name is required")
         .defined("Project Name is required")
         .max(20, "Must be equal or less than 20 characters"),
-    email: yup
+    projectCode: yup
         .string()
-        .required("Project Name is required")
-        .defined("Project Name is required")
+        .required("Project Code is required")
+        .defined("Project Code is required")
         .max(20, "Must be equal or less than 5 characters"),
+    projectChannelOwner: yup.string().required("Channel Owner is required"),
 });
