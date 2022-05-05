@@ -3,6 +3,7 @@ import React from "react";
 import { useFormContext } from "react-hook-form";
 import { Dropdown } from "../../components/Dropdown/Dropdown";
 import { InputText } from "../../components/InputText/InputText";
+import { Textarea } from "../../components/Textarea/Textarea";
 import {
     channelOwnerLabelValues,
     UIConstants,
@@ -47,6 +48,8 @@ export default function AddProjectDetailsForm() {
                         errors.projectCode ? errors?.projectCode.message : null
                     }
                 />
+            </styledComp.flexRow>
+            <styledComp.flexRow>
                 <Dropdown
                     label={UIConstants.projectChannelOwner}
                     {...register("projectChannelOwner")}
@@ -56,6 +59,42 @@ export default function AddProjectDetailsForm() {
                     helperText={
                         errors.projectChannelOwner
                             ? errors?.projectChannelOwner.message
+                            : null
+                    }
+                />
+            </styledComp.flexRow>
+            <styledComp.flexRow>
+                <Textarea
+                    label={UIConstants.projectActivitiesLastWeek}
+                    {...register("projectActivitiesLastWeek")}
+                    error={!!errors?.projectActivitiesLastWeek}
+                    helperText={
+                        errors.projectActivitiesLastWeek
+                            ? errors?.projectActivitiesLastWeek.message
+                            : null
+                    }
+                />
+            </styledComp.flexRow>
+            <styledComp.flexRow>
+                <Textarea
+                    label={UIConstants.projectActivitiesNextWeek}
+                    {...register("projectActivitiesNextWeek")}
+                    error={!!errors?.projectActivitiesNextWeek}
+                    helperText={
+                        errors.projectActivitiesNextWeek
+                            ? errors?.projectActivitiesNextWeek.message
+                            : null
+                    }
+                />
+            </styledComp.flexRow>
+            <styledComp.flexRow>
+                <Textarea
+                    label={UIConstants.projectAccomplishment}
+                    {...register("projectAccomplishment")}
+                    error={!!errors?.projectAccomplishment}
+                    helperText={
+                        errors.projectAccomplishment
+                            ? errors?.projectAccomplishment.message
                             : null
                     }
                 />
