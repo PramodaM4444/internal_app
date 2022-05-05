@@ -99,6 +99,46 @@ export default function AddProjectDetailsForm() {
                     }
                 />
             </styledComp.flexRow>
+            <styledComp.flexRow>
+                <Dropdown
+                    label={UIConstants.projectStatus}
+                    {...register("projectStatus")}
+                    error={!!errors?.projectStatus}
+                    onChange={handleChange}
+                    options={channelOwnerLabelValues}
+                    helperText={
+                        errors.projectStatus
+                            ? errors?.projectStatus.message
+                            : null
+                    }
+                />
+                <Dropdown
+                    label={UIConstants.projectCompletionDate}
+                    {...register("projectCompletionDate")}
+                    error={!!errors?.projectCompletionDate}
+                    onChange={handleChange}
+                    options={channelOwnerLabelValues}
+                    helperText={
+                        errors.projectCompletionDate
+                            ? errors?.projectCompletionDate.message
+                            : null
+                    }
+                />
+            </styledComp.flexRow>
+            <styledComp.flexRow>
+                <Dropdown
+                    label={UIConstants.projectBandwidthAvailble}
+                    {...register("projectBandwidthAvailble")}
+                    error={!!errors?.projectBandwidthAvailble}
+                    onChange={handleChange}
+                    options={channelOwnerLabelValues}
+                    helperText={
+                        errors.projectBandwidthAvailble
+                            ? errors?.projectBandwidthAvailble.message
+                            : null
+                    }
+                />
+            </styledComp.flexRow>
         </Box>
     );
 }

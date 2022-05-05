@@ -41,4 +41,20 @@ export const projectDetailsValidationSchema = yup.object().shape({
         .defined(
             `${UIConstants.projectAccomplishment}${UIConstants.isRequired}`,
         ),
+
+    projectStatus: yup
+        .string()
+        .required(`${UIConstants.projectStatus}${UIConstants.isRequired}`),
+
+    projectCompletionDate: yup
+        .string()
+        .required(
+            `${UIConstants.projectCompletionDate}${UIConstants.isRequired}`,
+        ),
+
+    projectBandwidthAvailble: yup
+        .string()
+        .required(
+            `${UIConstants.projectBandwidthAvailble}${UIConstants.isRequired}`,
+        ),
 });
