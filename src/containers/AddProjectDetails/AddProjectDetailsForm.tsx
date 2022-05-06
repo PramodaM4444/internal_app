@@ -6,6 +6,8 @@ import { InputText } from "../../components/InputText/InputText";
 import { Textarea } from "../../components/Textarea/Textarea";
 import {
     channelOwnerLabelValues,
+    projectBandwidthAvailbleLabelValues,
+    projectStatusLabelValues,
     UIConstants,
 } from "../../Constants/UIConstants";
 import * as styledComp from "./AddProjectDetailsForm.style";
@@ -105,7 +107,7 @@ export default function AddProjectDetailsForm() {
                         {...register("projectStatus")}
                         error={!!errors?.projectStatus}
                         onChange={handleChange}
-                        options={channelOwnerLabelValues}
+                        options={projectStatusLabelValues}
                         helperText={
                             errors.projectStatus
                                 ? errors?.projectStatus.message
@@ -136,7 +138,7 @@ export default function AddProjectDetailsForm() {
                         {...register("projectBandwidthAvailble")}
                         error={!!errors?.projectBandwidthAvailble}
                         onChange={handleChange}
-                        options={channelOwnerLabelValues}
+                        options={projectBandwidthAvailbleLabelValues}
                         helperText={
                             errors.projectBandwidthAvailble
                                 ? errors?.projectBandwidthAvailble.message

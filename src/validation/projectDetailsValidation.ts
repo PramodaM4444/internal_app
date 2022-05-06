@@ -33,9 +33,10 @@ export const projectDetailsValidationSchema = yup.object().shape({
 
     projectStatus: yup.string().required(getMandatoryMessage("projectStatus")),
 
-    projectCompletionDate: yup
-        .string()
-        .required(getMandatoryMessage("projectCompletionDate")),
+    // TODO: NEED TO IMPLEMENT DATE PICKER
+    // projectCompletionDate: yup
+    //     .string()
+    //     .required(getMandatoryMessage("projectCompletionDate")),
 
     projectBandwidthAvailble: yup
         .string()
