@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const submitButtonArea = styled.div`
-    margin-top: 2rem;
+    float: right;
 `;
 
 export const formContainer = styled.div`

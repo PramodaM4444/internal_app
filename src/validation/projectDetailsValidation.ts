@@ -4,57 +4,57 @@ import { UIConstants } from "../Constants/UIConstants";
 export const projectDetailsValidationSchema = yup.object().shape({
     projectName: yup
         .string()
-        .required(`${UIConstants.projectName}${UIConstants.isRequired}`)
-        .defined(`${UIConstants.projectName}${UIConstants.isRequired}`)
+        .required(`${UIConstants.projectName} ${UIConstants.isRequired}`)
+        .defined(`${UIConstants.projectName} ${UIConstants.isRequired}`)
         .max(20, "Must be equal or less than 20 characters"),
     projectCode: yup
         .string()
-        .required(`${UIConstants.projectCode}${UIConstants.isRequired}`)
-        .defined(`${UIConstants.projectCode}${UIConstants.isRequired}`)
+        .required(`${UIConstants.projectCode} ${UIConstants.isRequired}`)
+        .defined(`${UIConstants.projectCode} ${UIConstants.isRequired}`)
         .max(20, "Must be equal or less than 5 characters"),
     projectChannelOwner: yup
         .string()
         .required(
-            `${UIConstants.projectChannelOwner}${UIConstants.isRequired}`,
+            `${UIConstants.projectChannelOwner} ${UIConstants.isRequired}`,
         ),
     projectActivitiesLastWeek: yup
         .string()
         .required(
-            `${UIConstants.projectActivitiesLastWeek}${UIConstants.isRequired}`,
+            `${UIConstants.projectActivitiesLastWeek} ${UIConstants.isRequired}`,
         )
         .defined(
-            `${UIConstants.projectActivitiesLastWeek}${UIConstants.isRequired}`,
+            `${UIConstants.projectActivitiesLastWeek} ${UIConstants.isRequired}`,
         ),
     projectActivitiesNextWeek: yup
         .string()
         .required(
-            `${UIConstants.projectActivitiesNextWeek}${UIConstants.isRequired}`,
+            `${UIConstants.projectActivitiesNextWeek} ${UIConstants.isRequired}`,
         )
         .defined(
-            `${UIConstants.projectActivitiesNextWeek}${UIConstants.isRequired}`,
+            `${UIConstants.projectActivitiesNextWeek} ${UIConstants.isRequired}`,
         ),
     projectAccomplishment: yup
         .string()
         .required(
-            `${UIConstants.projectAccomplishment}${UIConstants.isRequired}`,
+            `${UIConstants.projectAccomplishment} ${UIConstants.isRequired}`,
         )
         .defined(
-            `${UIConstants.projectAccomplishment}${UIConstants.isRequired}`,
+            `${UIConstants.projectAccomplishment} ${UIConstants.isRequired}`,
         ),
 
     projectStatus: yup
         .string()
-        .required(`${UIConstants.projectStatus}${UIConstants.isRequired}`),
+        .required(`${UIConstants.projectStatus} ${UIConstants.isRequired}`),
 
     projectCompletionDate: yup
         .string()
         .required(
-            `${UIConstants.projectCompletionDate}${UIConstants.isRequired}`,
+            `${UIConstants.projectCompletionDate} ${UIConstants.isRequired}`,
         ),
 
     projectBandwidthAvailble: yup
         .string()
         .required(
-            `${UIConstants.projectBandwidthAvailble}${UIConstants.isRequired}`,
+            `${UIConstants.projectBandwidthAvailble} ${UIConstants.isRequired}`,
         ),
 });

@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import React from "react";
 import { useFormContext } from "react-hook-form";
 import { Dropdown } from "../../components/Dropdown/Dropdown";
@@ -50,18 +50,20 @@ export default function AddProjectDetailsForm() {
                 />
             </styledComp.flexRow>
             <styledComp.flexRow>
-                <Dropdown
-                    label={UIConstants.projectChannelOwner}
-                    {...register("projectChannelOwner")}
-                    error={!!errors?.projectChannelOwner}
-                    onChange={handleChange}
-                    options={channelOwnerLabelValues}
-                    helperText={
-                        errors.projectChannelOwner
-                            ? errors?.projectChannelOwner.message
-                            : null
-                    }
-                />
+                <Grid item md={6} sm={6} xs={12}>
+                    <Dropdown
+                        label={UIConstants.projectChannelOwner}
+                        {...register("projectChannelOwner")}
+                        error={!!errors?.projectChannelOwner}
+                        onChange={handleChange}
+                        options={channelOwnerLabelValues}
+                        helperText={
+                            errors.projectChannelOwner
+                                ? errors?.projectChannelOwner.message
+                                : null
+                        }
+                    />
+                </Grid>
             </styledComp.flexRow>
             <styledComp.flexRow>
                 <Textarea
@@ -100,44 +102,51 @@ export default function AddProjectDetailsForm() {
                 />
             </styledComp.flexRow>
             <styledComp.flexRow>
-                <Dropdown
-                    label={UIConstants.projectStatus}
-                    {...register("projectStatus")}
-                    error={!!errors?.projectStatus}
-                    onChange={handleChange}
-                    options={channelOwnerLabelValues}
-                    helperText={
-                        errors.projectStatus
-                            ? errors?.projectStatus.message
-                            : null
-                    }
-                />
-                <Dropdown
-                    label={UIConstants.projectCompletionDate}
-                    {...register("projectCompletionDate")}
-                    error={!!errors?.projectCompletionDate}
-                    onChange={handleChange}
-                    options={channelOwnerLabelValues}
-                    helperText={
-                        errors.projectCompletionDate
-                            ? errors?.projectCompletionDate.message
-                            : null
-                    }
-                />
+                <Grid item md={6} sm={6} xs={12}>
+                    <Dropdown
+                        label={UIConstants.projectStatus}
+                        {...register("projectStatus")}
+                        error={!!errors?.projectStatus}
+                        onChange={handleChange}
+                        options={channelOwnerLabelValues}
+                        helperText={
+                            errors.projectStatus
+                                ? errors?.projectStatus.message
+                                : null
+                        }
+                    />
+                </Grid>
+
+                {/* <Grid item md={6} sm={6} xs={12}>
+                     <Dropdown
+                        label={UIConstants.projectCompletionDate}
+                        {...register("projectCompletionDate")}
+                        error={!!errors?.projectCompletionDate}
+                        onChange={handleChange}
+                        options={channelOwnerLabelValues}
+                        helperText={
+                            errors.projectCompletionDate
+                                ? errors?.projectCompletionDate.message
+                                : null
+                        }
+                    /> 
+                </Grid> */}
             </styledComp.flexRow>
             <styledComp.flexRow>
-                <Dropdown
-                    label={UIConstants.projectBandwidthAvailble}
-                    {...register("projectBandwidthAvailble")}
-                    error={!!errors?.projectBandwidthAvailble}
-                    onChange={handleChange}
-                    options={channelOwnerLabelValues}
-                    helperText={
-                        errors.projectBandwidthAvailble
-                            ? errors?.projectBandwidthAvailble.message
-                            : null
-                    }
-                />
+                <Grid item md={6} sm={6} xs={12}>
+                    <Dropdown
+                        label={UIConstants.projectBandwidthAvailble}
+                        {...register("projectBandwidthAvailble")}
+                        error={!!errors?.projectBandwidthAvailble}
+                        onChange={handleChange}
+                        options={channelOwnerLabelValues}
+                        helperText={
+                            errors.projectBandwidthAvailble
+                                ? errors?.projectBandwidthAvailble.message
+                                : null
+                        }
+                    />
+                </Grid>
             </styledComp.flexRow>
         </Box>
     );
