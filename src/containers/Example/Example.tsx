@@ -1,7 +1,7 @@
 import React from "react";
 import { CartItem } from "../../components/CartItem/CartItem";
 import { CustomButton } from "../../components/CustomButton/CustomButton";
-import UIConstants from "../../Constants/UIConstants";
+import { UIConstants } from "../../Constants/UIConstants";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { addCartItem } from "../../store/actions/cartAction";
 import { selectCartItems } from "../../store/selectors/cartSelector";

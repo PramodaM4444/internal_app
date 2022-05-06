@@ -1,7 +1,7 @@
-import { TextField } from "@mui/material";
+import { Select } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-export const StyledInput = styled(TextField)<any>`
+export const SelectInput = styled(Select)<any>`
     input {
         color: ${(props) => props.textcolor};
     }
