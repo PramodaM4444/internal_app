@@ -1,60 +1,43 @@
 import * as yup from "yup";
-import { UIConstants } from "../Constants/UIConstants";
+import {
+    getMandatoryMessage,
+    getMaximumCharacterMessage,
+} from "../utils/validation-helper";
 
 export const projectDetailsValidationSchema = yup.object().shape({
     projectName: yup
         .string()
-        .required(`${UIConstants.projectName} ${UIConstants.isRequired}`)
-        .defined(`${UIConstants.projectName} ${UIConstants.isRequired}`)
-        .max(20, "Must be equal or less than 20 characters"),
+        .required(getMandatoryMessage("projectName"))
+        .defined(getMandatoryMessage("projectName"))
+        .max(20, getMaximumCharacterMessage(20)),
     projectCode: yup
         .string()
-        .required(`${UIConstants.projectCode} ${UIConstants.isRequired}`)
-        .defined(`${UIConstants.projectCode} ${UIConstants.isRequired}`)
-        .max(20, "Must be equal or less than 5 characters"),
+        .required(getMandatoryMessage("projectCode"))
+        .defined(getMandatoryMessage("projectCode"))
+        .max(20, getMaximumCharacterMessage(20)),
     projectChannelOwner: yup
         .string()
-        .required(
-            `${UIConstants.projectChannelOwner} ${UIConstants.isRequired}`,
-        ),
+        .required(getMandatoryMessage("projectChannelOwner")),
     projectActivitiesLastWeek: yup
         .string()
-        .required(
-            `${UIConstants.projectActivitiesLastWeek} ${UIConstants.isRequired}`,
-        )
-        .defined(
-            `${UIConstants.projectActivitiesLastWeek} ${UIConstants.isRequired}`,
-        ),
+        .required(getMandatoryMessage("projectActivitiesLastWeek"))
+        .defined(getMandatoryMessage("projectActivitiesLastWeek")),
     projectActivitiesNextWeek: yup
         .string()
-        .required(
-            `${UIConstants.projectActivitiesNextWeek} ${UIConstants.isRequired}`,
-        )
-        .defined(
-            `${UIConstants.projectActivitiesNextWeek} ${UIConstants.isRequired}`,
-        ),
+        .required(getMandatoryMessage("projectActivitiesNextWeek"))
+        .defined(getMandatoryMessage("projectActivitiesNextWeek")),
     projectAccomplishment: yup
         .string()
-        .required(
-            `${UIConstants.projectAccomplishment} ${UIConstants.isRequired}`,
-        )
-        .defined(
-            `${UIConstants.projectAccomplishment} ${UIConstants.isRequired}`,
-        ),
+        .required(getMandatoryMessage("projectAccomplishment"))
+        .defined(getMandatoryMessage("projectAccomplishment")),
 
-    projectStatus: yup
-        .string()
-        .required(`${UIConstants.projectStatus} ${UIConstants.isRequired}`),
+    projectStatus: yup.string().required(getMandatoryMessage("projectStatus")),
 
     projectCompletionDate: yup
         .string()
-        .required(
-            `${UIConstants.projectCompletionDate} ${UIConstants.isRequired}`,
-        ),
+        .required(getMandatoryMessage("projectCompletionDate")),
 
     projectBandwidthAvailble: yup
         .string()
-        .required(
-            `${UIConstants.projectBandwidthAvailble} ${UIConstants.isRequired}`,
-        ),
+        .required(getMandatoryMessage("projectBandwidthAvailble")),
 });

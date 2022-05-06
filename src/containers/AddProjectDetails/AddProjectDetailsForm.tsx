@@ -21,11 +21,8 @@ export default function AddProjectDetailsForm() {
         formState: { errors },
     } = useFormContext();
 
-    // const [age, setAge] = React.useState("");
-
     const handleChange = () => {
         // prop: event: any
-        // setAge(event.target.value);
     };
 
     return (

@@ -1,5 +1,7 @@
+import { UIConstantsType } from "./application.type";
+
 // Constants to display UI elements
-export const UIConstants = {
+export const UIConstants: UIConstantsType = {
     projectHeaderTitle: "Internal App",
     addToCart: "Add to cart",
     projectDetails: "Project Details",
@@ -20,6 +22,7 @@ export const UIConstants = {
     leftMenuAdmin: "Admin",
     leftMenuSettings: "Settings",
     isRequired: "is required",
+    maxMessage: "Must be equal or less than",
 };
 
 export const channelOwnerLabelValues: Record<string, any>[] = [
