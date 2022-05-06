@@ -96,7 +96,10 @@ function DashboardContent() {
                         {/* LOGO */}
                         <Divider />
                         {/* <styledComp.LeftNavBgColor> */}
-                        <List sx={{ bgcolor: "#dcdcd9" }} component="nav">
+                        <List
+                            sx={{ bgcolor: "#dcdcd9", height: "89.3vh" }}
+                            component="nav"
+                        >
                             {MenuList}
                         </List>
                         {/* </styledComp.LeftNavBgColor> */}
