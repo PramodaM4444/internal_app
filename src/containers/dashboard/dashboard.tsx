@@ -22,7 +22,7 @@ import {
 import { UIConstants } from "../../Constants/UIConstants";
 
 /**
- * Shows Dashboard screen
+ * Shows Dashboard/Home screen
  * @param no_prop not applicable
  * @returns displays the Dashboard screen: parent: NA, child: ProjectInformation
  */

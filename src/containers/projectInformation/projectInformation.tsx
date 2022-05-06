@@ -14,7 +14,7 @@ import { UIConstants } from "../../Constants/UIConstants";
 import { mdTheme } from "../TemplateFrame/TemplateFrame.style";
 
 /**
- * Shows Project Information
+ * Shows Project Information screen
  * @param no_prop not applicable
  * @returns displays the Project Information (along with Accordion) screen: parent: dashboard, child: ProjectDetails
  */
