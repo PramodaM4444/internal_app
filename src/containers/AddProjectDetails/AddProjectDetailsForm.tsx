@@ -11,7 +11,7 @@ import {
 import * as styledComp from "./AddProjectDetailsForm.style";
 
 /**
- * Shows each cart item
+ * Shows Project Details Form
  * @param no_prop not applicable
  * @returns displays the Project Details Form attributes: parent: ProjectDetails, child: NA
  */

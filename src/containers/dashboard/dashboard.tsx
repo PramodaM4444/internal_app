@@ -22,7 +22,7 @@ import {
 import { UIConstants } from "../../Constants/UIConstants";
 
 /**
- * Shows each cart item
+ * Shows Dashboard screen
  * @param no_prop not applicable
  * @returns displays the Dashboard screen: parent: NA, child: ProjectInformation
  */

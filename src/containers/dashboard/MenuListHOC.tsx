@@ -5,7 +5,7 @@ import ListItemText from "@mui/material/ListItemText";
 import { SinleMenuListHOC } from "../../Constants/application.type";
 
 /**
- * Shows each cart item
+ * It's a higher order component
  * @param IconComponentName accept left icon MUI component and name of the menu
  * @returns returns a component which will have a single menu row
  */

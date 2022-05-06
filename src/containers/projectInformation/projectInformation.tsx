@@ -1,5 +1,5 @@
 import * as React from "react";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
@@ -11,11 +11,10 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ProjectDetails from "../projectDetails/projectDetails";
 import { UIConstants } from "../../Constants/UIConstants";
-
-const mdTheme = createTheme();
+import { mdTheme } from "../TemplateFrame/TemplateFrame.style";
 
 /**
- * Shows each cart item
+ * Shows Project Information
  * @param no_prop not applicable
  * @returns displays the Project Information (along with Accordion) screen: parent: dashboard, child: ProjectDetails
  */
