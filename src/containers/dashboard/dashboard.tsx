@@ -1,9 +1,7 @@
 import * as React from "react";
-import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import MuiDrawer from "@mui/material/Drawer";
 import Box from "@mui/material/Box";
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
@@ -13,62 +11,21 @@ import Badge from "@mui/material/Badge";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import { menuList } from "./listItems";
+import { MenuList } from "./listItems";
 import * as styledComp from "./dashboard.style";
-//import ProjectInformation from "../projectInformation/projectInformation";
+import ProjectInformation from "../projectInformation/projectInformation";
+import UIConstants from "../../Constants/UIConstants";
+import {
+    LeftMenuBar,
+    mdTheme,
+    TopNavBar,
+} from "../TemplateFrame/TemplateFrame.style";
 
-const drawerWidth: number = 240;
-
-interface AppBarProps extends MuiAppBarProps {
-    open?: boolean;
-}
-
-const AppBar = styled(MuiAppBar, {
-    shouldForwardProp: (prop) => prop !== "open",
-})<AppBarProps>(({ theme, open }) => ({
-    zIndex: theme.zIndex.drawer + 1,
-    transition: theme.transitions.create(["width", "margin"], {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-    }),
-    ...(open && {
-        marginLeft: drawerWidth,
-        width: `calc(100% - ${drawerWidth}px)`,
-        transition: theme.transitions.create(["width", "margin"], {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.enteringScreen,
-        }),
-    }),
-}));
-
-const Drawer = styled(MuiDrawer, {
-    shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
-    "& .MuiDrawer-paper": {
-        position: "relative",
-        whiteSpace: "nowrap",
-        width: drawerWidth,
-        transition: theme.transitions.create("width", {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.enteringScreen,
-        }),
-        boxSizing: "border-box",
-        ...(!open && {
-            overflowX: "hidden",
-            transition: theme.transitions.create("width", {
-                easing: theme.transitions.easing.sharp,
-                duration: theme.transitions.duration.leavingScreen,
-            }),
-            width: theme.spacing(7),
-            [theme.breakpoints.up("sm")]: {
-                width: theme.spacing(9),
-            },
-        }),
-    },
-}));
-
-const mdTheme = createTheme();
-
+/**
+ * Shows each cart item
+ * @param no_prop not applicable
+ * @returns displays the Dashboard screen: parent: NA, child: ProjectInformation
+ */
 function DashboardContent() {
     const [open, setOpen] = React.useState(true);
     const toggleDrawer = () => {
@@ -81,7 +38,7 @@ function DashboardContent() {
                 <CssBaseline />
 
                 {/* TOP NAV BAR */}
-                <AppBar position="absolute" open={open}>
+                <TopNavBar position="absolute" open={open}>
                     <styledComp.TopNavBgColor>
                         <Toolbar
                             sx={{
@@ -108,7 +65,7 @@ function DashboardContent() {
                                 noWrap
                                 sx={{ flexGrow: 1 }}
                             >
-                                Internal Project
+                                {UIConstants.projectHeaderTitle}
                             </Typography>
                             <IconButton color="inherit">
                                 <Badge badgeContent={4} color="secondary">
@@ -117,12 +74,12 @@ function DashboardContent() {
                             </IconButton>
                         </Toolbar>
                     </styledComp.TopNavBgColor>
-                </AppBar>
+                </TopNavBar>
                 {/* TOP NAV BAR */}
 
                 {/* LEFT NAV BAR */}
                 <styledComp.LeftNavBgColor>
-                    <Drawer variant="permanent" open={open}>
+                    <LeftMenuBar variant="permanent" open={open}>
                         {/* LOGO */}
                         <Toolbar
                             sx={{
@@ -140,15 +97,15 @@ function DashboardContent() {
                         <Divider />
                         {/* <styledComp.LeftNavBgColor> */}
                         <List sx={{ bgcolor: "#dcdcd9" }} component="nav">
-                            {menuList}
+                            {MenuList}
                         </List>
                         {/* </styledComp.LeftNavBgColor> */}
-                    </Drawer>
+                    </LeftMenuBar>
                 </styledComp.LeftNavBgColor>
                 {/* LEFT NAV BAR */}
 
                 <styledComp.Width100>
-                    {/* <ProjectInformation /> */}
+                    <ProjectInformation />
                 </styledComp.Width100>
             </Box>
         </ThemeProvider>
