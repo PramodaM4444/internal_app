@@ -11,6 +11,7 @@ const UIConstants = {
     leftMenuProjectDetails: "Project Details",
     leftMenuAdmin: "Admin",
     leftMenuSettings: "Settings",
+    dashboardLink: "To Dashboard",
 };
 
 export default UIConstants;
