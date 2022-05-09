@@ -38,8 +38,6 @@ export function Login() {
                                 errors.email ? errors?.email.message : null
                             }
                         />
-                    </Box>
-                    <Box mb={3}>
                         <InputText
                             label="password"
                             type="password"
