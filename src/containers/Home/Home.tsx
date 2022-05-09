@@ -4,8 +4,10 @@ import Example from "../Example/Example";
 
 export const Home: React.FC = () => (
     <>
+        <Link to="/timesheet">Timesheet</Link>
         <div>From Home </div>
         <Link to="/login">To Login Page</Link>
+
         <Example />
     </>
 );
