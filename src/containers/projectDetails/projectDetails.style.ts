@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-export const submitButtonArea = styled.div`
+export const SubmitButtonArea = styled.div`
     float: right;
-`;
-
-export const formContainer = styled.div`
-    display: flex;
 `;

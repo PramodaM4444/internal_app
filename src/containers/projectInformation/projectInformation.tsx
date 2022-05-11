@@ -11,7 +11,7 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ProjectDetails from "../projectDetails/projectDetails";
 import { UIConstants } from "../../Constants/UIConstants";
-import { mdTheme } from "../TemplateFrame/TemplateFrame.style";
+import { MdTheme } from "../TemplateFrame/TemplateFrame.style";
 
 /**
  * Shows Project Information screen
@@ -26,7 +26,7 @@ export default function ProjectInformation() {
     };
 
     return (
-        <ThemeProvider theme={mdTheme}>
+        <ThemeProvider theme={MdTheme}>
             <Box sx={{ display: "flex" }}>
                 {/* <CssBaseline /> */}
 
