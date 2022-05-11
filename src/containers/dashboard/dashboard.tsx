@@ -14,7 +14,7 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import { MenuList } from "./listItems";
 import * as styledComp from "./dashboard.style";
 import ProjectInformation from "../projectInformation/projectInformation";
-import UIConstants from "../../Constants/UIConstants";
+import UIConstants from "../../constants/UIConstants";
 import {
     LeftMenuBar,
     mdTheme,

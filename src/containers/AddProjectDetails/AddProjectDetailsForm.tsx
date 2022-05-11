@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import React from "react";
 import { useFormContext } from "react-hook-form";
 import { InputText } from "../../components/InputText/InputText";
-import UIConstants from "../../Constants/UIConstants";
+import UIConstants from "../../constants/UIConstants";
 import * as styledComp from "./AddProjectDetailsForm.style";
 
 /**
