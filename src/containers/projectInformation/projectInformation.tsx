@@ -9,8 +9,8 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import ProjectDetails from "../projectDetails/projectDetails";
-import UIConstants from "../../constants/UIConstants";
+import ProjectDetails from "@containers/projectDetails/projectDetails";
+import UIConstants from "@constants/UIConstants";
 
 const mdTheme = createTheme();
 

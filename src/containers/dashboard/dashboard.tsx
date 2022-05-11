@@ -11,15 +11,15 @@ import Badge from "@mui/material/Badge";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import { MenuList } from "./listItems";
-import * as styledComp from "./dashboard.style";
-import ProjectInformation from "../projectInformation/projectInformation";
-import UIConstants from "../../constants/UIConstants";
+import ProjectInformation from "@containers/projectInformation/projectInformation";
+import UIConstants from "@constants/UIConstants";
 import {
     LeftMenuBar,
     mdTheme,
     TopNavBar,
-} from "../TemplateFrame/TemplateFrame.style";
+} from "@containers/TemplateFrame/TemplateFrame.style";
+import { MenuList } from "./listItems";
+import * as styledComp from "./dashboard.style";
 
 /**
  * Shows each cart item

@@ -1,9 +1,9 @@
 import React from "react";
 import { Box, Container, Grid } from "@mui/material";
 import { useForm } from "react-hook-form";
-import { CustomButton } from "../../components/CustomButton/CustomButton";
-import { loginFormOptions } from "../../validation/loginValidation";
-import { InputText } from "../../components/InputText/InputText";
+import { CustomButton } from "@components/CustomButton/CustomButton";
+import { loginFormOptions } from "@validation/loginValidation";
+import { InputText } from "@components/InputText/InputText";
 
 export function Login() {
     const {

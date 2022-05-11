@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Example from "../Example/Example";
+import Example from "@containers/Example/Example";
 
 export const Home: React.FC = () => (
     <>

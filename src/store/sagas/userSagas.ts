@@ -1,8 +1,8 @@
 import { all, call, put, takeLatest } from "redux-saga/effects";
-import AxiosAPI from "../../utils/fetch";
-import { fetchUserResponse } from "../actions/userAction";
-import { userActionTypes } from "../actionTypes/userActionTypes";
-import { UserRequest } from "../reducers/__types__/userTypes";
+import AxiosAPI from "@utils/fetch";
+import { fetchUserResponse } from "@store/actions/userAction";
+import { userActionTypes } from "@store/actionTypes/userActionTypes";
+import { UserRequest } from "@store/reducers/__types__/userTypes";
 
 function* fetchUserWorkerSaga(_action: UserRequest): any {
     try {
