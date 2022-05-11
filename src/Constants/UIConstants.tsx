@@ -21,6 +21,7 @@ export const UIConstants: UIConstantsType = {
     leftMenuProjectDetails: "Project Details",
     leftMenuAdmin: "Admin",
     leftMenuSettings: "Settings",
+    selectAnOption: "Select an option",
     isRequired: "is required",
     maxMessage: "Must be equal or less than",
 };

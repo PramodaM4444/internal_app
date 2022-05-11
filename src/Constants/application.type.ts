@@ -23,6 +23,7 @@ export interface UIConstantsType {
     leftMenuProjectDetails: string;
     leftMenuAdmin: string;
     leftMenuSettings: string;
+    selectAnOption: string;
     isRequired: string;
     maxMessage: string;
 }

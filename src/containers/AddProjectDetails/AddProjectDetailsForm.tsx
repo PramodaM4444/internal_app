@@ -10,7 +10,7 @@ import {
     projectStatusLabelValues,
     UIConstants,
 } from "../../Constants/UIConstants";
-import * as styledComp from "./AddProjectDetailsForm.style";
+import { FlexRow } from "./AddProjectDetailsForm.style";
 
 /**
  * Shows Project Details Form
@@ -29,7 +29,7 @@ export default function AddProjectDetailsForm() {
 
     return (
         <Box mb={3}>
-            <styledComp.flexRow>
+            <FlexRow>
                 <InputText
                     label={UIConstants.projectName}
                     autoFocus
@@ -47,8 +47,8 @@ export default function AddProjectDetailsForm() {
                         errors.projectCode ? errors?.projectCode.message : null
                     }
                 />
-            </styledComp.flexRow>
-            <styledComp.flexRow>
+            </FlexRow>
+            <FlexRow>
                 <Grid item md={6} sm={6} xs={12}>
                     <Dropdown
                         label={UIConstants.projectChannelOwner}
@@ -63,8 +63,8 @@ export default function AddProjectDetailsForm() {
                         }
                     />
                 </Grid>
-            </styledComp.flexRow>
-            <styledComp.flexRow>
+            </FlexRow>
+            <FlexRow>
                 <Textarea
                     label={UIConstants.projectActivitiesLastWeek}
                     {...register("projectActivitiesLastWeek")}
@@ -75,8 +75,8 @@ export default function AddProjectDetailsForm() {
                             : null
                     }
                 />
-            </styledComp.flexRow>
-            <styledComp.flexRow>
+            </FlexRow>
+            <FlexRow>
                 <Textarea
                     label={UIConstants.projectActivitiesNextWeek}
                     {...register("projectActivitiesNextWeek")}
@@ -87,8 +87,8 @@ export default function AddProjectDetailsForm() {
                             : null
                     }
                 />
-            </styledComp.flexRow>
-            <styledComp.flexRow>
+            </FlexRow>
+            <FlexRow>
                 <Textarea
                     label={UIConstants.projectAccomplishment}
                     {...register("projectAccomplishment")}
@@ -99,8 +99,8 @@ export default function AddProjectDetailsForm() {
                             : null
                     }
                 />
-            </styledComp.flexRow>
-            <styledComp.flexRow>
+            </FlexRow>
+            <FlexRow>
                 <Grid item md={6} sm={6} xs={12}>
                     <Dropdown
                         label={UIConstants.projectStatus}
@@ -115,23 +115,8 @@ export default function AddProjectDetailsForm() {
                         }
                     />
                 </Grid>
-
-                {/* <Grid item md={6} sm={6} xs={12}>
-                     <Dropdown
-                        label={UIConstants.projectCompletionDate}
-                        {...register("projectCompletionDate")}
-                        error={!!errors?.projectCompletionDate}
-                        onChange={handleChange}
-                        options={channelOwnerLabelValues}
-                        helperText={
-                            errors.projectCompletionDate
-                                ? errors?.projectCompletionDate.message
-                                : null
-                        }
-                    /> 
-                </Grid> */}
-            </styledComp.flexRow>
-            <styledComp.flexRow>
+            </FlexRow>
+            <FlexRow>
                 <Grid item md={6} sm={6} xs={12}>
                     <Dropdown
                         label={UIConstants.projectBandwidthAvailble}
@@ -146,7 +131,7 @@ export default function AddProjectDetailsForm() {
                         }
                     />
                 </Grid>
-            </styledComp.flexRow>
+            </FlexRow>
         </Box>
     );
 }

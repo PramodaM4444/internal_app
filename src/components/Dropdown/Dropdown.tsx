@@ -6,6 +6,7 @@ import {
 } from "@mui/material";
 import React from "react";
 import { DropdownType } from "../../Constants/application.type";
+import { UIConstants } from "../../Constants/UIConstants";
 import { SelectInput } from "./Dropdown.styles";
 
 const formControlDefaultProps = {
@@ -20,22 +21,26 @@ const selectDefaultProps = {
 };
 
 export const Dropdown: React.FC<any> = React.forwardRef(
-    (props: DropdownType, ref) => (
-        <FormControl
-            variant="filled"
-            {...formControlDefaultProps}
-            error={props.helperText}
-        >
-            <InputLabel id={props.name}>{props.label}</InputLabel>
-            <SelectInput {...selectDefaultProps} {...props} ref={ref}>
-                <MenuItem value="">
-                    <em>Select an option</em>
-                </MenuItem>
-                {props.options.map((items: any) => (
-                    <MenuItem value={items.label}>{items.value}</MenuItem>
-                ))}
-            </SelectInput>
-            <FormHelperText>{props.helperText}</FormHelperText>
-        </FormControl>
-    ),
+    (props: DropdownType, ref) => {
+        const { name, label, helperText, options } = props;
+
+        return (
+            <FormControl
+                variant="filled"
+                {...formControlDefaultProps}
+                error={helperText}
+            >
+                <InputLabel id={name}>{label}</InputLabel>
+                <SelectInput {...selectDefaultProps} {...props} ref={ref}>
+                    <MenuItem value="">
+                        <em>{UIConstants.selectAnOption}</em>
+                    </MenuItem>
+                    {options.map((items: any) => (
+                        <MenuItem value={items.label}>{items.value}</MenuItem>
+                    ))}
+                </SelectInput>
+                <FormHelperText>{helperText}</FormHelperText>
+            </FormControl>
+        );
+    },
 );
