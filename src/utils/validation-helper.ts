@@ -1,9 +1,7 @@
-import { UIConstantsType } from "../Constants/application.type";
+import { UIConstantsKeys } from "../Constants/application.type";
 import { UIConstants } from "../Constants/UIConstants";
 
-export const getMandatoryMessage = (
-    attributeName: keyof UIConstantsType,
-): string => {
+export const getMandatoryMessage = (attributeName: UIConstantsKeys): string => {
     return `${UIConstants[attributeName]} ${UIConstants.isRequired}`;
 };
 

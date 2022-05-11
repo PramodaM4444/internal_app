@@ -1,32 +1,11 @@
+import { UIConstants } from "./UIConstants";
+
 export interface SinleMenuListHOC {
     IconComponentName: any;
     menuTitle: string;
 }
 
-export interface UIConstantsType {
-    projectHeaderTitle: string;
-    addToCart: string;
-    projectDetails: string;
-    projectDetailsSubmit: string;
-    projectName: string;
-    projectCode: string;
-    projectChannelOwner: string;
-    projectActivitiesLastWeek: string;
-    projectActivitiesNextWeek: string;
-    projectAccomplishment: string;
-    projectStatus: string;
-    projectCompletionDate: string;
-    projectBandwidthAvailble: string;
-    leftMenuHome: string;
-    leftMenuILC: string;
-    leftMenuForum: string;
-    leftMenuProjectDetails: string;
-    leftMenuAdmin: string;
-    leftMenuSettings: string;
-    selectAnOption: string;
-    isRequired: string;
-    maxMessage: string;
-}
+export type UIConstantsKeys = keyof typeof UIConstants;
 
 export interface DropdownType {
     label: string;

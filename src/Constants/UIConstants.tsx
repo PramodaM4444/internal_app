@@ -1,7 +1,5 @@
-import { UIConstantsType } from "./application.type";
-
 // Constants to display UI elements
-export const UIConstants: UIConstantsType = {
+export const UIConstants = {
     projectHeaderTitle: "Internal App",
     addToCart: "Add to cart",
     projectDetails: "Project Details",
