@@ -5,7 +5,7 @@ import PeopleIcon from "@mui/icons-material/People";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import LayersIcon from "@mui/icons-material/Layers";
 import { MenuListHOC } from "./MenuListHOC";
-import UIConstants from "../../Constants/UIConstants";
+import { UIConstants } from "../../Constants/UIConstants";
 
 const menuListArray = [
     {

@@ -4,10 +4,10 @@ import { useForm, FormProvider } from "react-hook-form";
 import { Button } from "@mui/material";
 import { yupResolver } from "@hookform/resolvers/yup";
 // import * as yup from "yup";
-import * as styledComp from "./projectDetails.style";
+import { SubmitButtonArea } from "./projectDetails.style";
 import { projectDetailsValidationSchema } from "../../validation/projectDetailsValidation";
 import AddProjectDetailsForm from "../AddProjectDetails/AddProjectDetailsForm";
-import UIConstants from "../../Constants/UIConstants";
+import { UIConstants } from "../../Constants/UIConstants";
 
 /**
  * Shows each cart item
@@ -19,10 +19,9 @@ export default function ProjectDetails() {
         resolver: yupResolver(projectDetailsValidationSchema),
         mode: "all",
     });
-
-    const formSubmit = () => {
+    const formSubmit = (data: any) => {
         // prop:  data: any
-        // console.log(data);
+        console.log(data);
     };
 
     return (
@@ -38,11 +37,11 @@ export default function ProjectDetails() {
             <FormProvider {...formMethods}>
                 <form onSubmit={formMethods.handleSubmit(formSubmit)}>
                     <AddProjectDetailsForm />
-                    <styledComp.submitButtonArea>
+                    <SubmitButtonArea>
                         <Button type="submit" variant="contained">
                             {UIConstants.projectDetailsSubmit}
                         </Button>
-                    </styledComp.submitButtonArea>
+                    </SubmitButtonArea>
                 </form>
             </FormProvider>
         </Paper>
