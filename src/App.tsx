@@ -4,6 +4,8 @@ import "./App.css";
 import { Forum } from "./components/Forum/Forum";
 import { Home } from "./containers/Home/Home";
 import { Login } from "./containers/Login/Login";
+import DashboardContent from "./containers/dashboard/dashboard";
+import ProjectInformation from "./containers/projectInformation/projectInformation";
 
 function App() {
     return (
@@ -12,6 +14,11 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/Forum" element={<Forum />} />
+                <Route path="/dashboard" element={<DashboardContent />} />
+                <Route
+                    path="/projectDetails"
+                    element={<ProjectInformation />}
+                />
             </Routes>
         </div>
     );
