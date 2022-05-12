@@ -12,17 +12,17 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import ProjectInformation from "@containers/projectInformation/projectInformation";
-import UIConstants from "@constants/UIConstants";
 import {
     LeftMenuBar,
-    mdTheme,
+    MdTheme,
     TopNavBar,
 } from "@containers/TemplateFrame/TemplateFrame.style";
+import { UIConstants } from "@constants/UIConstants";
+import { TopNavBgColor, LeftNavBgColor, Width100 } from "./dashboard.style";
 import { MenuList } from "./listItems";
-import * as styledComp from "./dashboard.style";
 
 /**
- * Shows each cart item
+ * Shows Dashboard/Home screen
  * @param no_prop not applicable
  * @returns displays the Dashboard screen: parent: NA, child: ProjectInformation
  */
@@ -33,13 +33,13 @@ function DashboardContent() {
     };
 
     return (
-        <ThemeProvider theme={mdTheme}>
+        <ThemeProvider theme={MdTheme}>
             <Box sx={{ display: "flex" }}>
                 <CssBaseline />
 
                 {/* TOP NAV BAR */}
                 <TopNavBar position="absolute" open={open}>
-                    <styledComp.TopNavBgColor>
+                    <TopNavBgColor>
                         <Toolbar
                             sx={{
                                 pr: "24px", // keep right padding when drawer closed
@@ -73,12 +73,12 @@ function DashboardContent() {
                                 </Badge>
                             </IconButton>
                         </Toolbar>
-                    </styledComp.TopNavBgColor>
+                    </TopNavBgColor>
                 </TopNavBar>
                 {/* TOP NAV BAR */}
 
                 {/* LEFT NAV BAR */}
-                <styledComp.LeftNavBgColor>
+                <LeftNavBgColor>
                     <LeftMenuBar variant="permanent" open={open}>
                         {/* LOGO */}
                         <Toolbar
@@ -95,18 +95,21 @@ function DashboardContent() {
                         </Toolbar>
                         {/* LOGO */}
                         <Divider />
-                        {/* <styledComp.LeftNavBgColor> */}
-                        <List sx={{ bgcolor: "#dcdcd9" }} component="nav">
+                        {/* <LeftNavBgColor> */}
+                        <List
+                            sx={{ bgcolor: "#dcdcd9", height: "89.3vh" }}
+                            component="nav"
+                        >
                             {MenuList}
                         </List>
-                        {/* </styledComp.LeftNavBgColor> */}
+                        {/* </LeftNavBgColor> */}
                     </LeftMenuBar>
-                </styledComp.LeftNavBgColor>
+                </LeftNavBgColor>
                 {/* LEFT NAV BAR */}
 
-                <styledComp.Width100>
+                <Width100>
                     <ProjectInformation />
-                </styledComp.Width100>
+                </Width100>
             </Box>
         </ThemeProvider>
     );
