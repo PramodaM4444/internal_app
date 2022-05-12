@@ -2,7 +2,7 @@ import * as yup from "yup";
 import {
     getMandatoryMessage,
     getMaximumCharacterMessage,
-} from "../utils/validation-helper";
+} from "@utils/validation-helper";
 
 export const projectDetailsValidationSchema = yup.object().shape({
     projectName: yup

@@ -5,8 +5,8 @@ import {
     MenuItem,
 } from "@mui/material";
 import React from "react";
-import { DropdownType } from "../../Constants/application.type";
-import { UIConstants } from "../../Constants/UIConstants";
+import { DropdownType } from "@constants/application.type";
+import { UIConstants } from "@constants/UIConstants";
 import { SelectInput } from "./Dropdown.styles";
 
 const formControlDefaultProps = {
