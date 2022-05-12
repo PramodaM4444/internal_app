@@ -25,3 +25,9 @@ export interface TextareaType {
     error: any;
     helperText: any;
 }
+
+export interface LabelVisibilityTestCaseType {
+    attributeLabel: string;
+    visibilityExpection: boolean;
+    testcaseName?: string;
+}
