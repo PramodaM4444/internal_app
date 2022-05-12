@@ -7,19 +7,28 @@ import {
     ListItem,
     ListItemAvatar,
     ListItemText,
-    TextField,
     Toolbar,
     Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
+import TextareaAutosize from "@mui/base/TextareaAutosize";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ReplyIcon from "@mui/icons-material/Reply";
 import SendIcon from "@mui/icons-material/Send";
-import { ConversationContainer, DescriptionContainer } from "./Forum.styles";
+import {
+    ConversationContainer,
+    DescriptionContainer,
+    MainContainer,
+    Reply,
+} from "./Forum.styles";
 
 export const Forum: React.FC = () => {
+    const [replyButton, setreplyButton] = useState(false);
+    const openDescription = () => {
+        setreplyButton(true);
+    };
     return (
-        <>
+        <MainContainer>
             <AppBar position="static">
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
@@ -30,7 +39,11 @@ export const Forum: React.FC = () => {
             <br />
             <Typography variant="h6">Description</Typography>
             <DescriptionContainer>
-                <TextField fullWidth placeholder="enter" />
+                <TextareaAutosize
+                    minRows={6}
+                    placeholder="enter"
+                    style={{ width: 400 }}
+                />
                 <Button variant="contained">
                     <SendIcon />
                     Post
@@ -48,10 +61,39 @@ export const Forum: React.FC = () => {
                         primary="Demo User 1"
                         secondary=" This is sample text 1"
                     />
-                    <Button>
+                    <Button onClick={openDescription}>
                         <ReplyIcon fontSize="large" />
                     </Button>
                 </ListItem>
+                <Reply>
+                    <ListItem alignItems="center">
+                        <ListItemAvatar>
+                            <Avatar>
+                                <AccountCircleIcon />
+                            </Avatar>
+                        </ListItemAvatar>
+                        <ListItemText
+                            primary="Demo User 3"
+                            secondary=" This is sample text 3"
+                        />
+                    </ListItem>
+                    {replyButton && (
+                        <>
+                            <Typography variant="h6">Reply</Typography>
+                            <DescriptionContainer>
+                                <TextareaAutosize
+                                    minRows={3}
+                                    placeholder="enter"
+                                    style={{ width: 400 }}
+                                />
+                                <Button variant="contained">
+                                    <SendIcon />
+                                    Post
+                                </Button>
+                            </DescriptionContainer>
+                        </>
+                    )}
+                </Reply>
                 <Divider variant="inset" />
                 <ListItem alignItems="flex-start">
                     <ListItemAvatar>
@@ -68,6 +110,6 @@ export const Forum: React.FC = () => {
                     </Button>
                 </ListItem>
             </ConversationContainer>
-        </>
+        </MainContainer>
     );
 };
