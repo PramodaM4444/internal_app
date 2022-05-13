@@ -1,12 +1,12 @@
 import React from "react";
-import { CartItem } from "../../components/CartItem/CartItem";
-import { CustomButton } from "../../components/CustomButton/CustomButton";
-import { UIConstants } from "../../Constants/UIConstants";
-import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
-import { addCartItem } from "../../store/actions/cartAction";
-import { fetchUserRequest } from "../../store/actions/userAction";
-import { selectCartItems } from "../../store/selectors/cartSelector";
-import { selectUsersData } from "../../store/selectors/userSelector";
+import { CartItem } from "@components/CartItem/CartItem";
+import { CustomButton } from "@components/CustomButton/CustomButton";
+import { UIConstants } from "@constants/UIConstants";
+import { useAppDispatch, useAppSelector } from "@hooks/hooks";
+import { addCartItem } from "@store/actions/cartAction";
+import { fetchUserRequest } from "@store/actions/userAction";
+import { selectCartItems } from "@store/selectors/cartSelector";
+import { selectUsersData } from "@store/selectors/userSelector";
 
 const Example: React.FC = () => {
     const dispatch = useAppDispatch();

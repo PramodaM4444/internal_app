@@ -1,4 +1,4 @@
-import { userActionTypes } from "../actionTypes/userActionTypes";
+import { userActionTypes } from "@store/actionTypes/userActionTypes";
 import {
     UserRequest,
     UserResponse,

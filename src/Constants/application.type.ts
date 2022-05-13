@@ -1,4 +1,4 @@
-import { UIConstants } from "./UIConstants";
+import { UIConstants } from "@constants/UIConstants";
 
 export interface SinleMenuListHOC {
     IconComponentName: any;

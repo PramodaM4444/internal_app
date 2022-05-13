@@ -1,5 +1,5 @@
 import React from "react";
-import { TextareaType } from "../../Constants/application.type";
+import { TextareaType } from "@constants/application.type";
 import { TextareaInput } from "./Textarea.styles";
 
 const defaultProps = {

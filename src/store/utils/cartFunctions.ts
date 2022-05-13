@@ -1,4 +1,4 @@
-import { EachCartItem } from "../../components/CartItem/CartItem.types";
+import { EachCartItem } from "@components/CartItem/CartItem.types";
 
 export const addCartItems = (
     cartItems: EachCartItem[],

@@ -1,15 +1,15 @@
 import React from "react";
 import { Box, Grid } from "@mui/material";
+import { InputText } from "@components/InputText/InputText";
 import { useFormContext } from "react-hook-form";
-import { Dropdown } from "../../components/Dropdown/Dropdown";
-import { InputText } from "../../components/InputText/InputText";
-import { Textarea } from "../../components/Textarea/Textarea";
+import { Dropdown } from "@components/Dropdown/Dropdown";
+import { Textarea } from "@components/Textarea/Textarea";
 import {
     channelOwnerLabelValues,
     projectBandwidthAvailbleLabelValues,
     projectStatusLabelValues,
     UIConstants,
-} from "../../Constants/UIConstants";
+} from "@constants/UIConstants";
 import { FlexRow } from "./AddProjectDetailsForm.style";
 
 /**

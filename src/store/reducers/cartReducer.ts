@@ -1,6 +1,6 @@
-import { EachCartItem } from "../../components/CartItem/CartItem.types";
-import { CartActionTypes } from "../actionTypes/cartActionTypes";
-import { addCartItems } from "../utils/cartFunctions";
+import { EachCartItem } from "@components/CartItem/CartItem.types";
+import { CartActionTypes } from "@store/actionTypes/cartActionTypes";
+import { addCartItems } from "@store/utils/cartFunctions";
 
 const INITIAL_STATE = {
     cartItems: [] as EachCartItem[],

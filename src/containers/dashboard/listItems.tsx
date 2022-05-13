@@ -4,8 +4,8 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PeopleIcon from "@mui/icons-material/People";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import LayersIcon from "@mui/icons-material/Layers";
+import { UIConstants } from "@constants/UIConstants";
 import { MenuListHOC } from "./MenuListHOC";
-import { UIConstants } from "../../Constants/UIConstants";
 
 const menuListArray = [
     {
@@ -40,6 +40,7 @@ export const MenuList = (
             <MenuListHOC
                 IconComponentName={item.muiIconComponent}
                 menuTitle={item.menuTitle}
+                key={item.menuTitle}
             />
         ))}
     </>

@@ -3,11 +3,10 @@ import Paper from "@mui/material/Paper";
 import { useForm, FormProvider } from "react-hook-form";
 import { Button } from "@mui/material";
 import { yupResolver } from "@hookform/resolvers/yup";
-// import * as yup from "yup";
+import { projectDetailsValidationSchema } from "@validation/projectDetailsValidation";
+import AddProjectDetailsForm from "@containers/AddProjectDetails/AddProjectDetailsForm";
+import { UIConstants } from "@constants/UIConstants";
 import { SubmitButtonArea } from "./projectDetails.style";
-import { projectDetailsValidationSchema } from "../../validation/projectDetailsValidation";
-import AddProjectDetailsForm from "../AddProjectDetails/AddProjectDetailsForm";
-import { UIConstants } from "../../Constants/UIConstants";
 
 /**
  * Shows each cart item

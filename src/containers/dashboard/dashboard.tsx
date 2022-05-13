@@ -11,15 +11,15 @@ import Badge from "@mui/material/Badge";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import { MenuList } from "./listItems";
-import { TopNavBgColor, LeftNavBgColor, Width100 } from "./dashboard.style";
-import ProjectInformation from "../projectInformation/projectInformation";
+import ProjectInformation from "@containers/projectInformation/projectInformation";
 import {
     LeftMenuBar,
     MdTheme,
     TopNavBar,
-} from "../TemplateFrame/TemplateFrame.style";
-import { UIConstants } from "../../Constants/UIConstants";
+} from "@containers/TemplateFrame/TemplateFrame.style";
+import { UIConstants } from "@constants/UIConstants";
+import { TopNavBgColor, LeftNavBgColor, Width100 } from "./dashboard.style";
+import { MenuList } from "./listItems";
 
 /**
  * Shows Dashboard/Home screen
