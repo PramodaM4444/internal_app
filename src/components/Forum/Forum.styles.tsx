@@ -1,4 +1,4 @@
-import { TextareaAutosize } from "@mui/base";
+import TextareaAutosize from "@mui/material/TextareaAutosize";
 import styled from "styled-components";
 
 export const DescriptionContainer = styled.div`
@@ -6,8 +6,8 @@ export const DescriptionContainer = styled.div`
     width: 50%;
 
     button {
-        margin-left: 20px;
-        max-height: 64px;
+        margin-left: 1.25rem;
+        max-height: 4rem;
         align-self: center;
     }
 `;
@@ -19,15 +19,15 @@ export const ConversationContainer = styled.div`
 `;
 
 export const MainContainer = styled.div`
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
 `;
 
 export const Reply = styled.div`
-    margin-left: 50px;
+    margin-left: 3.125rem;
 `;
 
 export const TextArea = styled(TextareaAutosize)`
-    width: 200px;
-    height: 100px;
+    width: 12.5rem;
+    height: 6.25rem;
 `;

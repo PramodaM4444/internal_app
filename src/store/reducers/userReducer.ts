@@ -1,4 +1,4 @@
-import { userActionTypes } from "../actionTypes/userActionTypes";
+import { userActionTypes } from "@store/actionTypes/userActionTypes";
 import { UserActions, UserDataTypes } from "./__types__/userTypes";
 
 const initialState: UserDataTypes = {

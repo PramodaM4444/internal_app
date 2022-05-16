@@ -9,9 +9,9 @@ import {
     ListItemText,
     Toolbar,
     Typography,
+    TextareaAutosize,
 } from "@mui/material";
 import React, { useState } from "react";
-import TextareaAutosize from "@mui/base/TextareaAutosize";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ReplyIcon from "@mui/icons-material/Reply";
 import SendIcon from "@mui/icons-material/Send";
@@ -21,6 +21,7 @@ import {
     MainContainer,
     Reply,
 } from "./Forum.styles";
+import { UIConstants } from "../../Constants/UIConstants";
 
 export const Forum: React.FC = () => {
     const [replyButton, setreplyButton] = useState(false);
@@ -32,12 +33,14 @@ export const Forum: React.FC = () => {
             <AppBar position="static">
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
-                        <Typography variant="h6">Forum</Typography>
+                        <Typography variant="h6">
+                            {UIConstants.leftMenuForum}
+                        </Typography>
                     </Toolbar>
                 </Container>
             </AppBar>
             <br />
-            <Typography variant="h6">Description</Typography>
+            <Typography variant="h6">{UIConstants.forumDescription}</Typography>
             <DescriptionContainer>
                 <TextareaAutosize
                     minRows={6}
@@ -46,10 +49,12 @@ export const Forum: React.FC = () => {
                 />
                 <Button variant="contained">
                     <SendIcon />
-                    Post
+                    {UIConstants.forumPost}
                 </Button>
             </DescriptionContainer>
-            <Typography variant="h6">Conversation</Typography>
+            <Typography variant="h6">
+                {UIConstants.forumConversation}
+            </Typography>
             <ConversationContainer>
                 <ListItem alignItems="flex-start">
                     <ListItemAvatar>
@@ -79,7 +84,9 @@ export const Forum: React.FC = () => {
                     </ListItem>
                     {replyButton && (
                         <>
-                            <Typography variant="h6">Reply</Typography>
+                            <Typography variant="h6">
+                                {UIConstants.forumReply}
+                            </Typography>
                             <DescriptionContainer>
                                 <TextareaAutosize
                                     minRows={3}
@@ -88,7 +95,7 @@ export const Forum: React.FC = () => {
                                 />
                                 <Button variant="contained">
                                     <SendIcon />
-                                    Post
+                                    {UIConstants.forumPost}
                                 </Button>
                             </DescriptionContainer>
                         </>
