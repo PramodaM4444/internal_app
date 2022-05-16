@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import UIConstants from "../../Constants/UIConstants";
-import Example from "../Example/Example";
+import Example from "@containers/Example/Example";
 
 export const Home: React.FC = () => (
     <>

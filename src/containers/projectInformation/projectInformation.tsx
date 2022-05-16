@@ -1,5 +1,5 @@
 import * as React from "react";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
@@ -9,13 +9,12 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import ProjectDetails from "../projectDetails/projectDetails";
-import UIConstants from "../../Constants/UIConstants";
-
-const mdTheme = createTheme();
+import ProjectDetails from "@containers/projectDetails/projectDetails";
+import { UIConstants } from "@constants/UIConstants";
+import { MdTheme } from "../TemplateFrame/TemplateFrame.style";
 
 /**
- * Shows each cart item
+ * Shows Project Information screen
  * @param no_prop not applicable
  * @returns displays the Project Information (along with Accordion) screen: parent: dashboard, child: ProjectDetails
  */
@@ -27,7 +26,7 @@ export default function ProjectInformation() {
     };
 
     return (
-        <ThemeProvider theme={mdTheme}>
+        <ThemeProvider theme={MdTheme}>
             <Box sx={{ display: "flex" }}>
                 {/* <CssBaseline /> */}
 

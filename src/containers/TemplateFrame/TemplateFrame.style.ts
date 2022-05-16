@@ -52,4 +52,4 @@ export const LeftMenuBar = styled(MuiDrawer, {
     },
 }));
 
-export const mdTheme = createTheme();
+export const MdTheme = createTheme();
