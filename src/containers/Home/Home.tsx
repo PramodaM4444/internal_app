@@ -1,13 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Example from "../Example/Example";
+import Example from "@containers/Example/Example";
 
 export const Home: React.FC = () => (
     <>
-        <Link to="/timesheet">Timesheet</Link>
         <div>From Home </div>
         <Link to="/login">To Login Page</Link>
-
         <Example />
     </>
 );
