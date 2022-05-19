@@ -19,9 +19,9 @@ export default function ProjectDetails() {
         resolver: yupResolver(projectDetailsValidationSchema),
         mode: "all",
     });
-    const formSubmit = (data: any) => {
+    const formSubmit = () => {
         // prop:  data: any
-        console.log(data);
+        // console.log(data);
     };
 
     return (

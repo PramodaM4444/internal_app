@@ -28,6 +28,11 @@ export interface TextareaType {
 
 export interface LabelVisibilityTestCaseType {
     attributeLabel: string;
-    visibilityExpection: boolean;
+    visibilityExpectation: boolean;
     testcaseName?: string;
+}
+
+export interface RegExTestCaseType {
+    value: string;
+    isMatch: boolean;
 }

@@ -21,6 +21,7 @@ export const UIConstants = {
     leftMenuSettings: "Settings",
     selectAnOption: "Select an option",
     isRequired: "is required",
+    isInvalid: "is invalid",
     maxMessage: "Must be equal or less than",
 };
 

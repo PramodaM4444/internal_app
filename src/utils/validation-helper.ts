@@ -8,3 +8,7 @@ export const getMandatoryMessage = (attributeName: UIConstantsKeys): string => {
 export const getMaximumCharacterMessage = (maximumValue: number): string => {
     return `${UIConstants.maxMessage} ${maximumValue} characters`;
 };
+
+export const getInvalidMessage = (attributeName: UIConstantsKeys): string => {
+    return `${UIConstants[attributeName]} ${UIConstants.isInvalid}`;
+};

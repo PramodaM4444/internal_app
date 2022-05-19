@@ -3,15 +3,19 @@ import { LabelVisibilityTestCaseType } from "../../Constants/application.type";
 import { validateAttributeVisibility } from "../../utils/test-helper";
 import ProjectDetails from "./projectDetails";
 
-describe("ProjectDetails Render Validations", () => {
-    // const compRef = render(<ProjectDetails />);
-    render(<ProjectDetails />);
-    [
-        {
-            attributeLabel: "Submit",
-            visibilityExpection: true,
-        },
-    ].forEach((item: LabelVisibilityTestCaseType) =>
-        validateAttributeVisibility(item),
-    );
+describe("ProjectDetails Test Cases :::", () => {
+    const compRef = () => render(<ProjectDetails />);
+    Object.freeze(compRef);
+
+    describe("Render all labels", () => {
+        compRef();
+        [
+            {
+                attributeLabel: "Submit",
+                visibilityExpectation: true,
+            },
+        ].forEach((item: LabelVisibilityTestCaseType) =>
+            validateAttributeVisibility(item),
+        );
+    });
 });
