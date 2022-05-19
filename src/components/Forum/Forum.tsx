@@ -15,13 +15,13 @@ import React, { useState } from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ReplyIcon from "@mui/icons-material/Reply";
 import SendIcon from "@mui/icons-material/Send";
+import { UIConstants } from "@constants/UIConstants";
 import {
     ConversationContainer,
     DescriptionContainer,
     MainContainer,
     Reply,
 } from "./Forum.styles";
-import { UIConstants } from "../../Constants/UIConstants";
 
 export const Forum: React.FC = () => {
     const [replyButton, setreplyButton] = useState(false);
