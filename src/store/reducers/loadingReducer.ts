@@ -5,8 +5,7 @@ const initialState: Loading = {
 };
 
 const loadingReducer = (state: Loading = initialState, action: any) => {
-    const actionAry = action.type.split("_");
-    const actionType = actionAry[actionAry.length - 1];
+    const actionType = action.type.split("_").reverse()[0];
 
     switch (actionType) {
         case "REQUEST":
