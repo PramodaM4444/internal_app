@@ -22,6 +22,10 @@ export const UIConstants = {
     selectAnOption: "Select an option",
     isRequired: "is required",
     maxMessage: "Must be equal or less than",
+    forumDescription: "Description",
+    forumConversation: "Conversation",
+    forumPost: "Post",
+    forumReply: "Reply",
 };
 
 export const projectStatusLabelValues: Record<string, any>[] = [
