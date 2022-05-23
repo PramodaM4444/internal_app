@@ -1,116 +1,119 @@
 import * as React from "react";
-import { styled } from "@mui/material/styles";
-import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
-import MuiAccordion, { AccordionProps } from "@mui/material/Accordion";
-import MuiAccordionSummary, {
-    AccordionSummaryProps,
-} from "@mui/material/AccordionSummary";
+import { ThemeProvider } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import Accordion from "@mui/material/Accordion";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { UIConstants } from "@constants/UIConstants";
-import { AccordionDetails, DivStyle } from "./dashboardHome.style";
+import { MdTheme } from "../TemplateFrame/TemplateFrame.style";
 
-const Accordion = styled((props: AccordionProps) => (
-    <MuiAccordion disableGutters elevation={0} square {...props} />
-))(({ theme }) => ({
-    border: `1px solid ${theme.palette.divider}`,
-    "&:not(:last-child)": {
-        borderBottom: 0,
-    },
-    "&:before": {
-        display: "none",
-    },
-}));
+/**
+ * Shows Project Information screen
+ * @param no_prop not applicable
+ * @returns displays the Project Information (along with Accordion) screen: parent: dashboard, child: ProjectDetails
+ */
+export default function DashboardHome() {
+    const [expanded, setExpanded] = React.useState("");
 
-const AccordionSummary = styled((props: AccordionSummaryProps) => (
-    <MuiAccordionSummary
-        expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: "0.9rem" }} />}
-        {...props}
-    />
-))(({ theme }) => ({
-    backgroundColor:
-        theme.palette.mode === "dark"
-            ? "rgba(255, 255, 255, .05)"
-            : "rgba(0, 0, 0, .03)",
-    flexDirection: "row-reverse",
-    "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": {
-        transform: "rotate(90deg)",
-    },
-    "& .MuiAccordionSummary-content": {
-        marginLeft: theme.spacing(1),
-    },
-}));
-
-export default function CustomizedAccordions() {
-    const [expanded, setExpanded] = React.useState<string | false>("panel1");
-
-    const handleChange =
-        (panel: string) =>
-        (event: React.SyntheticEvent, newExpanded: boolean) => {
-            setExpanded(newExpanded ? panel : false);
-        };
+    const handleChange = (panel: any) => (event: any, isExpanded: any) => {
+        setExpanded(isExpanded ? panel : "");
+    };
 
     return (
-        <div style={DivStyle}>
-            <Accordion
-                expanded={expanded === "panel1"}
-                onChange={handleChange("panel1")}
-            >
-                <AccordionSummary
-                    aria-controls="panel1d-content"
-                    id="panel1d-header"
+        <ThemeProvider theme={MdTheme}>
+            <Box sx={{ display: "flex" }}>
+                {/* <CssBaseline /> */}
+
+                <Box
+                    component="main"
+                    sx={{
+                        backgroundColor: (theme) =>
+                            theme.palette.mode === "light"
+                                ? theme.palette.grey[100]
+                                : theme.palette.grey[900],
+                        flexGrow: 1,
+                        height: "100vh",
+                        overflow: "auto",
+                    }}
                 >
-                    <Typography>{UIConstants.recognitionTitle}</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <Typography>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Suspendisse malesuada lacus ex, sit amet blandit leo
-                        lobortis eget. Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit. Suspendisse malesuada lacus ex, sit
-                        amet blandit leo lobortis eget.
-                    </Typography>
-                </AccordionDetails>
-            </Accordion>
-            <Accordion
-                expanded={expanded === "panel2"}
-                onChange={handleChange("panel2")}
-            >
-                <AccordionSummary
-                    aria-controls="panel2d-content"
-                    id="panel2d-header"
-                >
-                    <Typography>{UIConstants.teamMemberTitle}</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <Typography>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Suspendisse malesuada lacus ex, sit amet blandit leo
-                        lobortis eget. Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit. Suspendisse malesuada lacus ex, sit
-                        amet blandit leo lobortis eget.
-                    </Typography>
-                </AccordionDetails>
-            </Accordion>
-            <Accordion
-                expanded={expanded === "panel3"}
-                onChange={handleChange("panel3")}
-            >
-                <AccordionSummary
-                    aria-controls="panel3d-content"
-                    id="panel3d-header"
-                >
-                    <Typography>{UIConstants.achievementsTitle}</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <Typography>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Suspendisse malesuada lacus ex, sit amet blandit leo
-                        lobortis eget. Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit. Suspendisse malesuada lacus ex, sit
-                        amet blandit leo lobortis eget.
-                    </Typography>
-                </AccordionDetails>
-            </Accordion>
-        </div>
+                    <Toolbar />
+                    <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+                        <Grid container spacing={3}>
+                         
+                               <Grid item xs={12} md={8} lg={12}>
+                                <Accordion
+                                    expanded={expanded === "panel2"}
+                                    onChange={handleChange("panel2")}
+                                >
+                                    <AccordionSummary
+                                        expandIcon={<ExpandMoreIcon />}
+                                        aria-controls="panel2bh-content"
+                                        id="panel2bh-header"
+                                    >
+                                        <Typography
+                                            sx={{ width: "33%", flexShrink: 0 }}
+                                        >
+                                            {UIConstants.recognitionTitle}
+                                        </Typography>
+                                    </AccordionSummary>
+                                    <AccordionDetails>
+                                      test 1 
+                                    </AccordionDetails>
+                                    
+                                </Accordion>
+
+                                <Accordion
+                                    expanded={expanded === "panel3"}
+                                    onChange={handleChange("panel3")}
+                                >
+                                    <AccordionSummary
+                                        expandIcon={<ExpandMoreIcon />}
+                                        aria-controls="panel3bh-content"
+                                        id="panel3bh-header"
+                                    >
+                                        <Typography
+                                            sx={{ width: "33%", flexShrink: 0 }}
+                                        >
+                                            {UIConstants.teamMemberTitle}
+                                        </Typography>
+                                    </AccordionSummary>
+                                    <AccordionDetails>
+                                      test 1 
+                                    </AccordionDetails>
+                                    
+                                </Accordion>
+
+                                <Accordion
+                                    expanded={expanded === "panel4"}
+                                    onChange={handleChange("panel4")}
+                                >
+                                    <AccordionSummary
+                                        expandIcon={<ExpandMoreIcon />}
+                                        aria-controls="panel4bh-content"
+                                        id="panel4bh-header"
+                                    >
+                                        <Typography
+                                            sx={{ width: "33%", flexShrink: 0 }}
+                                        >
+                                            {UIConstants.achievementsTitle}
+                                        </Typography>
+                                    </AccordionSummary>
+                                    <AccordionDetails>
+                                      test 1 
+                                    </AccordionDetails>
+                                    
+                                </Accordion>
+                                
+                            </Grid>
+                        </Grid>
+                    </Container>
+                </Box>
+            </Box>
+        </ThemeProvider>
     );
 }
