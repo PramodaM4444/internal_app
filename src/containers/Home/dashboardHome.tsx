@@ -44,8 +44,7 @@ export default function DashboardHome() {
                     <Toolbar />
                     <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
                         <Grid container spacing={3}>
-                         
-                               <Grid item xs={12} md={8} lg={12}>
+                            <Grid item xs={12} md={8} lg={12}>
                                 <Accordion
                                     expanded={expanded === "panel2"}
                                     onChange={handleChange("panel2")}
@@ -61,10 +60,7 @@ export default function DashboardHome() {
                                             {UIConstants.recognitionTitle}
                                         </Typography>
                                     </AccordionSummary>
-                                    <AccordionDetails>
-                                      test 1 
-                                    </AccordionDetails>
-                                    
+                                    <AccordionDetails>test 1</AccordionDetails>
                                 </Accordion>
 
                                 <Accordion
@@ -82,10 +78,7 @@ export default function DashboardHome() {
                                             {UIConstants.teamMemberTitle}
                                         </Typography>
                                     </AccordionSummary>
-                                    <AccordionDetails>
-                                      test 1 
-                                    </AccordionDetails>
-                                    
+                                    <AccordionDetails>test 1</AccordionDetails>
                                 </Accordion>
 
                                 <Accordion
@@ -103,12 +96,8 @@ export default function DashboardHome() {
                                             {UIConstants.achievementsTitle}
                                         </Typography>
                                     </AccordionSummary>
-                                    <AccordionDetails>
-                                      test 1 
-                                    </AccordionDetails>
-                                    
+                                    <AccordionDetails>test 1</AccordionDetails>
                                 </Accordion>
-                                
                             </Grid>
                         </Grid>
                     </Container>
