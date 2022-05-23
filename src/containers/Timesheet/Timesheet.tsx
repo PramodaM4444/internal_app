@@ -1,17 +1,17 @@
 import React from "react";
-import TextareaAutosize from "@mui/material/TextareaAutosize";
-import { Container, Box } from "@mui/material";
+import { Container, Box, Typography } from "@mui/material";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import { UIConstants } from "@constants/UIConstants";
+import { Textarea } from "@components/Textarea/Textarea";
 import { CustomButton } from "../../components/CustomButton/CustomButton";
 
 export const Timesheet: React.FC = () => (
     <Container maxWidth="md">
-        <h4>Upload ILC</h4>
+        <Typography variant="h5">{UIConstants.ilcDescription}</Typography>
         <Accordion>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -24,19 +24,14 @@ export const Timesheet: React.FC = () => (
                             : theme.palette.grey[900],
                 }}
             >
-                <Typography>ILC Details</Typography>
+                {UIConstants.ilcDetails}
             </AccordionSummary>
             <AccordionDetails>
-                <Typography>Remarks (if any)</Typography>
-                <TextareaAutosize
-                    aria-label="minimum height"
-                    minRows={5}
-                    style={{ width: 800 }}
-                />
+                <Textarea label={UIConstants.ilcRemarks} />
                 <Box m={1} display="flex" justifyContent="flex-end">
                     <CustomButton variant="contained">
                         <CloudUploadIcon />
-                        Upload
+                        {UIConstants.ilcUpload}
                     </CustomButton>
                 </Box>
             </AccordionDetails>
@@ -53,15 +48,10 @@ export const Timesheet: React.FC = () => (
                             : theme.palette.grey[900],
                 }}
             >
-                <Typography>View ILC</Typography>
+                {UIConstants.ilcView}
             </AccordionSummary>
             <AccordionDetails>
-                <Typography>Approval/Rejection Remarks</Typography>
-                <TextareaAutosize
-                    aria-label="minimum height"
-                    minRows={5}
-                    style={{ width: 800 }}
-                />
+                <Textarea label={UIConstants.ilcApprovalRejectionRemarks} />
             </AccordionDetails>
         </Accordion>
     </Container>

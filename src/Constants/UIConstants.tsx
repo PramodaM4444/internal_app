@@ -26,6 +26,12 @@ export const UIConstants = {
     forumConversation: "Conversation",
     forumPost: "Post",
     forumReply: "Reply",
+    ilcDescription: "Upload ILC",
+    ilcUpload: "Upload",
+    ilcDetails: "ILC Details",
+    ilcRemarks: "Remarks (if any)",
+    ilcApprovalRejectionRemarks: "Approval/Rejection Remarks",
+    ilcView: "View ILC",
 };
 
 export const projectStatusLabelValues: Record<string, any>[] = [
