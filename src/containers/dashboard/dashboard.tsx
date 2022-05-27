@@ -11,7 +11,6 @@ import Badge from "@mui/material/Badge";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import ProjectInformation from "@containers/projectInformation/projectInformation";
 import {
     LeftMenuBar,
     MdTheme,
@@ -19,14 +18,15 @@ import {
 } from "@containers/TemplateFrame/TemplateFrame.style";
 import { UIConstants } from "@constants/UIConstants";
 import { TopNavBgColor, LeftNavBgColor, Width100 } from "./dashboard.style";
-import { MenuList } from "./listItems";
+import { menuListArray } from "./listItems";
+import { MenuList } from "./MenuList";
 
 /**
  * Shows Dashboard/Home screen
  * @param no_prop not applicable
  * @returns displays the Dashboard screen: parent: NA, child: ProjectInformation
  */
-function DashboardContent() {
+export const Dashboard: React.FC = React.memo(({ children }) => {
     const [open, setOpen] = React.useState(true);
     const toggleDrawer = () => {
         setOpen(!open);
@@ -100,21 +100,16 @@ function DashboardContent() {
                             sx={{ bgcolor: "#dcdcd9", height: "89.3vh" }}
                             component="nav"
                         >
-                            {MenuList}
+                            {/* {MenuList} */}
+                            <MenuList list={menuListArray} />
                         </List>
                         {/* </LeftNavBgColor> */}
                     </LeftMenuBar>
                 </LeftNavBgColor>
                 {/* LEFT NAV BAR */}
 
-                <Width100>
-                    <ProjectInformation />
-                </Width100>
+                <Width100>{children}</Width100>
             </Box>
         </ThemeProvider>
     );
-}
-
-export default function Dashboard() {
-    return <DashboardContent />;
-}
+});

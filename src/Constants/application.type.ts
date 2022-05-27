@@ -1,10 +1,5 @@
 import { UIConstants } from "@constants/UIConstants";
 
-export interface SinleMenuListHOC {
-    IconComponentName: any;
-    menuTitle: string;
-}
-
 export type UIConstantsKeys = keyof typeof UIConstants;
 
 export interface DropdownType {

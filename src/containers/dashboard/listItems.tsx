@@ -1,47 +1,39 @@
-import * as React from "react";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PeopleIcon from "@mui/icons-material/People";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import LayersIcon from "@mui/icons-material/Layers";
 import { UIConstants } from "@constants/UIConstants";
-import { MenuListHOC } from "./MenuListHOC";
 
-const menuListArray = [
+export const menuListArray = [
     {
-        muiIconComponent: DashboardIcon,
+        MuiIcon: DashboardIcon,
         menuTitle: UIConstants.leftMenuHome,
+        route: "/",
     },
     {
-        muiIconComponent: ShoppingCartIcon,
+        MuiIcon: ShoppingCartIcon,
         menuTitle: UIConstants.leftMenuILC,
+        route: "/timesheet",
     },
     {
-        muiIconComponent: PeopleIcon,
+        MuiIcon: PeopleIcon,
         menuTitle: UIConstants.leftMenuProjectDetails,
+        route: "/projectDetails",
     },
     {
-        muiIconComponent: BarChartIcon,
+        MuiIcon: BarChartIcon,
         menuTitle: UIConstants.leftMenuForum,
+        route: "/forum",
     },
     {
-        muiIconComponent: LayersIcon,
+        MuiIcon: LayersIcon,
         menuTitle: UIConstants.leftMenuAdmin,
+        route: "/admin",
     },
     {
-        muiIconComponent: LayersIcon,
+        MuiIcon: LayersIcon,
         menuTitle: UIConstants.leftMenuSettings,
+        route: "/settings",
     },
 ];
-
-export const MenuList = (
-    <>
-        {menuListArray.map((item) => (
-            <MenuListHOC
-                IconComponentName={item.muiIconComponent}
-                menuTitle={item.menuTitle}
-                key={item.menuTitle}
-            />
-        ))}
-    </>
-);
