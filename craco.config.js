@@ -11,6 +11,7 @@ module.exports = {
             "@theme": path.resolve(__dirname, "src/theme"),
             "@utils": path.resolve(__dirname, "src/utils"),
             "@validation": path.resolve(__dirname, "src/validation"),
+            "@types": path.resolve(__dirname, "src/types"),
         },
     },
 };

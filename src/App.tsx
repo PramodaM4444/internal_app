@@ -1,16 +1,54 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Security, SecureRoute, LoginCallback } from "@okta/okta-react";
+import { OktaAuth, toRelativeUrl } from "@okta/okta-auth-js";
+import { Route, useHistory, Switch } from "react-router-dom";
+import { oktaAuthConfig, oktaSignInConfig } from "./config";
 import "./App.css";
-import { Forum } from "./components/Forum/Forum";
+// import { Forum } from "./components/Forum/Forum";
 import { Home } from "./containers/Home/Home";
-import { Login } from "./containers/Login/Login";
-import DashboardContent from "./containers/dashboard/dashboard";
-import ProjectInformation from "./containers/projectInformation/projectInformation";
+import { Login } from "./components/Login/Login";
+// import DashboardContent from "./containers/dashboard/dashboard";
+// import ProjectInformation from "./containers/projectInformation/projectInformation";
+
+const oktaAuth = new OktaAuth(oktaAuthConfig);
 
 function App() {
+    const history = useHistory();
+
+    const customAuthHandler = () => {
+        history.push("/login");
+    };
+
+    const restoreOriginalUri = async (
+        _oktaAuth: any,
+        originalUri: string | undefined,
+    ) => {
+        history.replace(toRelativeUrl(originalUri, window.location.origin));
+    };
+
     return (
-        <div>
-            <Routes>
+        <Security
+            oktaAuth={oktaAuth}
+            onAuthRequired={customAuthHandler}
+            restoreOriginalUri={restoreOriginalUri}
+        >
+            <Switch>
+                <SecureRoute path="/" exact component={Home} />
+                <Route
+                    path="/login"
+                    component={React.memo(() => (
+                        <Login config={oktaSignInConfig} />
+                    ))}
+                />
+                <Route path="/login/callback" component={LoginCallback} />
+            </Switch>
+        </Security>
+    );
+}
+
+export default App;
+
+/* <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/Forum" element={<Forum />} />
@@ -19,9 +57,4 @@ function App() {
                     path="/projectDetails"
                     element={<ProjectInformation />}
                 />
-            </Routes>
-        </div>
-    );
-}
-
-export default App;
+            </Routes> */
