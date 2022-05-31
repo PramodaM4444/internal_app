@@ -26,6 +26,9 @@ export const UIConstants = {
     forumConversation: "Conversation",
     forumPost: "Post",
     forumReply: "Reply",
+    recognitionTitle: "Recognition",
+    teamMemberTitle: "Team Members",
+    achievementsTitle: "Achievements",
 };
 
 export const projectStatusLabelValues: Record<string, any>[] = [
