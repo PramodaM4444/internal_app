@@ -1,14 +1,14 @@
-import React from "react";
 import { Security, SecureRoute, LoginCallback } from "@okta/okta-react";
 import { OktaAuth, toRelativeUrl } from "@okta/okta-auth-js";
 import { Route, useHistory, Switch } from "react-router-dom";
-import { oktaAuthConfig, oktaSignInConfig } from "./config";
 import "./App.css";
-// import { Forum } from "./components/Forum/Forum";
-import { Home } from "./containers/Home/Home";
-import { Login } from "./components/Login/Login";
-// import DashboardContent from "./containers/dashboard/dashboard";
-// import ProjectInformation from "./containers/projectInformation/projectInformation";
+import { Forum } from "@components/Forum/Forum";
+import { Home } from "@containers/Home/Home";
+import { Login } from "@components/Login/Login";
+import DashboardContent from "@containers/dashboard/dashboard";
+import ProjectInformation from "@containers/projectInformation/projectInformation";
+import { Timesheet } from "@containers/Timesheet/Timesheet";
+import { oktaAuthConfig } from "./config";
 
 const oktaAuth = new OktaAuth(oktaAuthConfig);
 
@@ -34,27 +34,15 @@ function App() {
         >
             <Switch>
                 <SecureRoute path="/" exact component={Home} />
-                <Route
-                    path="/login"
-                    component={React.memo(() => (
-                        <Login config={oktaSignInConfig} />
-                    ))}
-                />
+                <Route path="/login" component={Login} />
                 <Route path="/login/callback" component={LoginCallback} />
+                <Route path="/forum" component={Forum} />
+                <Route path="/dashboard" component={DashboardContent} />
+                <Route path="/projectDetails" component={ProjectInformation} />
+                <Route path="/timesheet" component={Timesheet} />
             </Switch>
         </Security>
     );
 }
 
 export default App;
-
-/* <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/Forum" element={<Forum />} />
-                <Route path="/dashboard" element={<DashboardContent />} />
-                <Route
-                    path="/projectDetails"
-                    element={<ProjectInformation />}
-                />
-            </Routes> */
