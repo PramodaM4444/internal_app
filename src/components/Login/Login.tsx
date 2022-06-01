@@ -1,15 +1,15 @@
 import { Redirect } from "react-router-dom";
 import { useOktaAuth } from "@okta/okta-react";
 import { Tokens } from "@okta/okta-auth-js";
-import { OktaConfig } from "@customTypes/oktaConfig.types";
 import OktaSignInWidget from "./OktaSignInWidget";
+import { oktaSignInConfig } from "../../config";
 
 /**
  * Okta Login page
  * @param param0 Accepts the okta config details
  * @returns If authenticated returns the okta sign in widget
  */
-export const Login: React.FC<OktaConfig> = ({ config }) => {
+export const Login: React.FC = () => {
     const { oktaAuth, authState } = useOktaAuth();
 
     const onSuccess = (tokens: Tokens) => {
@@ -26,7 +26,7 @@ export const Login: React.FC<OktaConfig> = ({ config }) => {
         <Redirect to={{ pathname: "/" }} />
     ) : (
         <OktaSignInWidget
-            config={config}
+            config={oktaSignInConfig}
             onSuccess={onSuccess}
             onError={onError}
         />

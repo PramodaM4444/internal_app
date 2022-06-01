@@ -1,14 +1,13 @@
-import React from "react";
 import { Security, SecureRoute, LoginCallback } from "@okta/okta-react";
 import { OktaAuth, toRelativeUrl } from "@okta/okta-auth-js";
 import { Route, useHistory, Switch } from "react-router-dom";
-import { oktaAuthConfig, oktaSignInConfig } from "./config";
+import { oktaAuthConfig } from "./config";
 import "./App.css";
-// import { Forum } from "./components/Forum/Forum";
+import { Forum } from "./components/Forum/Forum";
 import { Home } from "./containers/Home/Home";
 import { Login } from "./components/Login/Login";
-// import DashboardContent from "./containers/dashboard/dashboard";
-// import ProjectInformation from "./containers/projectInformation/projectInformation";
+import DashboardContent from "./containers/dashboard/dashboard";
+import ProjectInformation from "./containers/projectInformation/projectInformation";
 
 const oktaAuth = new OktaAuth(oktaAuthConfig);
 
@@ -34,13 +33,11 @@ function App() {
         >
             <Switch>
                 <SecureRoute path="/" exact component={Home} />
-                <Route
-                    path="/login"
-                    component={React.memo(() => (
-                        <Login config={oktaSignInConfig} />
-                    ))}
-                />
+                <Route path="/login" component={Login} />
                 <Route path="/login/callback" component={LoginCallback} />
+                <Route path="/Forum" component={Forum} />
+                <Route path="/dashboard" component={DashboardContent} />
+                <Route path="/projectDetails" component={ProjectInformation} />
             </Switch>
         </Security>
     );
