@@ -9,7 +9,8 @@
             "@store/*": ["./store/*"],
             "@theme/*": ["./theme/*"],
             "@utils/*": ["./utils/*"],
-            "@validation/*": ["./validation/*"]
+            "@validation/*": ["./validation/*"],
+            "@customTypes/*": ["./types/*"]
         }
     }
 }

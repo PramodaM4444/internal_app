@@ -11,13 +11,13 @@ import Badge from "@mui/material/Badge";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import ProjectInformation from "@containers/projectInformation/projectInformation";
 import {
     LeftMenuBar,
     MdTheme,
     TopNavBar,
 } from "@containers/TemplateFrame/TemplateFrame.style";
 import { UIConstants } from "@constants/UIConstants";
+import DashboardHome from "@containers/Home/dashboardHome";
 import { TopNavBgColor, LeftNavBgColor, Width100 } from "./dashboard.style";
 import { MenuList } from "./listItems";
 
@@ -107,8 +107,9 @@ function DashboardContent() {
                 </LeftNavBgColor>
                 {/* LEFT NAV BAR */}
 
+                <br />
                 <Width100>
-                    <ProjectInformation />
+                    <DashboardHome />
                 </Width100>
             </Box>
         </ThemeProvider>
