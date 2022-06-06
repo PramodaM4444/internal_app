@@ -48,7 +48,7 @@ export const Timesheet: React.FC = () => {
 
     useEffect(() => {
         return () => files.forEach((file) => URL.revokeObjectURL(file.preview));
-    }, []);
+    }, [files]);
     return (
         <Container maxWidth="md">
             <Typography variant="h5">{UIConstants.ilcDescription}</Typography>
