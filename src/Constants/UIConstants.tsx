@@ -20,6 +20,7 @@ export const UIConstants = {
     leftMenuAdmin: "Admin",
     leftMenuSettings: "Settings",
     ilcDescription: "Upload ILC",
+    ilcDragAndDrop: " Drag and drop files here, or click to select files",
     ilcSubmit: "Submit",
     ilcDetails: "ILC Details",
     ilcRemarks: "Remarks (if any)",

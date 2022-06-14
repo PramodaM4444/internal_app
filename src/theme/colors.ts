@@ -3,4 +3,6 @@ export const colors = {
     white: "#FFF",
     topNavBgColor: "#dcdcd9",
     leftNavBgColor: "#dcdcd9",
+    gray: "#bdbdbd",
+    lightGray: "#eeeeee",
 };
