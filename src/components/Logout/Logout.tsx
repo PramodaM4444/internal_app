@@ -8,7 +8,11 @@ const Logout = () => {
         await oktaAuth.signOut();
     };
 
-    return <CustomButton onClick={logout}>Logout</CustomButton>;
+    return (
+        <CustomButton variant="contained" color="secondary" onClick={logout}>
+            Logout
+        </CustomButton>
+    );
 };
 
 export default Logout;

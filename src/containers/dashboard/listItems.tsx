@@ -31,9 +31,4 @@ export const menuListArray = [
         menuTitle: UIConstants.leftMenuAdmin,
         route: "/admin",
     },
-    {
-        MuiIcon: LayersIcon,
-        menuTitle: UIConstants.leftMenuSettings,
-        route: "/settings",
-    },
 ];

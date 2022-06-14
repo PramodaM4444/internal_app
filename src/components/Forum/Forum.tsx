@@ -31,6 +31,7 @@ export const Forum: React.FC = () => {
     };
     return (
         <Dashboard>
+            <Toolbar />
             <MainContainer>
                 <AppBar position="static">
                     <Container maxWidth="xl">

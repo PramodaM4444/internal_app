@@ -16,14 +16,14 @@ import {
     MdTheme,
     TopNavBar,
 } from "@containers/TemplateFrame/TemplateFrame.style";
-import { UIConstants } from "@constants/UIConstants";
+import { useUserInfo } from "@hooks/userInfo";
+import Logout from "@components/Logout/Logout";
 import { TopNavBgColor, LeftNavBgColor, Width100 } from "./dashboard.style";
 import { menuListArray } from "./listItems";
 import { MenuList } from "./MenuList";
 
 /**
  * Shows Dashboard/Home screen
- * @param no_prop not applicable
  * @returns displays the Dashboard screen: parent: NA, child: ProjectInformation
  */
 export const Dashboard: React.FC = React.memo(({ children }) => {
@@ -31,6 +31,8 @@ export const Dashboard: React.FC = React.memo(({ children }) => {
     const toggleDrawer = () => {
         setOpen(!open);
     };
+
+    const [userInfo] = useUserInfo();
 
     return (
         <ThemeProvider theme={MdTheme}>
@@ -65,8 +67,9 @@ export const Dashboard: React.FC = React.memo(({ children }) => {
                                 noWrap
                                 sx={{ flexGrow: 1 }}
                             >
-                                {UIConstants.projectHeaderTitle}
+                                {userInfo && `Hello ${userInfo.given_name}`}
                             </Typography>
+                            <Logout />
                             <IconButton color="inherit">
                                 <Badge badgeContent={4} color="secondary">
                                     <NotificationsIcon />

@@ -4,8 +4,8 @@ import { Route, useHistory, Switch } from "react-router-dom";
 import "./App.css";
 import { Forum } from "@components/Forum/Forum";
 import { Login } from "@components/Login/Login";
-import { Dashboard } from "@containers/dashboard/dashboard";
-import ProjectInformation from "@containers/projectInformation/projectInformation";
+import { DashboardHome } from "@containers/Home/dashboardHome";
+import { ProjectInformation } from "@containers/projectInformation/projectInformation";
 import { Timesheet } from "@containers/Timesheet/Timesheet";
 import { oktaAuthConfig } from "./config";
 
@@ -32,7 +32,7 @@ function App() {
             restoreOriginalUri={restoreOriginalUri}
         >
             <Switch>
-                <SecureRoute path="/" exact component={Dashboard} />
+                <SecureRoute path="/" exact component={DashboardHome} />
                 <Route path="/login" component={Login} />
                 <Route path="/login/callback" component={LoginCallback} />
                 <Route path="/forum" component={Forum} />

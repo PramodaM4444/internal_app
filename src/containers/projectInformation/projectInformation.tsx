@@ -19,7 +19,7 @@ import { MdTheme } from "../TemplateFrame/TemplateFrame.style";
  * @param no_prop not applicable
  * @returns displays the Project Information (along with Accordion) screen: parent: dashboard, child: ProjectDetails
  */
-export default function ProjectInformation() {
+export const ProjectInformation: React.FC = () => {
     const [expanded, setExpanded] = React.useState("panel2");
 
     const handleChange = (panel: any) => (event: any, isExpanded: any) => {
@@ -78,4 +78,4 @@ export default function ProjectInformation() {
             </ThemeProvider>
         </Dashboard>
     );
-}
+};
