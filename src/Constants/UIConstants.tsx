@@ -19,6 +19,12 @@ export const UIConstants = {
     leftMenuProjectDetails: "Project Details",
     leftMenuAdmin: "Admin",
     leftMenuSettings: "Settings",
+    ilcDescription: "Upload ILC",
+    ilcSubmit: "Submit",
+    ilcDetails: "ILC Details",
+    ilcRemarks: "Remarks (if any)",
+    ilcApprovalRejectionRemarks: "Approval/Rejection Remarks",
+    ilcView: "View ILC",
     selectAnOption: "Select an option",
     isRequired: "is required",
     maxMessage: "Must be equal or less than",
@@ -26,6 +32,9 @@ export const UIConstants = {
     forumConversation: "Conversation",
     forumPost: "Post",
     forumReply: "Reply",
+    recognitionTitle: "Recognition",
+    teamMemberTitle: "Team Members",
+    achievementsTitle: "Achievements",
 };
 
 export const projectStatusLabelValues: Record<string, any>[] = [
