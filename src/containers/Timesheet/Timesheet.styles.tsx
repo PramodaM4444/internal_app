@@ -16,8 +16,8 @@ export const DragContainer = styled.aside`
 
 export const Drag = styled.div`
     display: "inline-flex";
-    width: 50rem;
-    height: 25rem;
+    width: 100%;
+    height: auto;
     boxsizing: "border-box";
 `;
 
@@ -30,6 +30,6 @@ export const DragInner = styled.div`
 export const Image = styled.img`
     display: "block";
     padding: 0.5rem;
-    width: 50rem;
-    height: 25rem;
+    width: 100%;
+    height: auto;
 `;
