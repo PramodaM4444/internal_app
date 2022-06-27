@@ -16,7 +16,7 @@ export const ImagePreview: React.FC<any> = ({ files }) => {
     return (
         <DragContainer>
             {files.map((file: any) => (
-                <Drag>
+                <Drag key={file.name}>
                     <DragInner>
                         <Image
                             src={file.preview}

@@ -9,6 +9,9 @@ import { UIConstants } from "@constants/UIConstants";
 import { Textarea } from "@components/Textarea/Textarea";
 import { ImagePreview } from "@components/ImagePreview/ImagePreview";
 import { CustomButton } from "@components/CustomButton/CustomButton";
+import { fetchTimesheetRequest } from "@store/actions/timesheetAction";
+// import { selectTimesheetsData } from "@store/selectors/timesheetSelector";
+import { useAppDispatch } from "@hooks/hooks";
 import { DragContainer, Dropzone } from "./Timesheet.styles";
 
 export const Timesheet: React.FC = () => {
@@ -27,6 +30,17 @@ export const Timesheet: React.FC = () => {
             );
         },
     });
+
+    const formData = new FormData();
+    formData.append("files", files[0]);
+
+    const dispatch = useAppDispatch();
+
+    // const timesheets = useAppSelector(selectTimesheetsData);
+
+    const getTimesheetData = () => {
+        dispatch(fetchTimesheetRequest(files, formData));
+    };
 
     return (
         <Container maxWidth="md">
@@ -57,8 +71,13 @@ export const Timesheet: React.FC = () => {
                     </DragContainer>
                     <br />
                     <Textarea label={UIConstants.ilcRemarks} />
+                    <br />
+                    <Typography color="red">{UIConstants.ilcNote}</Typography>
                     <Box m={1} display="flex" justifyContent="flex-end">
-                        <CustomButton variant="contained">
+                        <CustomButton
+                            variant="contained"
+                            onClick={getTimesheetData}
+                        >
                             {UIConstants.ilcSubmit}
                         </CustomButton>
                     </Box>

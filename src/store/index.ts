@@ -3,6 +3,7 @@ import createSagaMiddleware from "redux-saga";
 import { cartReducer } from "./reducers/cartReducer";
 import loadingReducer from "./reducers/loadingReducer";
 import { userReducer } from "./reducers/userReducer";
+import { timesheetReducer } from "./reducers/timesheetReducer";
 import { rootSaga } from "./rootSaga";
 
 const sagaMiddleware = createSagaMiddleware();
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
     loadingReducer,
     cartReducer,
     userReducer,
+    timesheetReducer,
 });
 
 export const store = configureStore({
