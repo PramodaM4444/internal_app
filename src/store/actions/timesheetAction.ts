@@ -1,4 +1,5 @@
 import { timesheetActionTypes } from "@store/actionTypes/timesheetActionTypes";
+import configData from "../../config.json";
 import {
     TimesheetRequest,
     TimesheetResponse,
@@ -16,7 +17,7 @@ export const fetchTimesheetRequest = (
             "Content-Type": "image/jpeg,image/png,image/bmp",
             "x-api-key": "OXXf84Uw2k8RcbTP8GL2C8XlgxrNbp0N2OHC1mvb",
         },
-        url: `https://bcyykkddm9.execute-api.ap-south-1.amazonaws.com/dev/ilc-timesheet-upload-dev/${files[0].name}`,
+        url: configData.URL + files[0].name,
         data: formData,
     },
 });
