@@ -15,7 +15,7 @@ export const fetchTimesheetRequest = (
         method: "PUT",
         headers: {
             "Content-Type": "image/jpeg,image/png,image/bmp",
-            "x-api-key": "OXXf84Uw2k8RcbTP8GL2C8XlgxrNbp0N2OHC1mvb",
+            "x-api-key": configData["x-api-key"],
         },
         url: configData.URL + files[0].name,
         data: formData,
