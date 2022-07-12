@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
+import TextField from "@mui/material/TextField";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { Container, Box, Typography } from "@mui/material";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -41,6 +45,8 @@ export const Timesheet: React.FC = () => {
     const getTimesheetData = () => {
         dispatch(fetchTimesheetRequest(files, formData));
     };
+    const [value, setValue] = React.useState<Date | null>(null);
+    console.log(value);
 
     return (
         <Container maxWidth="md">
@@ -98,6 +104,24 @@ export const Timesheet: React.FC = () => {
                     {UIConstants.ilcView}
                 </AccordionSummary>
                 <AccordionDetails>
+                    <Box m={1} display="flex" justifyContent="flex-end">
+                        <LocalizationProvider dateAdapter={AdapterDateFns}>
+                            <DatePicker
+                                label="Date"
+                                inputFormat="dd-MM-yyyy"
+                                value={value}
+                                onChange={(newValue) => {
+                                    setValue(newValue);
+                                }}
+                                renderInput={(params) => (
+                                    <TextField {...params} />
+                                )}
+                            />
+                        </LocalizationProvider>
+                    </Box>
+                    <Box m={1} display="flex" justifyContent="flex-end">
+                        <CustomButton>{UIConstants.ilcSearch}</CustomButton>
+                    </Box>
                     <Textarea label={UIConstants.ilcApprovalRejectionRemarks} />
                 </AccordionDetails>
             </Accordion>

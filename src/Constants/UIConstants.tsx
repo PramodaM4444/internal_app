@@ -28,6 +28,7 @@ export const UIConstants = {
         "Note: The file format should be 'Employee name-employee id-ILC/Timesheet-uploadDate.jpg'",
     ilcApprovalRejectionRemarks: "Approval/Rejection Remarks",
     ilcView: "View ILC",
+    ilcSearch: "Search",
     selectAnOption: "Select an option",
     isRequired: "is required",
     maxMessage: "Must be equal or less than",
