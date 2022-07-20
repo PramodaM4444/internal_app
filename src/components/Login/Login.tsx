@@ -13,10 +13,12 @@ import { useForm } from "react-hook-form";
 import { UIConstants } from "@constants/UIConstants";
 import { InputText } from "@components/InputText/InputText";
 import { loginFormOptions } from "@validation/loginValidation";
+import { useHistory } from "react-router-dom";
 
 const theme = createTheme();
 
 export const Login = () => {
+    const history = useHistory();
     const {
         register,
         handleSubmit,
@@ -25,6 +27,7 @@ export const Login = () => {
 
     const onSubmit = (data: any) => {
         console.log("Login credentials--------", data);
+        history.push("/");
     };
 
     return (
@@ -39,10 +42,6 @@ export const Login = () => {
                     sx={{
                         backgroundImage: "url(IBM_Logo.jpg)",
                         backgroundRepeat: "no-repeat",
-                        backgroundColor: (t) =>
-                            t.palette.mode === "light"
-                                ? t.palette.grey[50]
-                                : t.palette.grey[900],
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                     }}
