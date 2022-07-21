@@ -1,11 +1,8 @@
 import { CustomButton } from "@components/CustomButton/CustomButton";
-import { useOktaAuth } from "@okta/okta-react";
 
 const Logout = () => {
-    const { oktaAuth } = useOktaAuth();
-
     const logout = async () => {
-        await oktaAuth.signOut();
+        console.log("From Logout");
     };
 
     return <CustomButton onClick={logout}>Logout</CustomButton>;
