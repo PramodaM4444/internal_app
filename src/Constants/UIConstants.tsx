@@ -29,6 +29,8 @@ export const UIConstants = {
     ilcApprovalRejectionRemarks: "Approval/Rejection Remarks",
     ilcView: "View ILC",
     ilcSearch: "Search",
+    ilcSelectContributor: "Select a contributor",
+    viewImage: "Please select date to search",
     selectAnOption: "Select an option",
     isRequired: "is required",
     maxMessage: "Must be equal or less than",
@@ -72,6 +74,21 @@ export const channelOwnerLabelValues: Record<string, any>[] = [
 ];
 
 export const projectBandwidthAvailbleLabelValues: Record<string, any>[] = [
+    {
+        label: "option1",
+        value: "Option 1",
+    },
+    {
+        label: "option2",
+        value: "Option 2",
+    },
+    {
+        label: "option3",
+        value: "Option 3",
+    },
+];
+
+export const ViewIlcSelectContributor: Record<string, any>[] = [
     {
         label: "option1",
         value: "Option 1",

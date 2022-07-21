@@ -1,22 +1,62 @@
 import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
+import moment from "moment";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
 import TextField from "@mui/material/TextField";
+import FormControl from "@mui/material/FormControl";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { Container, Box, Typography } from "@mui/material";
+import { Dropdown } from "@components/Dropdown/Dropdown";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { UIConstants } from "@constants/UIConstants";
+import { UIConstants, ViewIlcSelectContributor } from "@constants/UIConstants";
 import { Textarea } from "@components/Textarea/Textarea";
 import { ImagePreview } from "@components/ImagePreview/ImagePreview";
 import { CustomButton } from "@components/CustomButton/CustomButton";
 import { fetchTimesheetRequest } from "@store/actions/timesheetAction";
 // import { selectTimesheetsData } from "@store/selectors/timesheetSelector";
-import { useAppDispatch } from "@hooks/hooks";
-import { DragContainer, Dropzone } from "./Timesheet.styles";
+import { selectViewTimesheetsData } from "@store/selectors/viewTimesheetSelector";
+import { fetchViewTimesheetRequest } from "@store/actions/viewTimesheetAction";
+import { useAppDispatch, useAppSelector } from "@hooks/hooks";
+import {
+    DragContainer,
+    Dropzone,
+    FlexRow,
+    ViewImage,
+} from "./Timesheet.styles";
+import { TabPanelProps } from "./Timesheet.types";
+
+function TabPanel(props: TabPanelProps) {
+    const { children, value, index, ...other } = props;
+
+    return (
+        <div
+            role="tabpanel"
+            hidden={value !== index}
+            id={`simple-tabpanel-${index}`}
+            aria-labelledby={`simple-tab-${index}`}
+            {...other}
+        >
+            {value === index && (
+                <Box sx={{ p: 3 }}>
+                    <Typography>{children}</Typography>
+                </Box>
+            )}
+        </div>
+    );
+}
+
+function a11yProps(index: number) {
+    return {
+        id: `simple-tab-${index}`,
+        "aria-controls": `simple-tabpanel-${index}`,
+    };
+}
 
 export const Timesheet: React.FC = () => {
     const [files, setFiles] = useState([]);
@@ -42,11 +82,31 @@ export const Timesheet: React.FC = () => {
 
     // const timesheets = useAppSelector(selectTimesheetsData);
 
+    const viewTimesheet = useAppSelector(selectViewTimesheetsData);
+    console.log("View--", viewTimesheet.fileContent_1);
+
     const getTimesheetData = () => {
         dispatch(fetchTimesheetRequest(files, formData));
     };
-    const [value, setValue] = React.useState<Date | null>(null);
-    console.log(value);
+    const [date, setDate] = React.useState<string | null>(null);
+
+    const handleDatepicker = (newDate: string) => {
+        setDate(newDate);
+    };
+    const getViewTimesheetData = () => {
+        const selectedDate = moment(date).format("DD-MM-YYYY");
+        dispatch(fetchViewTimesheetRequest(selectedDate));
+    };
+
+    const [value, setValue] = React.useState(0);
+
+    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+        setValue(newValue);
+    };
+
+    const handleSelect = () => {
+        // prop: event: any
+    };
 
     return (
         <Container maxWidth="md">
@@ -104,25 +164,73 @@ export const Timesheet: React.FC = () => {
                     {UIConstants.ilcView}
                 </AccordionSummary>
                 <AccordionDetails>
+                    <Box m={1}>
+                        <FlexRow>
+                            <FormControl
+                                variant="filled"
+                                sx={{ m: 1, minWidth: 250 }}
+                            >
+                                <Dropdown
+                                    label={UIConstants.ilcSelectContributor}
+                                    onChange={handleSelect}
+                                    options={ViewIlcSelectContributor}
+                                />
+                            </FormControl>
+                            <Box m={1} display="flex" justifyContent="flex-end">
+                                <LocalizationProvider
+                                    dateAdapter={AdapterDateFns}
+                                >
+                                    <DatePicker
+                                        label="Date"
+                                        inputFormat="dd-MM-yyyy"
+                                        value={date}
+                                        onChange={(e) => handleDatepicker(e)}
+                                        renderInput={(params) => (
+                                            <TextField {...params} />
+                                        )}
+                                    />
+                                </LocalizationProvider>
+                            </Box>
+                        </FlexRow>
+                    </Box>
                     <Box m={1} display="flex" justifyContent="flex-end">
-                        <LocalizationProvider dateAdapter={AdapterDateFns}>
-                            <DatePicker
-                                label="Date"
-                                inputFormat="dd-MM-yyyy"
+                        <CustomButton onClick={getViewTimesheetData}>
+                            {UIConstants.ilcSearch}
+                        </CustomButton>
+                    </Box>
+                    <Box sx={{ width: "100%" }}>
+                        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+                            <Tabs
                                 value={value}
-                                onChange={(newValue) => {
-                                    setValue(newValue);
-                                }}
-                                renderInput={(params) => (
-                                    <TextField {...params} />
-                                )}
-                            />
-                        </LocalizationProvider>
+                                onChange={handleChange}
+                                aria-label="basic tabs example"
+                            >
+                                <Tab label="Image" {...a11yProps(0)} />
+                            </Tabs>
+                        </Box>
+                        <TabPanel value={value} index={0}>
+                            <ViewImage>
+                                <Typography variant="h5">
+                                    {viewTimesheet.fileContent_1 ? (
+                                        <img
+                                            src={`data:image/png;base64,${viewTimesheet.fileContent_1}`}
+                                            alt="View ILC"
+                                            height="auto"
+                                            width="100%"
+                                        />
+                                    ) : (
+                                        UIConstants.viewImage
+                                    )}
+                                </Typography>
+                            </ViewImage>
+                        </TabPanel>
+                        <Textarea
+                            label={UIConstants.ilcApprovalRejectionRemarks}
+                        />
+                        <Box m={1} display="flex" justifyContent="flex-end">
+                            <CustomButton>{UIConstants.ilcSubmit}</CustomButton>
+                        </Box>
                     </Box>
-                    <Box m={1} display="flex" justifyContent="flex-end">
-                        <CustomButton>{UIConstants.ilcSearch}</CustomButton>
-                    </Box>
-                    <Textarea label={UIConstants.ilcApprovalRejectionRemarks} />
                 </AccordionDetails>
             </Accordion>
         </Container>
