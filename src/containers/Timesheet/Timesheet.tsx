@@ -23,6 +23,7 @@ import { fetchTimesheetRequest } from "@store/actions/timesheetAction";
 import { selectViewTimesheetsData } from "@store/selectors/viewTimesheetSelector";
 import { fetchViewTimesheetRequest } from "@store/actions/viewTimesheetAction";
 import { useAppDispatch, useAppSelector } from "@hooks/hooks";
+import { getDate } from "date-fns";
 import {
     DragContainer,
     Dropzone,
@@ -88,7 +89,11 @@ export const Timesheet: React.FC = () => {
     const getTimesheetData = () => {
         dispatch(fetchTimesheetRequest(files, formData));
     };
-    const [date, setDate] = React.useState<string | null>(null);
+    const [date, setDate] = React.useState<any | null>(null);
+    const disableOtherDays = (Date: any) => {
+        const day = getDate(Date);
+        return day !== 0;
+    };
 
     const handleDatepicker = (newDate: string) => {
         setDate(newDate);
@@ -183,6 +188,7 @@ export const Timesheet: React.FC = () => {
                                     <DatePicker
                                         label="Date"
                                         inputFormat="dd-MM-yyyy"
+                                        shouldDisableDate={disableOtherDays}
                                         value={date}
                                         onChange={(e) => handleDatepicker(e)}
                                         renderInput={(params) => (
