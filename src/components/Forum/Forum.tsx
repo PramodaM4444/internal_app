@@ -1,13 +1,13 @@
 import {
-    AppBar,
+    // AppBar,
     Avatar,
     Button,
-    Container,
+    // Container,
     Divider,
     ListItem,
     ListItemAvatar,
     ListItemText,
-    Toolbar,
+    // Toolbar,
     Typography,
     TextareaAutosize,
 } from "@mui/material";
@@ -30,7 +30,7 @@ export const Forum: React.FC = () => {
     };
     return (
         <MainContainer>
-            <AppBar position="static">
+            {/* <AppBar position="static">
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
                         <Typography variant="h6">
@@ -39,7 +39,7 @@ export const Forum: React.FC = () => {
                     </Toolbar>
                 </Container>
             </AppBar>
-            <br />
+            <br /> */}
             <Typography variant="h6">{UIConstants.forumDescription}</Typography>
             <DescriptionContainer>
                 <TextareaAutosize
