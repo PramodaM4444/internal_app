@@ -8,7 +8,7 @@ import FormControl from "@mui/material/FormControl";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { Container, Box, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { Dropdown } from "@components/Dropdown/Dropdown";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -23,6 +23,8 @@ import { fetchTimesheetRequest } from "@store/actions/timesheetAction";
 import { selectViewTimesheetsData } from "@store/selectors/viewTimesheetSelector";
 import { fetchViewTimesheetRequest } from "@store/actions/viewTimesheetAction";
 import { useAppDispatch, useAppSelector } from "@hooks/hooks";
+import { LoadingIndicator } from "@components/LoadingIndicator/LoadingIndicator";
+import { selectIsLoading } from "@store/selectors/loadingSelector";
 import {
     DragContainer,
     Dropzone,
@@ -59,6 +61,8 @@ function a11yProps(index: number) {
 }
 
 export const Timesheet: React.FC = () => {
+    const isLoading = useAppSelector(selectIsLoading);
+
     const [files, setFiles] = useState([]);
     const { getRootProps, getInputProps } = useDropzone({
         accept: {
@@ -100,7 +104,7 @@ export const Timesheet: React.FC = () => {
 
     const [value, setValue] = React.useState(0);
 
-    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
     };
 
@@ -108,19 +112,30 @@ export const Timesheet: React.FC = () => {
         // prop: event: any
     };
 
+    const [expanded, setExpanded] = useState("panel");
+
+    const handleAccordianChange =
+        (panel: any) => (event: any, isExpanded: any) => {
+            setExpanded(isExpanded ? panel : "");
+        };
+
     return (
-        <Container maxWidth="md">
-            <Typography variant="h5">{UIConstants.ilcDescription}</Typography>
-            <Accordion>
+        <>
+            {isLoading && <LoadingIndicator />}
+            <Typography variant="h5" marginBottom="1rem">
+                {UIConstants.ilcDescription}
+            </Typography>
+            <Accordion
+                expanded={expanded === "panel"}
+                onChange={handleAccordianChange("panel")}
+            >
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                     sx={{
-                        backgroundColor: (theme) =>
-                            theme.palette.mode === "light"
-                                ? theme.palette.grey[100]
-                                : theme.palette.grey[900],
+                        backgroundColor: "#78909c",
+                        color: "#fff",
                     }}
                 >
                     {UIConstants.ilcDetails}
@@ -149,16 +164,17 @@ export const Timesheet: React.FC = () => {
                     </Box>
                 </AccordionDetails>
             </Accordion>
-            <Accordion>
+            <Accordion
+                expanded={expanded === "pane2"}
+                onChange={handleAccordianChange("pane2")}
+            >
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2a-content"
                     id="panel2a-header"
                     sx={{
-                        backgroundColor: (theme) =>
-                            theme.palette.mode === "light"
-                                ? theme.palette.grey[100]
-                                : theme.palette.grey[900],
+                        backgroundColor: "#78909c",
+                        color: "#fff",
                     }}
                 >
                     {UIConstants.ilcView}
@@ -202,7 +218,7 @@ export const Timesheet: React.FC = () => {
                         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
                             <Tabs
                                 value={value}
-                                onChange={handleChange}
+                                onChange={handleTabChange}
                                 aria-label="basic tabs example"
                             >
                                 <Tab label="Image" {...a11yProps(0)} />
@@ -233,6 +249,6 @@ export const Timesheet: React.FC = () => {
                     </Box>
                 </AccordionDetails>
             </Accordion>
-        </Container>
+        </>
     );
 };

@@ -41,6 +41,8 @@ export const UIConstants = {
     recognitionTitle: "Recognition",
     teamMemberTitle: "Team Members",
     achievementsTitle: "Achievements",
+    login: "Sign In",
+    logout: "Log Out",
 };
 
 export const projectStatusLabelValues: Record<string, any>[] = [

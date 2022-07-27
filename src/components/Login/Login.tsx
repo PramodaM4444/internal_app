@@ -1,35 +1,127 @@
-import { Redirect } from "react-router-dom";
-import { useOktaAuth } from "@okta/okta-react";
-import { Tokens } from "@okta/okta-auth-js";
-import OktaSignInWidget from "./OktaSignInWidget";
-import { oktaSignInConfig } from "../../config";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Paper from "@mui/material/Paper";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useForm } from "react-hook-form";
+import { UIConstants } from "@constants/UIConstants";
+import { InputText } from "@components/InputText/InputText";
+import { loginFormOptions } from "@validation/loginValidation";
+import { useHistory } from "react-router-dom";
 
-/**
- * Okta Login page
- * @param param0 Accepts the okta config details
- * @returns If authenticated returns the okta sign in widget
- */
-export const Login: React.FC = () => {
-    const { oktaAuth, authState } = useOktaAuth();
+const theme = createTheme();
 
-    const onSuccess = (tokens: Tokens) => {
-        oktaAuth.handleLoginRedirect(tokens);
+export const Login = () => {
+    const history = useHistory();
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm(loginFormOptions);
+
+    const onSubmit = (data: any) => {
+        console.log("Login credentials--------", data);
+        history.push("/");
     };
 
-    const onError = (err: any) => {
-        console.log("error logging in", err);
-    };
-
-    if (!authState) return null;
-
-    return authState.isAuthenticated ? (
-        <Redirect to={{ pathname: "/" }} />
-    ) : (
-        <OktaSignInWidget
-            config={oktaSignInConfig}
-            onSuccess={onSuccess}
-            onError={onError}
-        />
+    return (
+        <ThemeProvider theme={theme}>
+            <Grid container component="main" sx={{ height: "100vh" }}>
+                <CssBaseline />
+                <Grid
+                    item
+                    xs={false}
+                    sm={4}
+                    md={7}
+                    sx={{
+                        backgroundImage: "url(IBM_Logo.jpg)",
+                        backgroundRepeat: "no-repeat",
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                    }}
+                />
+                <Grid
+                    item
+                    xs={12}
+                    sm={8}
+                    md={5}
+                    component={Paper}
+                    elevation={6}
+                    square
+                >
+                    <Box
+                        sx={{
+                            my: 8,
+                            mx: 4,
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                        }}
+                    >
+                        <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+                            <LockOutlinedIcon />
+                        </Avatar>
+                        <Typography component="h1" variant="h5">
+                            {UIConstants.login}
+                        </Typography>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <InputText
+                                margin="normal"
+                                required
+                                fullWidth
+                                label="Employee_Id"
+                                name="empId"
+                                autoFocus
+                                {...register("Employee_Id")}
+                                error={!!errors?.Employee_Id}
+                                helperText={
+                                    errors.Employee_Id
+                                        ? errors?.Employee_Id.message
+                                        : null
+                                }
+                            />
+                            <InputText
+                                margin="normal"
+                                required
+                                fullWidth
+                                name="Password"
+                                label="Password"
+                                inputProps={{ maxLength: 15 }}
+                                {...register("Password")}
+                                error={!!errors?.Password}
+                                helperText={
+                                    errors.Password
+                                        ? errors?.Password.message
+                                        : null
+                                }
+                            />
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        value="remember"
+                                        color="primary"
+                                    />
+                                }
+                                label="Remember me"
+                            />
+                            <Button
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                sx={{ mt: 3, mb: 2 }}
+                            >
+                                {UIConstants.login}
+                            </Button>
+                        </form>
+                    </Box>
+                </Grid>
+            </Grid>
+        </ThemeProvider>
     );
 };
-export default Login;
