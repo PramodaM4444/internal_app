@@ -87,7 +87,6 @@ export const Timesheet: React.FC = () => {
     // const timesheets = useAppSelector(selectTimesheetsData);
 
     const viewTimesheet = useAppSelector(selectViewTimesheetsData);
-    console.log("View--", viewTimesheet.fileContent_1);
 
     const getTimesheetData = () => {
         dispatch(fetchTimesheetRequest(files, formData));
