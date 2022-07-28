@@ -4,6 +4,7 @@ import { cartReducer } from "./reducers/cartReducer";
 import loadingReducer from "./reducers/loadingReducer";
 import { userReducer } from "./reducers/userReducer";
 import { timesheetReducer } from "./reducers/timesheetReducer";
+import { viewTimesheetReducer } from "./reducers/viewTimesheetReducer";
 import { rootSaga } from "./rootSaga";
 
 const sagaMiddleware = createSagaMiddleware();
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
     cartReducer,
     userReducer,
     timesheetReducer,
+    viewTimesheetReducer,
 });
 
 export const store = configureStore({
