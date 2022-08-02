@@ -217,7 +217,10 @@ export const Timesheet: React.FC = () => {
                     </Box>
 
                     <Box m={1} display="flex" justifyContent="flex-end">
-                        <CustomButton onClick={getViewTimesheetData}>
+                        <CustomButton
+                            onClick={getViewTimesheetData}
+                            disabled={!date}
+                        >
                             {UIConstants.ilcSearch}
                         </CustomButton>
                     </Box>
