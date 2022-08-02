@@ -111,12 +111,18 @@ export const Timesheet: React.FC = () => {
         // prop: event: any
     };
 
-    const [expanded, setExpanded] = useState("panel");
+    const [expanded, setExpanded] = useState("panel2");
 
     const handleAccordianChange =
         (panel: any) => (event: any, isExpanded: any) => {
             setExpanded(isExpanded ? panel : "");
         };
+
+    const disabledDate = (current: any) => {
+        const disable = new Date(current).getDay();
+        if (disable === 0 || 2 || 3 || 4 || 5 || 6) return disable !== 1;
+        return null;
+    };
 
     return (
         <>
@@ -125,16 +131,16 @@ export const Timesheet: React.FC = () => {
                 {UIConstants.ilcDescription}
             </Typography>
             <Accordion
-                expanded={expanded === "panel"}
-                onChange={handleAccordianChange("panel")}
+                expanded={expanded === "panel2"}
+                onChange={handleAccordianChange("panel2")}
             >
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
+                    aria-controls="panel2bh-content"
+                    id="panel2bh-header"
                     sx={{
-                        backgroundColor: "#78909c",
-                        color: "#fff",
+                        backgroundColor: "lightgray",
+                        color: "black",
                     }}
                 >
                     {UIConstants.ilcDetails}
@@ -164,16 +170,16 @@ export const Timesheet: React.FC = () => {
                 </AccordionDetails>
             </Accordion>
             <Accordion
-                expanded={expanded === "pane2"}
-                onChange={handleAccordianChange("pane2")}
+                expanded={expanded === "panel3"}
+                onChange={handleAccordianChange("panel3")}
             >
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel2a-content"
-                    id="panel2a-header"
+                    aria-controls="panel3bh-content"
+                    id="panel3bh-header"
                     sx={{
-                        backgroundColor: "#78909c",
-                        color: "#fff",
+                        backgroundColor: "lightgray",
+                        color: "black",
                     }}
                 >
                     {UIConstants.ilcView}
@@ -183,7 +189,7 @@ export const Timesheet: React.FC = () => {
                         <FlexRow>
                             <FormControl
                                 variant="filled"
-                                sx={{ m: 1, minWidth: 250 }}
+                                sx={{ m: 1, minWidth: 200 }}
                             >
                                 <Dropdown
                                     label={UIConstants.ilcSelectContributor}
@@ -191,13 +197,14 @@ export const Timesheet: React.FC = () => {
                                     options={ViewIlcSelectContributor}
                                 />
                             </FormControl>
-                            <Box m={1} display="flex" justifyContent="flex-end">
+                            <Box m={1}>
                                 <LocalizationProvider
                                     dateAdapter={AdapterDateFns}
                                 >
                                     <DatePicker
                                         label="Date"
                                         inputFormat="dd-MM-yyyy"
+                                        shouldDisableDate={disabledDate}
                                         value={date}
                                         onChange={(e) => handleDatepicker(e)}
                                         renderInput={(params) => (
@@ -208,6 +215,7 @@ export const Timesheet: React.FC = () => {
                             </Box>
                         </FlexRow>
                     </Box>
+
                     <Box m={1} display="flex" justifyContent="flex-end">
                         <CustomButton onClick={getViewTimesheetData}>
                             {UIConstants.ilcSearch}

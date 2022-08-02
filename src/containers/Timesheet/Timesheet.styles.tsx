@@ -45,6 +45,5 @@ export const ViewImage = styled.div`
 
 export const FlexRow = styled.div`
     display: flex;
-    flex-flow: row;
-    gap: 18rem;
+    justify-content: space-between;
 `;
