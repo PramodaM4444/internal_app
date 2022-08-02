@@ -36,27 +36,29 @@ const cardListArray = [
     },
 ];
 
-export const CardBoxList = (
-    <List
-        sx={{
-            bgcolor: "#ffff",
-            display: "flex",
-            flexDirection: "row",
-            padding: 0,
-            width: "100%",
-            overflowX: "scroll",
-        }}
-        component="nav"
-    >
-        {cardListArray.map((item) => (
-            <ListItem>
-                <CardBox
-                    cardImage={item.image}
-                    cardName={item.name}
-                    cardEmail={item.email}
-                    cardPhone={item.phone}
-                />
-            </ListItem>
-        ))}
-    </List>
-);
+export const CardBoxList: React.FC = () => {
+    return (
+        <List
+            sx={{
+                bgcolor: "#ffff",
+                display: "flex",
+                flexDirection: "row",
+                padding: 0,
+                width: "100%",
+                overflowX: "scroll",
+            }}
+            component="nav"
+        >
+            {cardListArray.map(({ image, name, email, phone }) => (
+                <ListItem>
+                    <CardBox
+                        cardImage={image}
+                        cardName={name}
+                        cardEmail={email}
+                        cardPhone={phone}
+                    />
+                </ListItem>
+            ))}
+        </List>
+    );
+};

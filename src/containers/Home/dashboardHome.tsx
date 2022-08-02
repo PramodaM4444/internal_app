@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { UIConstants } from "@constants/UIConstants";
 import { CardBoxList } from "./CardBoxList";
+
 /**
  * Shows Project Information screen
  * @param no_prop not applicable
@@ -59,7 +60,9 @@ export const DashboardHome = () => {
                             {UIConstants.teamMemberTitle}
                         </Typography>
                     </AccordionSummary>
-                    <AccordionDetails>{CardBoxList}</AccordionDetails>
+                    <AccordionDetails>
+                        <CardBoxList />
+                    </AccordionDetails>
                 </Accordion>
 
                 <Accordion
@@ -79,7 +82,9 @@ export const DashboardHome = () => {
                             {UIConstants.achievementsTitle}
                         </Typography>
                     </AccordionSummary>
-                    <AccordionDetails>{CardBoxList}</AccordionDetails>
+                    <AccordionDetails>
+                        <CardBoxList />
+                    </AccordionDetails>
                 </Accordion>
             </Grid>
         </Grid>

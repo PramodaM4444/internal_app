@@ -7,13 +7,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import EmailIcon from "@mui/icons-material/Email";
 import List from "@mui/material/List";
 import { ListItem, ListItemIcon } from "@mui/material";
-
-export interface CardBoxProps {
-    cardImage: string;
-    cardName: string;
-    cardEmail: string;
-    cardPhone: string;
-}
+import { CardBoxProps } from "@customTypes/CardBox.types";
 
 export const CardBox: React.FC<CardBoxProps> = ({
     cardImage,
