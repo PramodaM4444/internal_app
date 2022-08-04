@@ -33,3 +33,18 @@ export const Image = styled.img`
     width: 100%;
     height: auto;
 `;
+
+export const ViewImage = styled.div`
+    text-align: center;
+    border: ${({ theme: { colors } }) =>
+        `0.1875rem dashed ${colors.lightGray}`};
+    color: ${({ theme: { colors } }) => `${colors.gray}`};
+    width: 100%;
+    height: auto;
+`;
+
+export const FlexRow = styled.div`
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+`;

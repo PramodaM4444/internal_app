@@ -32,8 +32,8 @@ export const ProjectInformation = () => {
                         aria-controls="panel2bh-content"
                         id="panel2bh-header"
                         sx={{
-                            backgroundColor: "#78909c",
-                            color: "#fff",
+                            backgroundColor: "lightgray",
+                            color: "black",
                         }}
                     >
                         <Typography sx={{ width: "33%", flexShrink: 0 }}>

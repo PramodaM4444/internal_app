@@ -32,8 +32,8 @@ export const DashboardHome = () => {
                         aria-controls="panel2bh-content"
                         id="panel2bh-header"
                         sx={{
-                            backgroundColor: "#78909c",
-                            color: "#fff",
+                            backgroundColor: "lightgray",
+                            color: "black",
                         }}
                     >
                         <Typography sx={{ width: "33%", flexShrink: 0 }}>
@@ -52,8 +52,8 @@ export const DashboardHome = () => {
                         aria-controls="panel3bh-content"
                         id="panel3bh-header"
                         sx={{
-                            backgroundColor: "#78909c",
-                            color: "#fff",
+                            backgroundColor: "lightgray",
+                            color: "black",
                         }}
                     >
                         <Typography sx={{ width: "33%", flexShrink: 0 }}>
@@ -74,8 +74,8 @@ export const DashboardHome = () => {
                         aria-controls="panel4bh-content"
                         id="panel4bh-header"
                         sx={{
-                            backgroundColor: "#78909c",
-                            color: "#fff",
+                            backgroundColor: "lightgray",
+                            color: "black",
                         }}
                     >
                         <Typography sx={{ width: "33%", flexShrink: 0 }}>
