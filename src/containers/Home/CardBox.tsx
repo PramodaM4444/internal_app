@@ -16,7 +16,7 @@ export const CardBox: React.FC<CardBoxProps> = ({
     cardPhone,
 }) => {
     return (
-        <Card sx={{ width: 250, height: 350, marginRight: 3, marginLeft: 3 }}>
+        <Card sx={{ width: 250, height: 350, margin: 2 }}>
             {}
             <CardMedia
                 component="img"
@@ -24,6 +24,7 @@ export const CardBox: React.FC<CardBoxProps> = ({
                 width="100"
                 image={cardImage}
             />
+
             <CardContent>
                 <List>
                     <ListItem>
