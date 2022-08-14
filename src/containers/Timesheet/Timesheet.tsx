@@ -25,11 +25,14 @@ import { fetchViewTimesheetRequest } from "@store/actions/viewTimesheetAction";
 import { useAppDispatch, useAppSelector } from "@hooks/hooks";
 import { LoadingIndicator } from "@components/LoadingIndicator/LoadingIndicator";
 import { selectIsLoading } from "@store/selectors/loadingSelector";
+import { timesheetRejectRemarks } from "@validation/timesheetRejectValidation";
+import { useForm } from "react-hook-form";
 import {
     DragContainer,
     Dropzone,
     FlexRow,
     ViewImage,
+    ButtonGap,
 } from "./Timesheet.styles";
 import { TabPanelProps } from "./Timesheet.types";
 
@@ -122,6 +125,16 @@ export const Timesheet: React.FC = () => {
         const disable = new Date(current).getDay();
         if (disable === 0 || 2 || 3 || 4 || 5 || 6) return disable !== 1;
         return null;
+    };
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm(timesheetRejectRemarks);
+
+    const handleReject = (data: any) => {
+        console.log("Rejection Remarks :", data);
     };
 
     return (
@@ -250,12 +263,35 @@ export const Timesheet: React.FC = () => {
                                 </Typography>
                             </ViewImage>
                         </TabPanel>
-                        <Textarea
-                            label={UIConstants.ilcApprovalRejectionRemarks}
-                        />
-                        <Box m={1} display="flex" justifyContent="flex-end">
-                            <CustomButton>{UIConstants.ilcSubmit}</CustomButton>
-                        </Box>
+                        <form onSubmit={handleSubmit(handleReject)}>
+                            <Textarea
+                                label={UIConstants.ilcApprovalRejectionRemarks}
+                                {...register("RejectionRemarks")}
+                                error={!!errors?.RejectionRemarks}
+                                helperText={
+                                    errors.RejectionRemarks
+                                        ? errors?.RejectionRemarks.message
+                                        : null
+                                }
+                            />
+                            <Box m={1} display="flex" justifyContent="flex-end">
+                                <CustomButton
+                                    variant="contained"
+                                    color="error"
+                                    type="submit"
+                                >
+                                    {UIConstants.ilcReject}
+                                </CustomButton>
+                                <ButtonGap>
+                                    <CustomButton
+                                        variant="contained"
+                                        color="success"
+                                    >
+                                        {UIConstants.ilcApprove}
+                                    </CustomButton>
+                                </ButtonGap>
+                            </Box>
+                        </form>
                     </Box>
                 </AccordionDetails>
             </Accordion>
