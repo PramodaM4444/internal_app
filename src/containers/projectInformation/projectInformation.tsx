@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ProjectDetails from "@containers/projectDetails/projectDetails";
 import { UIConstants } from "@constants/UIConstants";
+import ViewProjectDetails from "./viewProjectDetails";
 
 /**
  * Shows Project Information screen
@@ -14,7 +15,7 @@ import { UIConstants } from "@constants/UIConstants";
  * @returns displays the Project Information (along with Accordion) screen: parent: dashboard, child: ProjectDetails
  */
 export const ProjectInformation = () => {
-    const [expanded, setExpanded] = useState("panel2");
+    const [expanded, setExpanded] = useState("panel1");
 
     const handleChange = (panel: any) => (event: any, isExpanded: any) => {
         setExpanded(isExpanded ? panel : "");
@@ -23,6 +24,28 @@ export const ProjectInformation = () => {
     return (
         <Grid container spacing={3}>
             <Grid item xs={12} md={8} lg={12}>
+                <Accordion
+                    expanded={expanded === "panel1"}
+                    onChange={handleChange("panel1")}
+                >
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1bh-content"
+                        id="panel1bh-header"
+                        sx={{
+                            backgroundColor: "lightgray",
+                            color: "black",
+                        }}
+                    >
+                        <Typography sx={{ width: "33%", flexShrink: 0 }}>
+                            {UIConstants.viewProjectDetails}
+                        </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <ViewProjectDetails />
+                    </AccordionDetails>
+                </Accordion>
+
                 <Accordion
                     expanded={expanded === "panel2"}
                     onChange={handleChange("panel2")}
