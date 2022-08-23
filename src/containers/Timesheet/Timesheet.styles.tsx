@@ -48,3 +48,7 @@ export const FlexRow = styled.div`
     justify-content: space-between;
     flex-wrap: wrap;
 `;
+
+export const ButtonGap = styled.div`
+    margin-left: 1rem;
+`;

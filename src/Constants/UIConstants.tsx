@@ -30,6 +30,8 @@ export const UIConstants = {
     ilcView: "View ILC",
     ilcSearch: "Search",
     ilcSelectContributor: "Select a contributor",
+    ilcApprove: "Approve",
+    ilcReject: "Reject",
     viewImage: "Please select date to search",
     selectAnOption: "Select an option",
     isRequired: "is required",
