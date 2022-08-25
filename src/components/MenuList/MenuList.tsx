@@ -21,6 +21,14 @@ export const MenuItem: React.FC<EachItem> = ({
                     color: "#FFF",
                 },
             }}
+            // sx={[
+            //     {
+            //         "&:hover": {
+            //             color: "#FFF",
+            //             backgroundColor: "#1976d2",
+            //         },
+            //     },
+            // ]}
         >
             <ListItemIcon>
                 <MuiIcon />
