@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import moment from "moment";
 import Tabs from "@mui/material/Tabs";
@@ -14,7 +14,7 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { UIConstants, ViewIlcSelectContributor } from "@constants/UIConstants";
+import { UIConstants } from "@constants/UIConstants";
 import { Textarea } from "@components/Textarea/Textarea";
 import { ImagePreview } from "@components/ImagePreview/ImagePreview";
 import { CustomButton } from "@components/CustomButton/CustomButton";
@@ -22,7 +22,9 @@ import { fetchTimesheetRequest } from "@store/actions/timesheetAction";
 // import { selectTimesheetsData } from "@store/selectors/timesheetSelector";
 import { selectViewTimesheetsData } from "@store/selectors/viewTimesheetSelector";
 import { fetchViewTimesheetRequest } from "@store/actions/viewTimesheetAction";
+import { fetchGetEmployeesRequest } from "@store/actions/getEmployeesAction";
 import { useAppDispatch, useAppSelector } from "@hooks/hooks";
+import { selectGetEmployeesData } from "@store/selectors/getEmployeesSelector";
 import { LoadingIndicator } from "@components/LoadingIndicator/LoadingIndicator";
 import { selectIsLoading } from "@store/selectors/loadingSelector";
 import { timesheetRejectRemarks } from "@validation/timesheetRejectValidation";
@@ -104,6 +106,12 @@ export const Timesheet: React.FC = () => {
         dispatch(fetchViewTimesheetRequest(selectedDate));
     };
 
+    useEffect(() => {
+        dispatch(fetchGetEmployeesRequest());
+    }, []);
+
+    const getEmployees = useAppSelector(selectGetEmployeesData);
+
     const [value, setValue] = React.useState(0);
 
     const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -139,6 +147,7 @@ export const Timesheet: React.FC = () => {
 
     return (
         <>
+            {console.log(getEmployees)}
             {isLoading && <LoadingIndicator />}
             <Typography variant="h5" marginBottom="1rem">
                 {UIConstants.ilcDescription}
@@ -207,7 +216,7 @@ export const Timesheet: React.FC = () => {
                                 <Dropdown
                                     label={UIConstants.ilcSelectContributor}
                                     onChange={handleSelect}
-                                    options={ViewIlcSelectContributor}
+                                    options={getEmployees}
                                 />
                             </FormControl>
                             <Box m={1}>

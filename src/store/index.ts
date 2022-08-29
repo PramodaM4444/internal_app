@@ -5,6 +5,7 @@ import loadingReducer from "./reducers/loadingReducer";
 import { userReducer } from "./reducers/userReducer";
 import { timesheetReducer } from "./reducers/timesheetReducer";
 import { viewTimesheetReducer } from "./reducers/viewTimesheetReducer";
+import { getEmployeesReducer } from "./reducers/getEmployeesReducer";
 import { rootSaga } from "./rootSaga";
 
 const sagaMiddleware = createSagaMiddleware();
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
     userReducer,
     timesheetReducer,
     viewTimesheetReducer,
+    getEmployeesReducer,
 });
 
 export const store = configureStore({
