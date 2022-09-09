@@ -7,21 +7,22 @@ import { Timesheet } from "@containers/Timesheet/Timesheet";
 import { Layout } from "@components/Layout/Layout";
 import { DashboardHome } from "@containers/Home/dashboardHome";
 import { AdminPage } from "@components/AdminPage/AdminPage";
+import { ProtectedRoute } from "@components/ProtectedRoute/ProtectedRoute";
 
 function App() {
     return (
         <Switch>
             <Route exact path="/login" component={Login} />
             <Layout>
-                <Route exact path="/" component={DashboardHome} />
-                <Route exact path="/forum" component={Forum} />
-                <Route
+                <ProtectedRoute exact path="/" component={DashboardHome} />
+                <ProtectedRoute exact path="/forum" component={Forum} />
+                <ProtectedRoute
                     exact
                     path="/projectDetails"
                     component={ProjectInformation}
                 />
-                <Route exact path="/timesheet" component={Timesheet} />
-                <Route exact path="/admin" component={AdminPage} />
+                <ProtectedRoute exact path="/timesheet" component={Timesheet} />
+                <ProtectedRoute exact path="/admin" component={AdminPage} />
             </Layout>
         </Switch>
     );

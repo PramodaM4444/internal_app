@@ -7,10 +7,11 @@ import { timesheetReducer } from "./reducers/timesheetReducer";
 import { viewTimesheetReducer } from "./reducers/viewTimesheetReducer";
 import { loginReducer } from "./reducers/loginReducer";
 import { rootSaga } from "./rootSaga";
+import { logoutActionTypes } from "./actionTypes/logoutActionTypes";
 
 const sagaMiddleware = createSagaMiddleware();
 
-const rootReducer = combineReducers({
+const appReducer = combineReducers({
     loadingReducer,
     cartReducer,
     userReducer,
@@ -18,6 +19,13 @@ const rootReducer = combineReducers({
     viewTimesheetReducer,
     loginReducer,
 });
+
+const rootReducer = (state: any, action: any) => {
+    if (action.type === logoutActionTypes.LOGOUT) {
+        state = undefined;
+    }
+    return appReducer(state, action);
+};
 
 export const store = configureStore({
     reducer: rootReducer,
