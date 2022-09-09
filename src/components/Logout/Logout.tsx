@@ -6,6 +6,7 @@ const Logout = () => {
     const history = useHistory();
 
     const handleLogout = () => {
+        // Clear the redux state by setting it to undefined
         history.push("/login");
     };
 

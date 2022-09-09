@@ -14,21 +14,34 @@ import { UIConstants } from "@constants/UIConstants";
 import { InputText } from "@components/InputText/InputText";
 import { loginFormOptions } from "@validation/loginValidation";
 import { useHistory } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "@hooks/hooks";
+import { handleLoginAction } from "@store/actions/loginAction";
+import { selectLoginUserData } from "@store/selectors/LoginSelector";
+import { useEffect } from "react";
+import CodingConstants from "@constants/CodingConstants";
 
 const theme = createTheme();
 
 export const Login = () => {
     const history = useHistory();
+    const dispatch = useAppDispatch();
+    const userInfo = useAppSelector(selectLoginUserData);
+
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm(loginFormOptions);
 
-    const onSubmit = (data: any) => {
-        console.log("Login credentials--------", data);
-        history.push("/");
+    const onSubmit = (loginCredentials: any) => {
+        dispatch(handleLoginAction(loginCredentials));
     };
+
+    useEffect(() => {
+        if (userInfo && userInfo.message === CodingConstants.loginSuccess) {
+            history.push("/");
+        }
+    }, [userInfo]);
 
     return (
         <ThemeProvider theme={theme}>
@@ -92,6 +105,7 @@ export const Login = () => {
                                 fullWidth
                                 name="Password"
                                 label="Password"
+                                type="password"
                                 inputProps={{ maxLength: 15 }}
                                 {...register("Password")}
                                 error={!!errors?.Password}
