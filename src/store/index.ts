@@ -1,5 +1,7 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga";
+import { persistReducer, persistStore } from "redux-persist";
+import storageSession from "redux-persist/lib/storage/session";
 import { cartReducer } from "./reducers/cartReducer";
 import loadingReducer from "./reducers/loadingReducer";
 import { userReducer } from "./reducers/userReducer";
@@ -10,6 +12,12 @@ import { rootSaga } from "./rootSaga";
 import { logoutActionTypes } from "./actionTypes/logoutActionTypes";
 
 const sagaMiddleware = createSagaMiddleware();
+
+const persistConfig = {
+    key: "root",
+    storage: storageSession,
+    whitelist: ["loginReducer"],
+};
 
 const appReducer = combineReducers({
     loadingReducer,
@@ -27,14 +35,18 @@ const rootReducer = (state: any, action: any) => {
     return appReducer(state, action);
 };
 
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
 export const store = configureStore({
-    reducer: rootReducer,
+    reducer: persistedReducer,
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
             thunk: false,
             serializableCheck: false,
         }).concat(sagaMiddleware),
 });
+
+export const persistor = persistStore(store);
 
 sagaMiddleware.run(rootSaga);
 
