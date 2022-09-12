@@ -10,6 +10,7 @@ import { viewTimesheetReducer } from "./reducers/viewTimesheetReducer";
 import { loginReducer } from "./reducers/loginReducer";
 import { rootSaga } from "./rootSaga";
 import { logoutActionTypes } from "./actionTypes/logoutActionTypes";
+import { errorReducer as errors } from "./reducers/errorReducer";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -26,6 +27,7 @@ const appReducer = combineReducers({
     timesheetReducer,
     viewTimesheetReducer,
     loginReducer,
+    errors,
 });
 
 const rootReducer = (state: any, action: any) => {

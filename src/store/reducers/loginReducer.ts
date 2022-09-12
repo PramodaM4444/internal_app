@@ -6,7 +6,7 @@ const InitialState: any = {
 
 export const loginReducer = (state = InitialState, action: any) => {
     switch (action.type) {
-        case loginActionTypes.LOGIN_RESPONSE:
+        case loginActionTypes.LOGIN_SUCCESS:
             return {
                 loginInfo: action.payload,
             };

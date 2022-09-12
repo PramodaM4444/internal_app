@@ -1,12 +1,15 @@
-import { fetchLoginResponse } from "@store/actions/loginAction";
+import {
+    fetchLoginResponse,
+    handleLoginFailure,
+} from "@store/actions/loginAction";
 import { loginActionTypes } from "@store/actionTypes/loginActionTypes";
 import AxiosAPI from "@utils/fetch";
 import { all, call, put, takeLatest } from "redux-saga/effects";
 
 function* fetchUserData(_action: any): any {
-    console.log("Action payload----", _action);
     try {
         const response = yield call(AxiosAPI, _action.payload);
+
         // No token based authentication. Hence storing user details on Redux store.
         // const response = {
         //     message: "Login Successfull",
@@ -22,7 +25,7 @@ function* fetchUserData(_action: any): any {
 
         yield put(fetchLoginResponse(userData));
     } catch (e) {
-        console.log("Login Error", e);
+        yield put(handleLoginFailure(e));
     }
 }
 

@@ -10,12 +10,18 @@ export const handleLoginAction = (loginCredentials: any) => ({
             "x-api-key": configData["x-api-key"],
         },
         url: configData.loginUrl,
-        // Check on how backend accepts the login credentials
-        data: JSON.stringify(loginCredentials),
+        // data: JSON.stringify(loginCredentials),
+        // data: window.btoa(encodeURIComponent(JSON.stringify(loginCredentials))),
+        data: loginCredentials,
     },
 });
 
 export const fetchLoginResponse = (payload: any) => ({
-    type: loginActionTypes.LOGIN_RESPONSE,
+    type: loginActionTypes.LOGIN_SUCCESS,
+    payload,
+});
+
+export const handleLoginFailure = (payload: any) => ({
+    type: loginActionTypes.LOGIN_FAILURE,
     payload,
 });
