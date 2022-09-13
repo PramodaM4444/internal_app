@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import moment from "moment";
 import Tabs from "@mui/material/Tabs";
@@ -66,9 +66,19 @@ function a11yProps(index: number) {
 }
 
 export const Timesheet: React.FC = () => {
+    const dispatch = useAppDispatch();
+
     const isLoading = useAppSelector(selectIsLoading);
+    const viewTimesheet = useAppSelector(selectViewTimesheetsData);
+    const getEmployees = useAppSelector(selectGetEmployeesData);
+    // const timesheets = useAppSelector(selectTimesheetsData);
 
     const [files, setFiles] = useState([]);
+    const [employees, setEmployees] = useState({});
+    const [date, setDate] = useState<string | null>(null);
+    const [value, setValue] = useState(0);
+    const [expanded, setExpanded] = useState("panel1");
+
     const { getRootProps, getInputProps } = useDropzone({
         accept: {
             "image/*": [],
@@ -87,45 +97,43 @@ export const Timesheet: React.FC = () => {
     const formData = new FormData();
     formData.append("files", files[0]);
 
-    const dispatch = useAppDispatch();
-
-    // const timesheets = useAppSelector(selectTimesheetsData);
-
-    const viewTimesheet = useAppSelector(selectViewTimesheetsData);
-
     const getTimesheetData = () => {
         dispatch(fetchTimesheetRequest(files, formData));
     };
-    const [date, setDate] = React.useState<string | null>(null);
 
     const handleDatepicker = (newDate: string) => {
         setDate(newDate);
     };
+
     const getViewTimesheetData = () => {
         const selectedDate = moment(date).format("DD-MM-YYYY");
-        dispatch(fetchViewTimesheetRequest(selectedDate));
+        const data = {
+            itemType: "ILC",
+            uploadTime: selectedDate,
+            ...employees,
+        };
+
+        dispatch(fetchViewTimesheetRequest(data));
     };
-
-    useEffect(() => {
-        dispatch(fetchGetEmployeesRequest());
-    }, []);
-
-    const getEmployees = useAppSelector(selectGetEmployeesData);
-
-    const [value, setValue] = React.useState(0);
 
     const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
     };
 
-    const handleSelect = () => {
-        // prop: event: any
+    const handleSelect = (event: any) => {
+        const { employeeId, employeeName } = event.target.value;
+        setEmployees({ employeeId, employeeName });
     };
 
-    const [expanded, setExpanded] = useState("panel2");
-
     const handleAccordianChange =
-        (panel: any) => (event: any, isExpanded: any) => {
+        (panel: string) => (event: any, isExpanded: boolean) => {
+            if (
+                panel === "panel2" &&
+                isExpanded &&
+                getEmployees?.length === 0
+            ) {
+                dispatch(fetchGetEmployeesRequest());
+            }
             setExpanded(isExpanded ? panel : "");
         };
 
@@ -153,8 +161,8 @@ export const Timesheet: React.FC = () => {
                 {UIConstants.ilcDescription}
             </Typography>
             <Accordion
-                expanded={expanded === "panel2"}
-                onChange={handleAccordianChange("panel2")}
+                expanded={expanded === "panel1"}
+                onChange={handleAccordianChange("panel1")}
             >
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
@@ -192,8 +200,8 @@ export const Timesheet: React.FC = () => {
                 </AccordionDetails>
             </Accordion>
             <Accordion
-                expanded={expanded === "panel3"}
-                onChange={handleAccordianChange("panel3")}
+                expanded={expanded === "panel2"}
+                onChange={handleAccordianChange("panel2")}
             >
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}

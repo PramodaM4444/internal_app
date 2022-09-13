@@ -36,7 +36,7 @@ export const Dropdown: React.FC<any> = React.forwardRef(
                         <em>{UIConstants.selectAnOption}</em>
                     </MenuItem>
                     {options.map((items: any) => (
-                        <MenuItem value={items.label}>
+                        <MenuItem value={items}>
                             {items.employeeName
                                 ? items.employeeName
                                 : items.value}
