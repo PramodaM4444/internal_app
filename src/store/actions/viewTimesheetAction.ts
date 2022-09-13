@@ -14,7 +14,7 @@ export const fetchViewTimesheetRequest = (data: any): ViewTimesheetRequest => ({
             "x-api-key": configData["x-api-key"],
         },
         url: configData.ViewIlcURL,
-        data: data,
+        data,
     },
 });
 
