@@ -10,8 +10,6 @@ export const handleLoginAction = (loginCredentials: any) => ({
             "x-api-key": configData["x-api-key"],
         },
         url: configData.loginUrl,
-        // data: JSON.stringify(loginCredentials),
-        // data: window.btoa(encodeURIComponent(JSON.stringify(loginCredentials))),
         data: loginCredentials,
     },
 });
