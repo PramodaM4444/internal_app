@@ -92,18 +92,3 @@ export const projectBandwidthAvailbleLabelValues: Record<string, any>[] = [
         value: "Option 3",
     },
 ];
-
-export const ViewIlcSelectContributor: Record<string, any>[] = [
-    {
-        label: "option1",
-        value: "Option 1",
-    },
-    {
-        label: "option2",
-        value: "Option 2",
-    },
-    {
-        label: "option3",
-        value: "Option 3",
-    },
-];

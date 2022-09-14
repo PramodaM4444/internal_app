@@ -5,9 +5,7 @@ import {
     ViewTimesheetResponse,
 } from "../reducers/__types__/viewTimesheetTypes";
 
-export const fetchViewTimesheetRequest = (
-    date: string,
-): ViewTimesheetRequest => ({
+export const fetchViewTimesheetRequest = (data: any): ViewTimesheetRequest => ({
     type: viewTimesheetActionTypes.FETCH_VIEWTIMESHEET_REQUEST,
     payload: {
         method: "POST",
@@ -16,12 +14,7 @@ export const fetchViewTimesheetRequest = (
             "x-api-key": configData["x-api-key"],
         },
         url: configData.ViewIlcURL,
-        data: {
-            itemname: "ILC",
-            employeeid: "002V2O",
-            employeename: "Akshitha R",
-            itemuploaddate: date,
-        },
+        data,
     },
 });
 

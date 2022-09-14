@@ -7,6 +7,7 @@ import loadingReducer from "./reducers/loadingReducer";
 import { userReducer } from "./reducers/userReducer";
 import { timesheetReducer } from "./reducers/timesheetReducer";
 import { viewTimesheetReducer } from "./reducers/viewTimesheetReducer";
+import { getEmployeesReducer } from "./reducers/getEmployeesReducer";
 import { loginReducer } from "./reducers/loginReducer";
 import { rootSaga } from "./rootSaga";
 import { logoutActionTypes } from "./actionTypes/logoutActionTypes";
@@ -26,6 +27,7 @@ const appReducer = combineReducers({
     userReducer,
     timesheetReducer,
     viewTimesheetReducer,
+    getEmployeesReducer,
     loginReducer,
     errors,
 });

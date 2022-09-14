@@ -14,7 +14,7 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { UIConstants, ViewIlcSelectContributor } from "@constants/UIConstants";
+import { UIConstants } from "@constants/UIConstants";
 import { Textarea } from "@components/Textarea/Textarea";
 import { ImagePreview } from "@components/ImagePreview/ImagePreview";
 import { CustomButton } from "@components/CustomButton/CustomButton";
@@ -22,7 +22,9 @@ import { fetchTimesheetRequest } from "@store/actions/timesheetAction";
 // import { selectTimesheetsData } from "@store/selectors/timesheetSelector";
 import { selectViewTimesheetsData } from "@store/selectors/viewTimesheetSelector";
 import { fetchViewTimesheetRequest } from "@store/actions/viewTimesheetAction";
+import { fetchGetEmployeesRequest } from "@store/actions/getEmployeesAction";
 import { useAppDispatch, useAppSelector } from "@hooks/hooks";
+import { selectGetEmployeesData } from "@store/selectors/getEmployeesSelector";
 import { LoadingIndicator } from "@components/LoadingIndicator/LoadingIndicator";
 import { selectIsLoading } from "@store/selectors/loadingSelector";
 import { timesheetRejectRemarks } from "@validation/timesheetRejectValidation";
@@ -64,9 +66,19 @@ function a11yProps(index: number) {
 }
 
 export const Timesheet: React.FC = () => {
+    const dispatch = useAppDispatch();
+
     const isLoading = useAppSelector(selectIsLoading);
+    const viewTimesheet = useAppSelector(selectViewTimesheetsData);
+    const getEmployees = useAppSelector(selectGetEmployeesData);
+    // const timesheets = useAppSelector(selectTimesheetsData);
 
     const [files, setFiles] = useState([]);
+    const [employees, setEmployees] = useState({});
+    const [date, setDate] = useState<string | null>(null);
+    const [value, setValue] = useState(0);
+    const [expanded, setExpanded] = useState("panel1");
+
     const { getRootProps, getInputProps } = useDropzone({
         accept: {
             "image/*": [],
@@ -85,39 +97,43 @@ export const Timesheet: React.FC = () => {
     const formData = new FormData();
     formData.append("files", files[0]);
 
-    const dispatch = useAppDispatch();
-
-    // const timesheets = useAppSelector(selectTimesheetsData);
-
-    const viewTimesheet = useAppSelector(selectViewTimesheetsData);
-
     const getTimesheetData = () => {
         dispatch(fetchTimesheetRequest(files, formData));
     };
-    const [date, setDate] = React.useState<string | null>(null);
 
     const handleDatepicker = (newDate: string) => {
         setDate(newDate);
     };
+
     const getViewTimesheetData = () => {
         const selectedDate = moment(date).format("DD-MM-YYYY");
-        dispatch(fetchViewTimesheetRequest(selectedDate));
-    };
+        const data = {
+            itemType: "ILC",
+            uploadTime: selectedDate,
+            ...employees,
+        };
 
-    const [value, setValue] = React.useState(0);
+        dispatch(fetchViewTimesheetRequest(data));
+    };
 
     const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
     };
 
-    const handleSelect = () => {
-        // prop: event: any
+    const handleSelect = (event: any) => {
+        const { employeeId, employeeName } = event.target.value;
+        setEmployees({ employeeId, employeeName });
     };
 
-    const [expanded, setExpanded] = useState("panel2");
-
     const handleAccordianChange =
-        (panel: any) => (event: any, isExpanded: any) => {
+        (panel: string) => (event: any, isExpanded: boolean) => {
+            if (
+                panel === "panel2" &&
+                isExpanded &&
+                getEmployees?.length === 0
+            ) {
+                dispatch(fetchGetEmployeesRequest());
+            }
             setExpanded(isExpanded ? panel : "");
         };
 
@@ -139,13 +155,14 @@ export const Timesheet: React.FC = () => {
 
     return (
         <>
+            {console.log(getEmployees)}
             {isLoading && <LoadingIndicator />}
             <Typography variant="h5" marginBottom="1rem">
                 {UIConstants.ilcDescription}
             </Typography>
             <Accordion
-                expanded={expanded === "panel2"}
-                onChange={handleAccordianChange("panel2")}
+                expanded={expanded === "panel1"}
+                onChange={handleAccordianChange("panel1")}
             >
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
@@ -183,8 +200,8 @@ export const Timesheet: React.FC = () => {
                 </AccordionDetails>
             </Accordion>
             <Accordion
-                expanded={expanded === "panel3"}
-                onChange={handleAccordianChange("panel3")}
+                expanded={expanded === "panel2"}
+                onChange={handleAccordianChange("panel2")}
             >
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
@@ -207,7 +224,7 @@ export const Timesheet: React.FC = () => {
                                 <Dropdown
                                     label={UIConstants.ilcSelectContributor}
                                     onChange={handleSelect}
-                                    options={ViewIlcSelectContributor}
+                                    options={getEmployees}
                                 />
                             </FormControl>
                             <Box m={1}>
