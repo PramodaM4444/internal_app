@@ -1,4 +1,6 @@
 // Constants used for development purpose
-const CodingConstants = {};
+const CodingConstants = {
+    loginSuccess: "Login Successfull",
+};
 
 export default CodingConstants;
