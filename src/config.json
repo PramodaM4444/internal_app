@@ -2,5 +2,6 @@
     "x-api-key": "OXXf84Uw2k8RcbTP8GL2C8XlgxrNbp0N2OHC1mvb",
     "URL": "https://bcyykkddm9.execute-api.ap-south-1.amazonaws.com/dev/ilc-timesheet-upload-dev/",
     "ViewIlcURL": "https://engu9y7078.execute-api.ap-south-1.amazonaws.com/dev/viewilctimesheet",
-    "getEmployeesURL": "https://bcyykkddm9.execute-api.ap-south-1.amazonaws.com/dev/employees"
+    "getEmployeesURL": "https://bcyykkddm9.execute-api.ap-south-1.amazonaws.com/dev/employees",
+    "loginUrl": "https://bcyykkddm9.execute-api.ap-south-1.amazonaws.com/dev/internalapplogin"
 }

@@ -45,6 +45,7 @@ export const UIConstants = {
     achievementsTitle: "Achievements",
     login: "Sign In",
     logout: "Log Out",
+    errorText: "This is an error!! Please try again later.",
 };
 
 export const projectStatusLabelValues: Record<string, any>[] = [
