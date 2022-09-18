@@ -18,7 +18,10 @@ import { UIConstants } from "@constants/UIConstants";
 import { Textarea } from "@components/Textarea/Textarea";
 import { ImagePreview } from "@components/ImagePreview/ImagePreview";
 import { CustomButton } from "@components/CustomButton/CustomButton";
-import { fetchTimesheetRequest } from "@store/actions/timesheetAction";
+import {
+    fetchTimesheetRequest,
+    handleApproveReject,
+} from "@store/actions/timesheetAction";
 // import { selectTimesheetsData } from "@store/selectors/timesheetSelector";
 import { selectViewTimesheetsData } from "@store/selectors/viewTimesheetSelector";
 import { fetchViewTimesheetRequest } from "@store/actions/viewTimesheetAction";
@@ -149,13 +152,34 @@ export const Timesheet: React.FC = () => {
         formState: { errors },
     } = useForm(timesheetRejectRemarks);
 
-    const handleReject = (data: any) => {
-        console.log("Rejection Remarks :", data);
+    const handleReject = (reason: any) => {
+        const payload = {
+            ...employees,
+            itemUploadedDateTime: `${moment(date).format(
+                "DD-MM-YYYY",
+            )}T00:00:00`,
+            itemFlag: "Rejected",
+            itemRejectReason: reason.RejectionRemarks,
+        };
+        console.log("handleReject", payload);
+        dispatch(handleApproveReject(payload, "ILC"));
+    };
+
+    const handleApprove = () => {
+        const payload = {
+            ...employees,
+            itemUploadedDateTime: `${moment(date).format(
+                "DD-MM-YYYY",
+            )}T00:00:00`,
+            itemFlag: "Approved",
+            itemRejectReason: "",
+        };
+        console.log("handleApprove", payload);
+        dispatch(handleApproveReject(payload, "ILC"));
     };
 
     return (
         <>
-            {console.log(getEmployees)}
             {isLoading && <LoadingIndicator />}
             <Typography variant="h5" marginBottom="1rem">
                 {UIConstants.ilcDescription}
@@ -303,6 +327,7 @@ export const Timesheet: React.FC = () => {
                                     <CustomButton
                                         variant="contained"
                                         color="success"
+                                        onClick={handleApprove}
                                     >
                                         {UIConstants.ilcApprove}
                                     </CustomButton>
