@@ -1,6 +1,7 @@
 export interface CardBoxProps {
-    cardImage: string;
-    cardName: string;
-    cardEmail: string;
-    cardPhone: string;
+    employeeImage: string;
+    employeeAwardName: string;
+    employeeAwardTitle: string;
+    employeeIBMNotesID: string;
+    employeeAccount: string;
 }

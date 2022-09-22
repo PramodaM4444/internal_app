@@ -11,6 +11,7 @@ import { getEmployeesReducer } from "./reducers/getEmployeesReducer";
 import { loginReducer } from "./reducers/loginReducer";
 import { rootSaga } from "./rootSaga";
 import { logoutActionTypes } from "./actionTypes/logoutActionTypes";
+import { recognitionReducer } from "./reducers/recognitionReducer";
 import { errorReducer as errors } from "./reducers/errorReducer";
 
 const sagaMiddleware = createSagaMiddleware();
@@ -29,6 +30,7 @@ const appReducer = combineReducers({
     viewTimesheetReducer,
     getEmployeesReducer,
     loginReducer,
+    recognitionReducer,
     errors,
 });
 

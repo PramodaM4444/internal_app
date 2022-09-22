@@ -7,7 +7,6 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { UIConstants } from "@constants/UIConstants";
 import { CardBoxList } from "./CardBoxList";
-
 /**
  * Shows Project Information screen
  * @param no_prop not applicable
@@ -40,7 +39,9 @@ export const DashboardHome = () => {
                             {UIConstants.recognitionTitle}
                         </Typography>
                     </AccordionSummary>
-                    <AccordionDetails>test 1</AccordionDetails>
+                    <AccordionDetails>
+                        <CardBoxList />
+                    </AccordionDetails>
                 </Accordion>
 
                 <Accordion
@@ -60,31 +61,7 @@ export const DashboardHome = () => {
                             {UIConstants.teamMemberTitle}
                         </Typography>
                     </AccordionSummary>
-                    <AccordionDetails>
-                        <CardBoxList />
-                    </AccordionDetails>
-                </Accordion>
-
-                <Accordion
-                    expanded={expanded === "panel4"}
-                    onChange={handleChange("panel4")}
-                >
-                    <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel4bh-content"
-                        id="panel4bh-header"
-                        sx={{
-                            backgroundColor: "lightgray",
-                            color: "black",
-                        }}
-                    >
-                        <Typography sx={{ width: "33%", flexShrink: 0 }}>
-                            {UIConstants.achievementsTitle}
-                        </Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <CardBoxList />
-                    </AccordionDetails>
+                    <AccordionDetails>Employee details</AccordionDetails>
                 </Accordion>
             </Grid>
         </Grid>
