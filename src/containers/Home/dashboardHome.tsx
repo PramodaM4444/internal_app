@@ -61,7 +61,9 @@ export const DashboardHome = () => {
                             {UIConstants.teamMemberTitle}
                         </Typography>
                     </AccordionSummary>
-                    <AccordionDetails>Employee details</AccordionDetails>
+                    <AccordionDetails>
+                        {UIConstants.employeeDetailsPlaceHolder}
+                    </AccordionDetails>
                 </Accordion>
             </Grid>
         </Grid>
