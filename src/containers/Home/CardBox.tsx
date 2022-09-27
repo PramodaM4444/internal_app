@@ -2,49 +2,52 @@ import * as React from "react";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
-import PhoneInTalkIcon from "@mui/icons-material/PhoneInTalk";
+import MilitaryTechIcon from "@mui/icons-material/MilitaryTech";
 import PersonIcon from "@mui/icons-material/Person";
-import EmailIcon from "@mui/icons-material/Email";
+import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
 import List from "@mui/material/List";
 import { ListItem, ListItemIcon } from "@mui/material";
 import { CardBoxProps } from "@customTypes/CardBox.types";
 
 export const CardBox: React.FC<CardBoxProps> = ({
-    cardImage,
-    cardEmail,
-    cardName,
-    cardPhone,
+    employeeImage,
+    employeeAwardName,
+    employeeAwardTitle,
+    employeeIBMNotesID,
+    employeeAccount,
 }) => {
     return (
-        <Card sx={{ width: 250, height: 350, margin: 2 }}>
+        <Card sx={{ margin: 1 }}>
             {}
-            <CardMedia
-                component="img"
-                height="200"
-                width="100"
-                image={cardImage}
-            />
+            <CardMedia component="img" image={employeeImage} />
 
             <CardContent>
                 <List>
                     <ListItem>
                         <ListItemIcon>
                             <PersonIcon fontSize="small" />
-                            {cardName}
+                            {employeeIBMNotesID}
                         </ListItemIcon>
                     </ListItem>
 
                     <ListItem>
                         <ListItemIcon>
-                            <PhoneInTalkIcon fontSize="small" />
-                            {cardPhone}
+                            <EmojiEventsIcon fontSize="small" />
+                            {employeeAwardTitle}
                         </ListItemIcon>
                     </ListItem>
 
                     <ListItem>
                         <ListItemIcon>
-                            <EmailIcon fontSize="small" />
-                            {cardEmail}
+                            <MilitaryTechIcon fontSize="small" />
+                            {employeeAwardName}
+                        </ListItemIcon>
+                    </ListItem>
+                    <ListItem>
+                        <ListItemIcon>
+                            <SupervisorAccountIcon fontSize="small" />
+                            {employeeAccount}
                         </ListItemIcon>
                     </ListItem>
                 </List>

@@ -46,6 +46,7 @@ export const UIConstants = {
     login: "Sign In",
     logout: "Log Out",
     errorText: "This is an error!! Please try again later.",
+    employeeDetailsPlaceHolder: "Employee Details",
 };
 
 export const projectStatusLabelValues: Record<string, any>[] = [

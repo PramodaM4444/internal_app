@@ -3,5 +3,6 @@
     "URL": "https://bcyykkddm9.execute-api.ap-south-1.amazonaws.com/dev/ilc-timesheet-upload-dev/",
     "ViewIlcURL": "https://engu9y7078.execute-api.ap-south-1.amazonaws.com/dev/viewilctimesheet",
     "getEmployeesURL": "https://bcyykkddm9.execute-api.ap-south-1.amazonaws.com/dev/employees",
-    "loginUrl": "https://bcyykkddm9.execute-api.ap-south-1.amazonaws.com/dev/internalapplogin"
+    "loginUrl": "https://bcyykkddm9.execute-api.ap-south-1.amazonaws.com/dev/internalapplogin",
+    "RecognitionURL": "https://bcyykkddm9.execute-api.ap-south-1.amazonaws.com/dev/viewrecognition"
 }
