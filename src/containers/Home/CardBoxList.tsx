@@ -1,35 +1,17 @@
+import { useAppDispatch, useAppSelector } from "@hooks/hooks";
+import { fetchGetRecognitionRequest } from "@store/actions/recoginitionAction";
+import { selectRecognitionData } from "@store/selectors/recognitionSelector";
+import { useEffect } from "react";
 import { CardBox } from "./CardBox";
 
-const cardListArray = [
-    {
-        image: "/test.jpg",
-        name: "Test1",
-        email: "xyz@test.com",
-        phone: "99999999",
-    },
-
-    {
-        image: "/test.jpg",
-        name: "Test2",
-        email: "xyz@test.com",
-        phone: "09999999",
-    },
-    {
-        image: "/test.jpg",
-        name: "Test1",
-        email: "xyz@test.com",
-        phone: "99999999",
-    },
-
-    {
-        image: "/test.jpg",
-        name: "Test2",
-        email: "xyz@test.com",
-        phone: "09999999",
-    },
-];
-
 export const CardBoxList: React.FC = () => {
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        dispatch(fetchGetRecognitionRequest());
+    });
+
+    const recognitionInfo = useAppSelector(selectRecognitionData);
     return (
         <div
             style={{
@@ -37,14 +19,22 @@ export const CardBoxList: React.FC = () => {
                 flexWrap: "wrap",
             }}
         >
-            {cardListArray.map(({ image, name, email, phone }) => (
-                <CardBox
-                    cardImage={image}
-                    cardName={name}
-                    cardEmail={email}
-                    cardPhone={phone}
-                />
-            ))}
+            {recognitionInfo.map(
+                ({
+                    employee_award_name,
+                    employee_award_title,
+                    employee_IBM_Notes_ID,
+                    employee_account,
+                }) => (
+                    <CardBox
+                        employeeImage="/test.jpg"
+                        employeeAwardName={employee_award_name}
+                        employeeAwardTitle={employee_award_title}
+                        employeeIBMNotesID={employee_IBM_Notes_ID}
+                        employeeAccount={employee_account}
+                    />
+                ),
+            )}
         </div>
     );
 };

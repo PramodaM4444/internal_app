@@ -4,6 +4,7 @@ import timesheetSaga from "./sagas/timesheetSagas";
 import viewTimesheetSaga from "./sagas/viewTimesheetSagas";
 import userLoginSaga from "./sagas/loginSaga";
 import getEmployeesSaga from "./sagas/getEmployeesSagas";
+import recognitionSaga from "./sagas/recognitionSagas";
 
 export function* rootSaga() {
     // yield all([fork(userSaga)]);
@@ -11,4 +12,5 @@ export function* rootSaga() {
     yield all([fork(viewTimesheetSaga)]);
     yield all([fork(getEmployeesSaga)]);
     yield all([fork(userSaga), fork(userLoginSaga)]);
+    yield all([fork(recognitionSaga)]);
 }

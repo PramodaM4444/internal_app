@@ -178,6 +178,7 @@ export const Timesheet: React.FC = () => {
 
     return (
         <>
+            {console.log(getEmployees)}
             {isLoading && <LoadingIndicator />}
             <Typography variant="h5" marginBottom="1rem">
                 {UIConstants.ilcDescription}
