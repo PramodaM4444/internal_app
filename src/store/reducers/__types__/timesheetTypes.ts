@@ -3,12 +3,12 @@ import { timesheetActionTypes } from "../../actionTypes/timesheetActionTypes";
 
 export interface Timesheet {}
 
-export interface timesheetStatus {
+export interface TimesheetStatus {
     message: "";
 }
 export interface TimesheetDataTypes {
     timesheets: Timesheet[];
-    timesheetStatus: timesheetStatus;
+    timesheetStatus: TimesheetStatus;
 }
 
 export interface TimesheetRequest {
@@ -27,7 +27,7 @@ export interface TimesheetApproveRejectRequest {
 
 export interface TimesheetApproveRejectResponse {
     type: typeof timesheetActionTypes.APPROVE_REJECT_TIMESHEET_SUCCESS;
-    payload: timesheetStatus;
+    payload: TimesheetStatus;
 }
 
 export type TimesheetActions =

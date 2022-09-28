@@ -155,27 +155,25 @@ export const Timesheet: React.FC = () => {
     const handleReject = (reason: any) => {
         const payload = {
             ...employees,
-            itemUploadedDateTime: `${moment(date).format(
-                "DD-MM-YYYY",
-            )}T00:00:00`,
-            itemFlag: "Rejected",
+            itemUploadedDateTime: moment(date).format("DD-MM-YYYY"),
+            itemType: "ILC",
             itemRejectReason: reason.RejectionRemarks,
+            itemFlag: false,
+            approvedRejectBy: "0003RT",
         };
-        console.log("handleReject", payload);
-        dispatch(handleApproveReject(payload, "ILC"));
+        dispatch(handleApproveReject(payload));
     };
 
     const handleApprove = () => {
         const payload = {
             ...employees,
-            itemUploadedDateTime: `${moment(date).format(
-                "DD-MM-YYYY",
-            )}T00:00:00`,
-            itemFlag: "Approved",
+            itemUploadedDateTime: moment(date).format("DD-MM-YYYY"),
+            itemType: "ILC",
             itemRejectReason: "",
+            itemFlag: true,
+            approvedRejectBy: "0003RT",
         };
-        console.log("handleApprove", payload);
-        dispatch(handleApproveReject(payload, "ILC"));
+        dispatch(handleApproveReject(payload));
     };
 
     return (

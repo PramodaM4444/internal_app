@@ -30,15 +30,15 @@ export const fetchTimesheetResponse = (
     payload,
 });
 
-export const handleApproveReject = (data: any, itemType: string) => ({
+export const handleApproveReject = (data: any) => ({
     type: timesheetActionTypes.APPROVE_REJECT_TIMESHEET_REQUEST,
     payload: {
-        method: "PUT",
+        method: "POST",
         headers: {
             "Content-Type": "application/json",
             "x-api-key": configData["x-api-key"],
         },
-        url: `${configData.approveRejectUrl}?itemType=${itemType}`,
+        url: `${configData.approveRejectUrl}`,
         data,
     },
 });

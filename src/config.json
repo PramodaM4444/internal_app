@@ -4,5 +4,5 @@
     "ViewIlcURL": "https://engu9y7078.execute-api.ap-south-1.amazonaws.com/dev/viewilctimesheet",
     "getEmployeesURL": "https://bcyykkddm9.execute-api.ap-south-1.amazonaws.com/dev/employees",
     "loginUrl": "https://bcyykkddm9.execute-api.ap-south-1.amazonaws.com/dev/internalapplogin",
-    "approveRejectUrl": "https://engu9y7078.execute-api.ap-south-1.amazonaws.com/dev/approveorreject"
+    "approveRejectUrl": "https://bcyykkddm9.execute-api.ap-south-1.amazonaws.com/dev/approveorreject"
 }
