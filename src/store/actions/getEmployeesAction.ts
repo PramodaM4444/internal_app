@@ -23,3 +23,8 @@ export const fetchGetEmployeesResponse = (
     type: getEmployeesActionTypes.FETCH_GETEMPLOYEES_SUCCESS,
     payload,
 });
+
+export const fetchEmployeesErrResponse = (payload: any) => ({
+    type: getEmployeesActionTypes.FETCH_GETEMPLOYEES_FAILURE,
+    payload,
+});
