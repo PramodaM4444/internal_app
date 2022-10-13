@@ -32,6 +32,7 @@ import { LoadingIndicator } from "@components/LoadingIndicator/LoadingIndicator"
 import { selectIsLoading } from "@store/selectors/loadingSelector";
 import { timesheetRejectRemarks } from "@validation/timesheetRejectValidation";
 import { useForm } from "react-hook-form";
+import { selectLoginUserData } from "@store/selectors/LoginSelector";
 import {
     DragContainer,
     Dropzone,
@@ -74,6 +75,8 @@ export const Timesheet: React.FC = () => {
     const isLoading = useAppSelector(selectIsLoading);
     const viewTimesheet = useAppSelector(selectViewTimesheetsData);
     const getEmployees = useAppSelector(selectGetEmployeesData);
+    const userInfo = useAppSelector(selectLoginUserData);
+
     // const timesheets = useAppSelector(selectTimesheetsData);
 
     const [files, setFiles] = useState([]);
@@ -159,7 +162,7 @@ export const Timesheet: React.FC = () => {
             itemType: "ILC",
             itemRejectReason: reason.RejectionRemarks,
             itemFlag: false,
-            approvedRejectBy: "0003RT",
+            approvedRejectBy: userInfo?.employeeId,
         };
         dispatch(handleApproveReject(payload));
     };
@@ -171,7 +174,7 @@ export const Timesheet: React.FC = () => {
             itemType: "ILC",
             itemRejectReason: "",
             itemFlag: true,
-            approvedRejectBy: "0003RT",
+            approvedRejectBy: userInfo?.employeeId,
         };
         dispatch(handleApproveReject(payload));
     };
