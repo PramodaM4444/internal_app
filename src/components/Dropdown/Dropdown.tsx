@@ -35,13 +35,14 @@ export const Dropdown: React.FC<any> = React.forwardRef(
                     <MenuItem value="">
                         <em>{UIConstants.selectAnOption}</em>
                     </MenuItem>
-                    {options.map((items: any) => (
-                        <MenuItem value={items}>
-                            {items.employeeName
-                                ? items.employeeName
-                                : items.value}
-                        </MenuItem>
-                    ))}
+                    {Array.isArray(options) &&
+                        options.map((items: any) => (
+                            <MenuItem value={items}>
+                                {items.employeeName
+                                    ? items.employeeName
+                                    : items.value}
+                            </MenuItem>
+                        ))}
                 </SelectInput>
                 <FormHelperText>{helperText}</FormHelperText>
             </FormControl>

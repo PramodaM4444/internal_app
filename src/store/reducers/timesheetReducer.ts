@@ -6,6 +6,9 @@ import {
 
 const initialState: TimesheetDataTypes = {
     timesheets: [],
+    timesheetStatus: {
+        message: "",
+    },
 };
 
 export const timesheetReducer = (
@@ -17,6 +20,11 @@ export const timesheetReducer = (
             return {
                 ...state,
                 timesheet: action.payload,
+            };
+        case timesheetActionTypes.APPROVE_REJECT_TIMESHEET_SUCCESS:
+            return {
+                ...state,
+                timesheetStatus: action.payload,
             };
         default:
             return state;
