@@ -3,29 +3,18 @@ import {
     handleLoginFailure,
 } from "@store/actions/loginAction";
 import { loginActionTypes } from "@store/actionTypes/loginActionTypes";
-import AxiosAPI from "@utils/fetch";
+import { LoginAxiosAPI } from "@utils/fetch";
 import { all, call, put, takeLatest } from "redux-saga/effects";
 
 function* fetchUserData(_action: any): any {
-    try {
-        const response = yield call(AxiosAPI, _action.payload);
+    const { response, error } = yield call(LoginAxiosAPI, _action.payload);
 
-        // No token based authentication. Hence storing user details on Redux store.
-        // const response = {
-        //     message: "Login Successfull",
-        //     adminflag: false,
-        // };
+    if (response) {
+        yield put(fetchLoginResponse(response));
+    }
 
-        const loginData = JSON.parse(_action.payload.data);
-
-        const userData = {
-            ...response,
-            employeeId: loginData.Employee_Id,
-        };
-
-        yield put(fetchLoginResponse(userData));
-    } catch (e) {
-        yield put(handleLoginFailure(e));
+    if (error) {
+        yield put(handleLoginFailure(error));
     }
 }
 

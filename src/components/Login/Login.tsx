@@ -40,9 +40,7 @@ export const Login = () => {
         const { employeeId, Password } = loginCredentials;
         const credentials = {
             employeeId,
-            employeePassword: window.btoa(
-                encodeURIComponent(JSON.stringify(Password)),
-            ),
+            employeePassword: window.btoa(Password),
         };
         dispatch(handleLoginAction(credentials));
     };
