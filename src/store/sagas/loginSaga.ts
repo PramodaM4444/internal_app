@@ -7,14 +7,12 @@ import { LoginAxiosAPI } from "@utils/fetch";
 import { all, call, put, takeLatest } from "redux-saga/effects";
 
 function* fetchUserData(_action: any): any {
-    const { response, error } = yield call(LoginAxiosAPI, _action.payload);
+    const { response } = yield call(LoginAxiosAPI, _action.payload);
 
-    if (response) {
+    if (response && response?.employeeName) {
         yield put(fetchLoginResponse(response));
-    }
-
-    if (error) {
-        yield put(handleLoginFailure(error));
+    } else {
+        yield put(handleLoginFailure("login error"));
     }
 }
 
