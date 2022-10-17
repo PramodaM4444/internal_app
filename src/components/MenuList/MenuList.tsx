@@ -12,13 +12,20 @@ export const MenuItem: React.FC<EachItem> = ({
     item: { route, MuiIcon, menuTitle },
     path,
 }) => (
-    <Link to={route} style={{ textDecoration: "none", color: "#000" }}>
+    <Link
+        to={route}
+        style={{
+            textDecoration: "none",
+            color: "#000000",
+            backgroundColor: "#1976d2FF",
+        }}
+    >
         <ListItemButton
             selected={route === path}
             sx={{
                 "&.Mui-selected": {
-                    backgroundColor: "#1976d2",
-                    color: "#FFF",
+                    backgroundColor: "#f5f5f5",
+                    color: "#000000",
                 },
             }}
         >

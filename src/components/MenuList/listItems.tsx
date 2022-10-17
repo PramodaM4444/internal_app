@@ -1,34 +1,28 @@
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import PeopleIcon from "@mui/icons-material/People";
-import BarChartIcon from "@mui/icons-material/BarChart";
-import LayersIcon from "@mui/icons-material/Layers";
+import Home from "@mui/icons-material/Home";
+import LockClockIcon from "@mui/icons-material/LockClock";
+import EngineeringIcon from "@mui/icons-material/Engineering";
+import SpeakerNotesIcon from "@mui/icons-material/SpeakerNotes";
 import { UIConstants } from "@constants/UIConstants";
 
 export const listItems = [
     {
-        MuiIcon: DashboardIcon,
+        MuiIcon: Home,
         menuTitle: UIConstants.leftMenuHome,
         route: "/",
     },
     {
-        MuiIcon: ShoppingCartIcon,
+        MuiIcon: LockClockIcon,
         menuTitle: UIConstants.leftMenuILC,
         route: "/timesheet",
     },
     {
-        MuiIcon: PeopleIcon,
+        MuiIcon: EngineeringIcon,
         menuTitle: UIConstants.leftMenuProjectDetails,
         route: "/projectDetails",
     },
     {
-        MuiIcon: BarChartIcon,
+        MuiIcon: SpeakerNotesIcon,
         menuTitle: UIConstants.leftMenuForum,
         route: "/forum",
-    },
-    {
-        MuiIcon: LayersIcon,
-        menuTitle: UIConstants.leftMenuAdmin,
-        route: "/admin",
     },
 ];
